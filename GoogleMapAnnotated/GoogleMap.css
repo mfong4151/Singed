@@ -1,0 +1,8 @@
+/* here is where you will need to toggle 
+with the height and width of the map */
+
+
+.map-container{
+    width:100%;
+    height: 100vh;
+}
