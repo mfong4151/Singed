@@ -9,9 +9,12 @@ const { isProduction } = require('./config/keys');
 
 
 require('./models/User');
-require('./config/passport'); 
+require('./models/Group');
+require('./models/Dish');
+require('./models/Restaurant');
+require('./config/passport');
 
-const passport = require('passport'); 
+const passport = require('passport');
 const app = express();
 
 const usersRouter = require('./routes/api/users');
@@ -29,7 +32,7 @@ app.use(cookieParser());
 
 if (!isProduction) {
     // Enable CORS only in development because React will be on the React
-    // development server (http://localhost:3000). (In production, the Express 
+    // development server (http://localhost:3000). (In production, the Express
     // server will serve the React files statically.)
     app.use(cors());
   }
@@ -59,9 +62,9 @@ app.use((req, res, next) => {
     err.statusCode = 404;
     next(err);
   });
-  
+
 const serverErrorLogger = debug('backend:error');
-  
+
   // Express custom error handler that will be called whenever a route handler or
   // middleware throws an error or invokes the `next` function with a truthy value
 app.use((err, req, res, next) => {

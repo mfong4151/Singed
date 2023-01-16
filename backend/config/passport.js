@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken');
 const { secretOrKey } = require('./keys');
 const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
 
-
 passport.use(new LocalStrategy({
     session: false,
     usernameField: 'email',
