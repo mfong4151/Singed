@@ -1,3 +1,4 @@
+import Map from "./Map";
 
 function MainPage() {
     return (
@@ -6,6 +7,7 @@ function MainPage() {
         <footer>
           Copyright &copy; 2022 Singed
         </footer>
+        <Map></Map>
       </>
     );
   }
