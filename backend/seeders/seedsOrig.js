@@ -4,8 +4,9 @@ const User = require('../models/User');
 const Group = require('../models/Group');
 const Dish = require('../models/Dish');
 const Restaurant = require('../models/Restaurant');
-
 const bcrypt = require('bcryptjs');
+
+//Original seeds file
 
 // Create users
 const users = [];

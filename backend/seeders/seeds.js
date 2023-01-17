@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { mongoURI: db } = require('../config/keys.js');
+const { mongoURI: db } = require('../config/keys.js');  
 const easySeeds = require('./easySeedsJS2');
 const User = require('../models/User');
 const Group = require('../models/Group');
@@ -9,8 +9,9 @@ const Restaurant = require('../models/Restaurant');
 
 //Need to open each file respectively
 
-const restaurants = easySeeds.formatSeeds('./seed_files/restaurant_seeds.csv')
+const restaurants = easySeeds.formatSeeds('./seeders/seed_files/restaurant_seeds.csv')
 const restaurantSeeds = [];
+
 
 
 for (const r of restaurants) {
@@ -47,12 +48,10 @@ mongoose
 
 
 const insertSeeds = () => {
-    console.log("Resetting db and seeding users...");
-    // console.log("Resetting db and seeding users and tweets...");
-  
+    console.log("Resetting db and seeding restaurants...");
     Restaurant.collection.drop()
                   
-                   .then(() => Restaurant.insertMany(restaurants))
+                   .then(() => Restaurant.insertMany(restaurantSeeds))
                    .then(() => {
                      console.log("Done!");
                      mongoose.disconnect();

@@ -12,8 +12,6 @@ const Restaurant = require('../models/Restaurant');
 const restaurants = easySeeds.formatSeeds('./seed_files/restaurant_seeds.csv')
 const restaurantSeeds = [];
 
-console.log(restaurants)
-console.log(restaurants[0][13])
 
 for (const r of restaurants) {
   restaurantSeeds.push(
