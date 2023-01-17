@@ -86,17 +86,30 @@ const typeConversion = (datum, dataType = 'string') => {
 const unpackCsvs = seedFile => {
        
   const results = [];
-  fs.createReadStream(seedFile)
+  return new Promise((resolve, reject) => {
+    fs.createReadStream(seedFile)
+    .on('error', error =>{
+      reject(error);
+    })
     .pipe(csv({}))
     .on('data', (data)=> { results.push(data)})
     .on('end', ()=> {
-        // console.log(results)
-        return results
-    })
+          resolve(results)
+      })
+    return results 
+})}
+
+
+async function singleCollection(file){
+  const seedFolder = './seed_files';
+  process.chdir(seedFolder)
+
+  const data = await unpackCsvs(file)
+  return data
 }
+
       
-      
-const tablesFromCsvs =() => {
+const  tablesFromCsvs = () => {
           
           const allSeedData = [];
           const seedFolder = './seed_files';
@@ -105,7 +118,9 @@ const tablesFromCsvs =() => {
           fs.readdir(process.cwd(), (err, files)=> {
             files.forEach((file) => {
               const seedRes = [];
-              allSeedData.push(unpackCsvs(file));
+              const data = extractFiles(file);
+              allSeedData.push(data)
+              console.log(data)
             })
 
               // data.forEach((row, j) => {
@@ -130,5 +145,6 @@ const tablesFromCsvs =() => {
 
 module.exports ={
   unpackCsvs: unpackCsvs,
-  tablesFromCsvs: tablesFromCsvs, 
+  tablesFromCsvs: tablesFromCsvs,
+  singleCollection: singleCollection
 }
