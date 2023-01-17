@@ -8,8 +8,6 @@ const restauraunts = easySeeds.formatSeeds('./seed_files/restaurant_seeds.csv')
 console.log(restauraunts)
 
 
-
-
 const restaurants = [];
 
 
