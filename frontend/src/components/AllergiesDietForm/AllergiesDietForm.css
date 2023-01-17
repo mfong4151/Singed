@@ -1,0 +1,60 @@
+.allergies-diet-form-container{
+  height:100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.allergies-diet-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 10px;
+}
+.allergies-form, .diet-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;  
+}
+.survey-input{
+  margin: 10px;
+}
+.survey-input label{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.allergies-diet-form img{
+  height:60px;
+  width:60px;
+  /* border: 1px solid grey; */
+  border-radius: 2px;
+}
+
+.allergies-inputs, .dietary-inputs{
+  margin: 5px;
+  /* border: 1px solid grey; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+}
+
+.allergies-inputs > *, .dietary-inputs > *{
+  margin: 10px;
+
+}
+/* .allergies-form label{
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+} */
