@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css';
 import { logout } from '../../store/session';
+import power from '../../assets/power_happy.png';
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
@@ -16,10 +17,15 @@ function NavBar () {
     if (loggedIn) {
       return (
         <div className="links-nav">
-          <Link to={'/tweets'}>All Foods</Link>
-          <Link to={'/profile'}>Profile</Link>
-          <Link to={'/foods/new'}>Write a Foods</Link>
-          <button onClick={logoutUser}>Logout</button>
+          <div className='navbar-left'>
+            <img src={power} className='logo'></img>
+          </div>
+          <div className='navbar-right'>
+            <Link to={'/tweets'}>All Foods</Link>
+            <Link to={'/profile'}>Profile</Link>
+            <Link to={'/foods/new'}>Write a Foods</Link>
+            <button onClick={logoutUser}>Logout</button>
+          </div>
         </div>
       );
     } else {
@@ -27,8 +33,13 @@ function NavBar () {
         <div className="links-auth">
           {/* <Link to={'/signup'}>Signup</Link>
           <Link to={'/login'}>Login</Link> */}
-          <Link to={'/signup'}><button>Signup</button></Link>
-          <Link to={'/login'}><button>Login</button></Link>
+          <div className='navbar-left'>
+            <img src={power} className='logo'></img>
+          </div>
+          <div className='navbar-right'>
+            <Link to={'/signup'}><button>Signup</button></Link>
+            <Link to={'/login'}><button>Login</button></Link>
+          </div>
 
 
         </div>
