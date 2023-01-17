@@ -1,0 +1,132 @@
+item_name,description,price,header,menu_id
+Aguas Frescas,Natural drinks.,2,Beverages,1
+Cheese Quesadilla,Meat and salsa fresca.,5.25,Quesadillas,1
+Regular Quesadilla,"Meat, cheese, salsa fresca, lettuce, guacamole and sour cream.",6.75,Quesadillas,1
+Super Quesadilla,"Sauteed shrimp, bell pepper, onion and salsa fresca.",8.95,Quesadillas,1
+Regular Taco Salad,"Meat, rice, beans, salsa fresca, cheese, lettuce, guacamole and sour cream.",9.95,Taco Salad,1
+Shrimp Taco Salad,"Shrimp, rice, beans, salsa fresca, cheese, lettuce, guacamole and sour cream.",10.95,Taco Salad,1
+Regular Burrito,"Meat, rice, beans, salsa fresca and cheese.",8.25,Burritos,1
+Super Burrito,"Meat, rice, beans, salsa fresca, cheese, guacamole and sour cream.",9.25,Burritos,1
+Regular Shrimp Burrito,"Sauteed shrimp, bell peppers, onion, beans, rice, salsa fresca and cheese.",9.25,Burritos,1
+Super Shrimp Burrito,"Shrimp, rice, beans, salsa fresca, cheese, guacamole and sour cream.",10.25,Burritos,1
+Regular Veggie Burrito,Vegetarian.,8.25,Burritos,1
+Super Veggie Burrito,"Grilled steak with grilled shrimp, rice, beans, salsa fresca",9.25,Burritos,1
+Regular Surf n Turf,"Grilled steak, cheese, fries, salsa fresca and guacamole.",9.95,Burritos,1
+Super Surf n Turf,"2 eggs, meat, beans, cheese, green salsa",10.5,Burritos,1
+California Burrito,"Meat, beans, rice and cheese.",9.25,Burritos,1
+Regular Taco,"Meat, onion, cilantro and green salsa.",4.95,Tacos,1
+Super Taco,"Meat, onion, cilantro and green salsa, cheese, guacamole and sour cream.",5.5,Tacos,1
+Shrimp Taco,"Shrimp, onion, cilantro and green salsa.",5.95,Tacos,1
+Super Shrimp Taco,"Shrimp, onion & cilantro, green salsa, cheese, guacamole, sourban cream",6.5,Tacos,1
+Regular Nacho,"Beans, cheese and salsa fresca.",6.95,Nachos,1
+Regular Nacho with Meat,"Beans, cheese and salsa fresca and meat.",7.95,Nachos,1
+Super Nacho,"Meat, beans, cheese, salsa fresca, guacamole and sour cream.",9.5,Nachos,1
+Regular Nacho with Grilled Shrimp,"Beans, cheese and salsa fresca and grilled shrimp.",8.95,Nachos,1
+Ha Tien Special Extra Large Combo Noodle Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",19.25,Pho Beef Noodle Soup,2
+Combo Beef Noodle Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,Pho Beef Noodle Soup,2
+Rare Beef,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,Pho Beef Noodle Soup,2
+Beef Meatball,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,Pho Beef Noodle Soup,2
+Rare Beef and Beef Meatball,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,Pho Beef Noodle Soup,2
+"Rare Beef, Tendon and Tripe","Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,Pho Beef Noodle Soup,2
+"Beef Brisket, Tendon and Tripe","Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,Pho Beef Noodle Soup,2
+Rare Beef with Chicken,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,Pho Beef Noodle Soup,2
+Beef Stew,Slow cooked soup.,17.95,Pho Beef Noodle Soup,2
+Satay Beef,Contains coconut milk and peanuts.,17.95,Pho Beef Noodle Soup,2
+Spicy Beef and Pork Leg with Pork Blood Cubes,"Beef with cinnamon, fennel seeds, star anise, Sichuan peppercorn and cloves.",19.25,Pho Beef Noodle Soup,2
+Seafood Noodle Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,"Hu Tieu, Mubun - Noodle Soup",2
+Five Spice Chicken Noodle Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,"Hu Tieu, Mubun - Noodle Soup",2
+Curry Chicken Vermicelli Soup,Contains coconut milk.,16.75,"Hu Tieu, Mubun - Noodle Soup",2
+House Special Vermicelli Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,"Hu Tieu, Mubun - Noodle Soup",2
+"Shredded Pork, Fancy Pork Patty, and Egg Vermicelli","Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,"Hu Tieu, Mubun - Noodle Soup",2
+Wonton Egg Noodle Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,"Hu Tieu, Mubun - Noodle Soup",2
+Crab Paste and Tomato Vermicelli Soup,Noodle soup.,17.95,"Hu Tieu, Mubun - Noodle Soup",2
+Wonton Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,"Hu Tieu, Mubun - Noodle Soup",2
+Duck with Bamboo Vermicelli Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,"Hu Tieu, Mubun - Noodle Soup",2
+Pork Leg and Shrimp Noodle Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",17.95,"Hu Tieu, Mubun - Noodle Soup",2
+Spare Rib Vermicelli Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,"Hu Tieu, Mubun - Noodle Soup",2
+Mixed Vegetables Noodle Soup with Vegetarian Broth,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,"Hu Tieu, Mubun - Noodle Soup",2
+Chicken Noodle Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,"Hu Tieu, Mubun - Noodle Soup",2
+Extra Specialty Broth,"Spicy beef broth, satay beef broth or curry broth.",8.45,Noodle Soup Add-On,2
+Extra Broth,Beef broth or chicken broth.,6.95,Noodle Soup Add-On,2
+Charbroiled Pork,Add fried egg for an additional charge.,15.95,Dry Vermicelli Bowls,2
+Charbroiled Beef,Add fried egg for an additional charge.,15.95,Dry Vermicelli Bowls,2
+Five Spice Chicken,Add fried egg for an additional charge.,15.95,Dry Vermicelli Bowls,2
+Imperial Rolls and Charbroiled Pork,Add fried egg for an additional charge.,16.75,Dry Vermicelli Bowls,2
+Shredded Pork and Charbroiled Pork,Add fried egg for an additional charge.,16.75,Dry Vermicelli Bowls,2
+Charbroiled Shrimp,Add fried egg for an additional charge.,17.45,Dry Vermicelli Bowls,2
+Imperial Rolls and Charbroiled Shrimp,Add fried egg for an additional charge.,17.95,Dry Vermicelli Bowls,2
+Fried Tofu,Vegetarian dish.,13.95,Dry Vermicelli Bowls,2
+Five Spice Chicken Rice Plate,Add fried egg for an additional charge.,15.95,Rice Plate Cuisines,2
+Curry Chicken Rice Plate,Spicy.,15.95,Rice Plate Cuisines,2
+Charbroiled Pork Rice Plate,Add fried egg for an additional charge.,15.95,Rice Plate Cuisines,2
+Charbroiled Pork Chop Rice Plate,Add fried egg for an additional charge.,17.95,Rice Plate Cuisines,2
+Combination Rice Plate,Add fried egg for an additional charge.,18.5,Rice Plate Cuisines,2
+Charbroiled Beef Rice Plate,Add fried egg for an additional charge.,15.95,Rice Plate Cuisines,2
+Beef Stew Rice Plate,Add sides for an additional charge.,15.95,Rice Plate Cuisines,2
+Charbroiled Shrimp Rice Plate,Add fried egg for an additional charge.,17.95,Rice Plate Cuisines,2
+Stir Fried Vegetables Rice Plate,Vegetarian dish.,15.95,Rice Plate Cuisines,2
+Charbroiled Sole Fillet Rice Plate,Add fried egg for an additional charge.,17.45,Rice Plate Cuisines,2
+Vietnamese Style Tiger Prawns Rice Plate,Add fried egg for an additional charge.,24.25,Rice Plate Cuisines,2
+Lemongrass Beef with Onion and Bean Sprouts Rice Plate,Spicy.,17.45,Rice Plate Cuisines,2
+Lemongrass Chicken with Onion and Bean Sprouts Rice Plate,Spicy.,17.45,Rice Plate Cuisines,2
+Lemongrass Shrimp with Onion and Bean Sprouts Rice Plate,Spicy.,18.95,Rice Plate Cuisines,2
+Lemongrass Fish with Onion and Bean Sprouts Rice Plate,Spicy.,18.95,Rice Plate Cuisines,2
+Hai Nam Chicken Rice Plate,Add fried egg for an additional charge.,18.25,Rice Plate Cuisines,2
+Extra Broth,Beef broth or chicken broth.,6.95,Rice Plate Add-On,2
+Deep Fried Imperial Rolls,Cooked in oil.,12.25,Appetizers,2
+Shrimp Rolls Cold,Crispy dough filled with minced vegetables.,12.25,Appetizers,2
+BBQ Pork Rolls,Crispy dough filled with minced vegetables.,12.25,Appetizers,2
+5 Spice Chicken Rolls,Crispy dough filled with minced vegetables.,12.25,Appetizers,2
+Shrimp and BBQ Pork Rolls,Crispy dough filled with minced vegetables.,13.5,Appetizers,2
+Shredded Pork Rolls Cold,Vegetarian dish.,12.25,Appetizers,2
+Deep Fried Vegetable Egg Rolls,Vegetarian dish.,12.25,Appetizers,2
+Fresh Vegetable Spring Rolls Cold,Vegetarian dish.,12.25,Appetizers,2
+Tofu Spring Rolls Cold,Contains peanuts.,12.25,Appetizers,2
+Chicken Papaya Salad,Contains peanuts.,18.5,Appetizers,2
+Combination Papaya Salad,Contains peanuts.,19.95,Appetizers,2
+Shrimp Salad,10 pieces.,19.95,Appetizers,2
+Deep Fried Prawn,10 pieces.,16.75,Appetizers,2
+Deep Fried Squid,"Beef carpaccio, and contains peanuts.",14.95,Appetizers,2
+Rare Beef with Lemon Juice,Chicken.,17.95,Appetizers,2
+Potstickers,2 pieces.,10.95,Appetizers,2
+Deep Fried Quail,5 pieces.,14.95,Appetizers,2
+Fish Cake,Vegetarian dish.,15.5,Appetizers,2
+Pan Fried Crepe with Shrimp and Pork Vietnamese Specialties,Shell fish.,19.95,Vietnamese Specialties,2
+Steamed Rice Rolls Wrapped with Ground Pork Vietnamese Specialties,6 pieces.,19.25,Vietnamese Specialties,2
+Steamed Rice Rolls with Fancy Pork Patty and Imperial Rolls Vietnamese Specialties,Cooked using moist heat.,17.95,Vietnamese Specialties,2
+"Fried Rice Noodle with Shrimp, Egg, and Pork Vietnamese Specialties",Contains peanuts.,16.75,Vietnamese Specialties,2
+Charbroiled Chicken,6 pieces.,21.75,House Special Grill,2
+Charbroiled Beef House Special Grill,6 pieces.,21.75,House Special Grill,2
+Charbroiled Pork House Special Grill,6 pieces.,21.75,House Special Grill,2
+Charbroiled Meatball,6 pieces.,21.75,House Special Grill,2
+Charbroiled Shrimp House Special Grill,6 pieces.,24.25,House Special Grill,2
+Charbroiled Sugarcane Shrimp,6 pieces.,24.25,House Special Grill,2
+Charbroiled Combination,"Pork, chicken, and shrimp.",25.5,House Special Grill,2
+Hot and Sour Catfish Soup,Spicy.,24.25,Soups,2
+Hot and Sour Shrimp Soup,Spicy.,24.25,Soups,2
+Five Spice Chicken Speciality Entree,Spicy.,20.95,Specialty Entrees,2
+Lemongrass Chicken with Onion and Bean Sprouts Speciality Entrees,Thick cut of meat from a pig typically cut from the spine.,20.95,Specialty Entrees,2
+Lemongrass Pork Chop,Spicy.,20.95,Specialty Entrees,2
+Curry Chicken Speciality Entrees,Spicy.,20.95,Specialty Entrees,2
+Peppercorn Chicken Wings,Spicy.,20.95,Specialty Entrees,2
+Peppercorn Short Ribs,Serving plate of food.,20.95,Specialty Entrees,2
+Beef Steak Cubes,Shell fish.,20.95,Specialty Entrees,2
+Sizzling Iron Platter with Beef,Serving plate of food.,20.95,Specialty Entrees,2
+Sizzling Iron Platter with Shrimp,River fish.,22.45,Specialty Entrees,2
+Sizzling Iron Platter with Fish,4 pieces.,22.45,Specialty Entrees,2
+Garlic Noodle,Five spice chicken.,14.95,Garlic Noodles,2
+Garlic Noodle with Chicken,Charbroiled pork.,19.95,Garlic Noodles,2
+Garlic Noodle with Pork,Charbroiled shrimp.,19.95,Garlic Noodles,2
+Combination Pork Sandwich,Sandwich with seasoned meat that has been rolled into a ball.,10.95,Vietnamese Sandwiches,2
+Pork Meatball Sandwich,Thinly sliced meat from a pig's leg.,10.95,Vietnamese Sandwiches,2
+Fancy Pork Patty Sandwich,Cured pork sandwich.,10.95,Vietnamese Sandwiches,2
+Ham Sandwich,"Sandwich made with a piece of cut fish that is either fried, baked, or grilled.",10.95,Vietnamese Sandwiches,2
+Five Spice Chicken Sandwich,Vegetarian dish.,10.95,Vietnamese Sandwiches,2
+BBQ Pork Sandwich,Vegetarian dish.,10.95,Vietnamese Sandwiches,2
+Monday,"soup of the day, chicken steak with black pepper sauce or baked spaghetti with ham and cheese",7.95,"Daily Specials                                        all specials served with soup, bread with butter, hot coffee or hot Hong Kong milk tea and dessert",3
+Tuesday,"Russian bortsch, chicken steak with teriyaki sauce or baked sole with portuguese sauce",7.95,"Daily Specials                                        all specials served with soup, bread with butter, hot coffee or hot Hong Kong milk tea and dessert",3
+Wednesday,"ham macaroni soup, curry beef brisket or baked pork chops with mushroom sauce",7.95,"Daily Specials                                        all specials served with soup, bread with butter, hot coffee or hot Hong Kong milk tea and dessert",3
+Thursday,"Russian bortsch, chicken steak with spicy sauce or baked seafood with tomato sauce",7.95,"Daily Specials                                        all specials served with soup, bread with butter, hot coffee or hot Hong Kong milk tea and dessert",3
+Friday,"soup of the day, pork chops cutlet or onion beef steak",7.95,"Daily Specials                                        all specials served with soup, bread with butter, hot coffee or hot Hong Kong milk tea and dessert",3
+Saturday,"Russian bortsch, cornish hen or veal patty spaghetti with meat sauce",7.95,"Daily Specials                                        all specials served with soup, bread with butter, hot coffee or hot Hong Kong milk tea and dessert",3
+Sunday,"Russian bortsch, roast pork or baked chicken portuguese with rice",7.95,"Daily Specials                                        all specials served with soup, bread with butter, hot coffee or hot Hong Kong milk tea and dessert",3
