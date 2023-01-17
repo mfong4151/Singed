@@ -10,9 +10,9 @@ const Restaurant = require('../models/Restaurant');
 //Need to open each file respectively
 
 //debugging needed here
+console.log(process.cwd())
 const restaurants = easySeeds.formatSeeds('/backend/seeders/seed_files/restaurant_seeds.csv')
 const restaurantSeeds = [];
-
 
 
 for (const r of restaurants) {
@@ -36,31 +36,31 @@ for (const r of restaurants) {
 }
 
 
-mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => {
-    console.log('Connected to MongoDB successfully');
-    insertSeeds();
-  })
-  .catch(err => {
-    console.error(err.stack);
-    process.exit(1);
-  });
+// mongoose
+//   .connect(db, { useNewUrlParser: true })
+//   .then(() => {
+//     console.log('Connected to MongoDB successfully');
+//     insertSeeds();
+//   })
+//   .catch(err => {
+//     console.error(err.stack);
+//     process.exit(1);
+//   });
 
 
-const insertSeeds = () => {
-    console.log("Resetting db and seeding restaurants...");
-    Restaurant.collection.drop()
+// const insertSeeds = () => {
+//     console.log("Resetting db and seeding restaurants...");
+//     Restaurant.collection.drop()
                   
-                   .then(() => Restaurant.insertMany(restaurantSeeds))
-                   .then(() => {
-                     console.log("Done!");
-                     mongoose.disconnect();
-                   })
-                   .catch(err => {
-                     console.error(err.stack);
-                     process.exit(1);
-                   });
-  }
+//                    .then(() => Restaurant.insertMany(restaurantSeeds))
+//                    .then(() => {
+//                      console.log("Done!");
+//                      mongoose.disconnect();
+//                    })
+//                    .catch(err => {
+//                      console.error(err.stack);
+//                      process.exit(1);
+//                    });
+//   }
   
 
