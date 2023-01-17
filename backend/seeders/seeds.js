@@ -10,8 +10,8 @@ const Restaurant = require('../models/Restaurant');
 //Need to open each file respectively
 
 //debugging needed here
-console.log(process.cwd())
-const restaurants = easySeeds.formatSeeds('/backend/seeders/seed_files/restaurant_seeds.csv')
+
+const restaurants = easySeeds.formatSeeds(process.cwd().concat('/backend/seeders/seed_files/restaurant_seeds.csv'))
 const restaurantSeeds = [];
 
 
