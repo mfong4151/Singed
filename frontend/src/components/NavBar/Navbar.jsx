@@ -49,7 +49,6 @@ function NavBar () {
 
   return (
     <>
-      <h1>Singed</h1>
       { getLinks() }
     </>
   );

@@ -6,6 +6,9 @@
   font-family: 'IBM Plex Sans Regular';
 }
 
+.root > *{
+  margin-top: 50px; /* workaround for navbar. gets overwritten for navbar*/
+}
 
 @font-face {
   font-family: 'Hinge';

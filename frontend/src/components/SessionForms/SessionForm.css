@@ -3,7 +3,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 50px; /* workaround for navbar */
+  margin-top: 100px;
+   /* workaround for navbar */
 }
 
 .session-form{
@@ -33,7 +34,10 @@
   margin-top: 2px;
 }
 .session-form h2{
-  margin-left: center;
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* margin-left: 30%;
+  margin-right: 10%; */
 }
 
 .session-form  input:hover{
@@ -50,6 +54,9 @@
   font-size: 14px;
   margin: none;
   padding: none;
+}
+.session-submit{
+  margin-top: 15px !important;
 }
 .session-submit:disabled{
   background-color: #a0c2f0;
