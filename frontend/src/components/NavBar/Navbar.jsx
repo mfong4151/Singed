@@ -16,7 +16,7 @@ function NavBar () {
   const getLinks = () => {
     if (loggedIn) {
       return (
-        <div className="links-nav">
+        <div className="navbar">
           <div className='navbar-left'>
             <img src={power} className='logo'></img>
           </div>
@@ -30,7 +30,7 @@ function NavBar () {
       );
     } else {
       return (
-        <div className="links-auth">
+        <div className="navbar">
           {/* <Link to={'/signup'}>Signup</Link>
           <Link to={'/login'}>Login</Link> */}
           <div className='navbar-left'>
