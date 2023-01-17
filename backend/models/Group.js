@@ -1,16 +1,8 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = Schema({
-    username: {
-      type: String,
-      required: true
-    },
-    email: {
-      type: String,
-      required: true
-    },
-    hashedPassword: {
+const groupSchema = Schema({
+    name: {
       type: String,
       required: true
     },
@@ -22,7 +14,7 @@ const userSchema = Schema({
 		// Sweet(flavors)	1-10 numerical value
     flavorProfile: {
       type: Array,
-      required: false
+      required: true
     },
 
     // Asian 1-10 numerical value
@@ -31,7 +23,7 @@ const userSchema = Schema({
     // Hispanic	1-10 numerical value
     genre: {
       type: Array,
-      required: false
+      required: true
     },
 
     // Shellfish true/false
@@ -39,7 +31,7 @@ const userSchema = Schema({
     // Fish 	true/false
     allergies: {
       type: Array,
-      required: false
+      required: true
     },
 
     // Vegan/Vegetarian	true/false
@@ -47,16 +39,16 @@ const userSchema = Schema({
     // Milk	true/false
     diet: {
       type: Array,
-      required: false
+      required: true
     },
 
-    groupIds: {
+    userIds: {
       type: Array,
-      required: false
+      required: true
     }
   }, {
     timestamps: true
   });
 
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Group', groupSchema);

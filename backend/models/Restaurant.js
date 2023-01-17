@@ -1,16 +1,40 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = Schema({
-    username: {
+const restaurantSchema = Schema({
+    name: {
       type: String,
       required: true
     },
-    email: {
+    address: {
       type: String,
       required: true
     },
-    hashedPassword: {
+    rating: {
+      type: mongoose.Types.Decimal128,
+      required: true
+    },
+    city: {
+      type: String,
+      required: true
+    },
+    stateCode: {
+      type: String,
+      required: true
+    },
+    longitude: {
+      type: mongoose.Types.Decimal128,
+      required: true
+    },
+    latitude: {
+      type: mongoose.Types.Decimal128,
+      required: true
+    },
+    cuisine_type: {
+      type: String,
+      required: true
+    },
+    imageUrl: {
       type: String,
       required: true
     },
@@ -59,4 +83,4 @@ const userSchema = Schema({
   });
 
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Restaurant', restaurantSchema);
