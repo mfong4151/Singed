@@ -19,11 +19,8 @@ const app = express();
 
 const usersRouter = require('./routes/api/users');
 const csrfRouter = require('./routes/api/csrf');
-const restaurantsRouter = require('./routes/api/restaurants')
 
-app.use('/api/users', usersRouter);
-app.use('/api/csrf', csrfRouter);
-app.use('/api/restaurants', restaurantsRouter);
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -49,6 +46,10 @@ app.use(
   );
 
 app.use(passport.initialize());
+
+app.use('/api/users', usersRouter);
+app.use('/api/csrf', csrfRouter);
+
 
 
 if (isProduction) {
