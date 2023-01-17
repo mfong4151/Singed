@@ -3,7 +3,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  
+  margin-top: 50px; /* workaround for navbar */
 }
 
 .session-form{
@@ -17,7 +17,53 @@
   border: 1px solid grey;
   border-radius: 4px;
   padding: 10px;
+
 }
 .session-form > *{
-  margin: 3px;
+  margin: 5px;
+}
+.session-form  input{
+  border-radius: 3px;
+  height: 26px;
+  border: solid 1.5px #D3D3D3;
+  -webkit-transition: 1s; 
+  transition: 1s;
+  margin-top: 2px;
+}
+
+.session-form  input:hover{
+  box-shadow: 0 0 5pt 0.5pt #c5c5c5;
+}
+
+.session-form  input:focus {
+  box-shadow: 0 0 5pt 2pt #c5c5c5;
+  outline-width: 0px;
+}
+.errors{
+  color: rgb(224, 15, 15);
+  font-weight: bold;
+  font-size: 14px;
+  margin: none;
+  padding: none;
+}
+.session-submit:disabled{
+  background-color: #a0c2f0;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  height: 30px;
+  width: 100px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.session-submit:enabled{
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  height: 30px;
+  width: 100px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
 }
