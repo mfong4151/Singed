@@ -1,4 +1,4 @@
-name,address,rating,city,state_code,longitude:float,latitude:float,cuisine_type:string
-Bullshead Restaurant,"840 Ulloa St, San Francisco, CA 94127, United States",4.4,San Francisco,CA,-122.4654386,37.7409311,comfort food
-Pho Ha Tien,"1900 Ocean Ave, San Francisco, CA 94127, United States",4.1,San Francisco,CA,-122.4622038,37.725428,vietnamese
-Burrito Loco,"850 Ulloa St, San Francisco, CA 94127, United States",4.5,San Francisco,CA,-122.4655902,37.7409158,mexican
+name,address,rating:number,city,state_code,longitude:number,latitude:number,cuisine_type:string
+Bullshead Restaurant,"840 Ulloa St San Francisco CA 94127 United States",4.4,San Francisco,CA,-122.4654386,37.7409311,comfort food
+Pho Ha Tien,"1900 Ocean Ave San Francisco CA 94127 United States",4.1,San Francisco,CA,-122.4622038,37.725428,vietnamese
+Burrito Loco,"850 Ulloa St San Francisco CA 94127 United States",4.5,San Francisco,CA,-122.4655902,37.7409158,mexican

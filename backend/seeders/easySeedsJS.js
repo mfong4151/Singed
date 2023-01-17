@@ -66,13 +66,9 @@ const typeConversion = (datum, dataType = 'string') => {
         if (['text', 'string', 's'].includes(dataType)) {
           return datum.toString();
         
-        } else if (['int', 'integer', 'i'].includes(dataType)) {
-          return parseInt(datum);
+        } else if (['number', 'n'].includes(dataType)) {
+          return Number(datum);
         
-        } else if (['float', 'f'].includes(dataType)) {
-        
-          return parseFloat(datum);
-  
         } else if (["bool", "boolean"].includes(dataType)) {
           return (datum.toLowerCase() === "true");
   
@@ -129,7 +125,7 @@ const  tablesFromCsvs = () => {
               
               
           });
-          // return [allSeedData, tableStrings];
+          return [allSeedData];
   
       }
   

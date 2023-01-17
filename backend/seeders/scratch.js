@@ -1,44 +1,21 @@
-const easySeeds = require('./easySeedsJS');
-const csv = require('csv-parser');
-const fs = require('fs');
+const easySeeds = require('./easySeedsJS2');
+
 const process = require('process');
 
-let result;
+//Need to open each file respectively
 
-const unpackCsvs = seedFile => {
-       
-    const results = [];
-    return new Promise((resolve, reject) => {
-      fs.createReadStream(seedFile)
-      .on('error', error =>{
-        reject(error);
-      })
-      .pipe(csv({}))
-      .on('data', (data)=> { results.push(data)})
-      .on('end', ()=> {
-            resolve(results)
-        })
-      return results 
-  })}
-  
-  
-async function singleCollection(file){
-    const seedFolder = './seed_files';
-    process.chdir(seedFolder)
-  
-    const data = await unpackCsvs(file)
-    return data
-  }
-singleCollection('menu_items_seeds.csv').then((value) => {
-    console.log(value)
-})
+const restauraunts = easySeeds.formatSeeds('./seed_files/restaurant_seeds.csv')
+console.log(restauraunts)
 
 
-const tweets = [];
 
-for (let i = 0; i < NUM_SEED_TWEETS; i++) {
-  tweets.push(
-    new Tweet ({
+
+const restaurants = [];
+
+
+for (let i = 0; i < restauraunts.length; i++) {
+  restaurants.push(
+    new Restaurant ({
       text: faker.hacker.phrase(),
       author: users[Math.floor(Math.random() * NUM_SEED_USERS)]._id
     })
