@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/mfong4151/Singed/issues"
   },
-  "homepage": "https://github.com/mfong4151/Singed#readme"
+  "homepage": "https://github.com/mfong4151/Singed#readme",
+  "dependencies": {
+    "csv-parser": "^3.0.0"
+  }
 }
