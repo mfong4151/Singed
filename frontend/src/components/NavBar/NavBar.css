@@ -1,4 +1,4 @@
-.links-auth{
+.navbar{
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -14,7 +14,7 @@
   margin-top: 0px !important;
 }
 
-.links-auth > *{
+.navbar > *{
   margin-right: 10px;
   margin-left: 10px;
   margin-top: 5px;
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
 }
-.links-auth button{
+.navbar button{
   cursor: pointer;
   padding: 6px;
   margin-left: 10px;

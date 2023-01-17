@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import "./AllergiesDietForm.css"
 
 function AllergiesDietForm() {
     // const sessionUser = useSelector((store) => store.session.user);
