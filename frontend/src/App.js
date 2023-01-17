@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
 import NavBar from './components/NavBar/Navbar';
@@ -10,6 +10,7 @@ import SignupForm from './components/SessionForms/SignupForm';
 // import Profile from './components/Profile/Profile';
 import { getCurrentUser } from './store/session';
 import AllergiesDietForm from './components/AllergiesDietForm/AllergiesDietForm';
+import Map from './components/Map';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -26,7 +27,7 @@ function App() {
         <AuthRoute exact path="/login" component={LoginForm} />
         <AuthRoute exact path="/signup" component={SignupForm} />
         <Route exact path="/allergies_diet" component={AllergiesDietForm}/>
-
+        <Route exact path="/map" component={Map}/>
         {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
       </Switch>
     </>
