@@ -18,15 +18,12 @@ const passport = require('passport');
 const app = express();
 
 const usersRouter = require('./routes/api/users');
-const tweetsRouter = require('./routes/api/tweets');
 const csrfRouter = require('./routes/api/csrf');
 const restaurantsRouter = require('./routes/api/restaurants')
 
 app.use('/api/users', usersRouter);
-app.use('/api/tweets', tweetsRouter);
 app.use('/api/csrf', csrfRouter);
 app.use('/api/restaurants', restaurantsRouter);
-
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -52,6 +49,29 @@ app.use(
   );
 
 app.use(passport.initialize());
+
+
+if (isProduction) {
+  const path = require('path');
+  // Serve the frontend's index.html file at the root route
+  app.get('/', (req, res) => {
+    res.cookie('CSRF-TOKEN', req.csrfToken());
+    res.sendFile(
+      path.resolve(__dirname, '../frontend', 'build', 'index.html')
+    );
+  });
+
+  // Serve the static assets in the frontend's build folder
+  app.use(express.static(path.resolve("../frontend/build")));
+
+  // Serve the frontend's index.html file at all other routes NOT starting with /api
+  app.get(/^(?!\/?api).*/, (req, res) => {
+    res.cookie('CSRF-TOKEN', req.csrfToken());
+    res.sendFile(
+      path.resolve(__dirname, '../frontend', 'build', 'index.html')
+    );
+  });
+}
 
 
 // Express custom middleware for catching all unmatched requests and formatting
