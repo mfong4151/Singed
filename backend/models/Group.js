@@ -2,7 +2,7 @@ const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
 const groupSchema = Schema({
-    groupName: {
+    name: {
       type: String,
       required: true
     },

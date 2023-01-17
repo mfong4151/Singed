@@ -40,7 +40,7 @@ users.push(
 const groups = [];
 groups.push(
   new Group({
-    groupName: 'test group',
+    name: 'test group',
     flavorProfile: [5,5,5,5,5],
     genre: [5,5,5,5],
     allergies: [true, false, true],
@@ -49,16 +49,96 @@ groups.push(
   })
 )
 
-// Create dishes
-const dishes = [];
-dishes.push(
-  new Dish({
-    
+// Create restaurants
+const restaurants = [];
+restaurants.push(
+  new Restaurant({
+    name: 'test restaurant',
+    address: 'test address',
+    rating: 4.9,
+    city: 'San Francisco',
+    stateCode: 'CA',
+    longitude: 37.792937,
+    latitude:-122.413709,
+    cuisine_type: 'asian',
+    imageUrl: 'https://www.waiter.com/blog/wp-content/uploads/2015/09/Sushi-Roll-2-1024x683.jpg',
+    flavorProfile: [5,5,5,5,5],
+    genre: [5,5,5,5],
+    allergies: [true, false, true],
+    diet: [true, true, false]
   })
 )
 
-// Create restaurants
-const restaurant = [];
+restaurants.push(
+  new Restaurant({
+    name: 'test restaurant 2',
+    address: 'test address 2',
+    rating: 4.8,
+    city: 'San Francisco',
+    stateCode: 'CA',
+    longitude: 37.777436,
+    latitude: -122.460707,
+    cuisine_type: 'american',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Barbecue.jpg',
+    flavorProfile: [4,4,4,4,4],
+    genre: [6,6,6,6],
+    allergies: [true, false, true],
+    diet: [true, true, false],
+    userIds: [users[0]._id, users[1]._id]
+  })
+)
+
+names = [
+  'Edamame',
+  'Fried Chicken',
+  'French Fries',
+  'Minced Pork',
+  'Edamame',
+  'Fried Chicken',
+  'French Fries',
+  'Minced Pork',
+  'Edamame',
+  'Fried Chicken',
+  'French Fries',
+  'Minced Pork',
+]
+
+imageUrls = [
+  'https://www.thespruceeats.com/thmb/d68tbuL0Qk-Aa8_7nwF5Kd-LMfo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/boiled-edamame-2030953-hero-01-287898b35fa74d6b83f22e7cc7094658.jpg',
+  'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.406.406.suffix/1568222255998.jpeg',
+  'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.406.406.suffix/1568222255998.jpeg',
+  'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.406.406.suffix/1568222255998.jpeg',
+  'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.406.406.suffix/1568222255998.jpeg',
+  'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.406.406.suffix/1568222255998.jpeg',
+  'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.406.406.suffix/1568222255998.jpeg',
+  'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.406.406.suffix/1568222255998.jpeg',
+  'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.406.406.suffix/1568222255998.jpeg',
+  'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.406.406.suffix/1568222255998.jpeg',
+  'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.406.406.suffix/1568222255998.jpeg',
+  'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.406.406.suffix/1568222255998.jpeg',
+
+]
+
+// Create dishes
+const dishes = [];
+for (let i = 0; i < 12; i++) {
+  dishes.push(
+    new Dish({
+      name: names[i],
+      description: 'organic',
+      price: 8.99,
+      header: 'Appetizers',
+      imageUrl: imageUrls[i],
+      flavorProfile: [4,4,4,4,4],
+      genre: [6,6,6,6],
+      allergies: [true, false, true],
+      diet: [true, true, false],
+      restaurantId: restaurants[0]._id
+    })
+  )
+}
+
+
 
 // for (let i = 1; i < NUM_SEED_USERS; i++) {
 //   const firstName = faker.name.firstName();
@@ -95,8 +175,8 @@ const insertSeeds = () => {
                  // insert
                  .then(() => User.insertMany(users))
                  .then(() => Group.insertMany(groups))
-                 .then(() => Dish.insertMany(dishes))
                  .then(() => Restaurant.insertMany(restaurants))
+                 .then(() => Dish.insertMany(dishes))
                  .then(() => {
                    console.log("Done!");
                    mongoose.disconnect();
