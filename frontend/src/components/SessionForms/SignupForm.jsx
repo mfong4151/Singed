@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import './SessionForm.css';
+import './SessionForm.css';
 import { signup, clearSessionErrors } from '../../store/session';
 
 function SignupForm () {
@@ -53,6 +53,8 @@ function SignupForm () {
   }
 
   return (
+    <div className='session-container'>
+
     <form className="session-form" onSubmit={usernameSubmit}>
       <h2>Sign Up Form</h2>
       <div className="errors">{errors?.email}</div>
@@ -99,6 +101,8 @@ function SignupForm () {
         disabled={!email || !username || !password || password !== password2}
       />
     </form>
+    </div>
+
   );
 }
 
