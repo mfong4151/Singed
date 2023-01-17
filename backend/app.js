@@ -69,7 +69,6 @@ app.use(
 app.use(passport.initialize());
 
 app.use('/api/users', usersRouter);
-app.use('/api/tweets', tweetsRouter);
 app.use('/api/csrf', csrfRouter);
 
 
