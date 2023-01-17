@@ -19,6 +19,7 @@ function NavBar () {
           <Link to={'/tweets'}>All Foods</Link>
           <Link to={'/profile'}>Profile</Link>
           <Link to={'/foods/new'}>Write a Foods</Link>
+          <Link to={'/allergies_diet'}>Allergies and Diet</Link>
           <button onClick={logoutUser}>Logout</button>
         </div>
       );
