@@ -1,0 +1,137 @@
+.allergies-diet-form-container{
+  height:100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.allergies-diet-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+  /* border: 1px solid grey; */
+  border-radius: 4px;
+  padding: 10px;
+}
+.allergies-form, .diet-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;  
+}
+.survey-input{
+  margin: 10px;
+}
+.survey-input label{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.allergies-diet-form img{
+  height:90px;
+  width:90px;
+  /* border: 1px solid grey; */
+  border-radius: 50%;
+  transition-duration: .2s;
+  margin-top: 5px
+}
+
+.allergies-inputs, .dietary-inputs{
+  margin: 5px;
+  /* border: 1px solid grey; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+}
+
+.allergies-inputs > *, .dietary-inputs > *{
+  margin: 10px;
+
+}
+
+label {
+  /* padding: 10px; */
+  /* display: block; */
+  position: relative;
+  /* margin: 10px; */
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input[type="checkbox"] {
+  /* gets rid of original checkbox */
+  display: none;
+}
+
+label::before {
+  background-color: white;
+  color: white;
+  content: " ";
+  /* display: block; */
+  border-radius: 50%;
+  /* border: 1px solid grey; */
+  position: absolute;
+  top: 20px;
+  left: -2px;
+  width: 20px; /*checkmark size*/
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+:checked+label {
+  border-color: #ddd;
+}
+
+:checked+label::before {
+  content: "✓";
+  background-color: rgb(186, 110, 110);
+  transform: scale(1);
+}
+label img:hover{
+  box-shadow: 0 0 5pt 0.5pt #c5c5c5;
+
+}
+:checked+label img {
+  transform: scale(.9);
+  box-shadow: 0 0 5px #333;
+  z-index: 0;
+}
+
+
+
+
+@-webkit-keyframes fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+
+}
+.allergies-diet-form-container {
+  animation-name: fade;
+  animation-duration: 2s; 
+  animation-fill-mode: forwards; 
+ }

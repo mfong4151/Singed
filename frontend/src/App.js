@@ -12,6 +12,8 @@ import { getCurrentUser } from './store/session';
 import AllergiesDietForm from './components/AllergiesDietForm/AllergiesDietForm';
 import Map from './components/Map';
 import SurveyForm from './components/SurveyForm/SurveyForm';
+import Footer from './components/Footer/Footer';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -32,6 +34,7 @@ function App() {
         <Route exact path="/map" component={Map}/>
         {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
       </Switch>
+      <Footer />
     </>
   );
 }
