@@ -58,33 +58,33 @@ const dishes = easySeeds.formatSeeds(`./${dishRelativePath}`)
 // const restaurants = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/${dishRelativePath}`))
 
 // Create restaurants
-// const restaurantRelativePath = 'seed_files/menu_item_seeds.csv'/ // local
-// const restaurants = easySeeds.formatSeeds(`./${restaurantRelativePath}`)
+const restaurantRelativePath = 'seed_files/menu_item_seeds.csv' // local
+const restaurants = easySeeds.formatSeeds(`./${restaurantRelativePath}`)
 
 // render
 // const restaurants = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/${restaurantRelativePath}`))
 
 // console.log(dishes[0])
 
-// for (const r of restaurants) {
-//   restaurantSeeds.push(
-//     new Restaurant({
-//       name: r[0],
-//       address: r[1],
-//       rating:r[2],
-//       city: r[3],
-//       stateCode: r[4],
-//       longitude: r[5],
-//       latitude: r[6],
-//       cuisine_type: r[7],
-//       imageUrl: r[8],
-//       flavorProfile: r[9],
-//       genre: r[10],
-//       allergies: r[11],
-//       diet: r[12]
-//     })
-//   )
-// }
+for (const r of restaurants) {
+  restaurantSeeds.push(
+    new Restaurant({
+      name: r[0],
+      address: r[1],
+      rating:r[2],
+      city: r[3],
+      stateCode: r[4],
+      longitude: r[5],
+      latitude: r[6],
+      cuisine_type: r[7],
+      imageUrl: r[8],
+      flavorProfile: r[9],
+      genre: r[10],
+      allergies: r[11],
+      diet: r[12]
+    })
+  )
+}
 
 
 // const insertSeeds = () => {

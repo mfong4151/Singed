@@ -71,7 +71,6 @@ const formatSeeds = (seedFile) =>{
     for(const[idx, row] of rows.entries()){
         rows[idx] = convertEachRow(types, row)
     }
-    console.log(rows)
     return rows
 }
 
