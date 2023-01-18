@@ -1,4 +1,4 @@
-import Map from "./Map";
+import Map from "../Map";
 
 function MainPage() {
     return (
@@ -11,5 +11,5 @@ function MainPage() {
       </>
     );
   }
-  
+
   export default MainPage;

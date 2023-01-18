@@ -5,6 +5,8 @@ import { logout } from '../../store/session';
 import power from '../../assets/power_happy.png';
 import { useState } from 'react';
 import CommunityModal from './CommunityModal/CommunityModal';
+import {FiMenu} from 'react-icons/fi'
+import {openCommunityModal} from './CommunityModal/CommunityModal.jsx'
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
@@ -22,6 +24,9 @@ function NavBar () {
       return (
         <div className="navbar">
           <div className='navbar-left'>
+            <div className="community-menu-icon" onClick={openCommunityModal}>
+              <FiMenu/>
+            </div>
             <img src={power} className='logo'></img>
           </div>
           <div className='navbar-right'>
@@ -29,8 +34,11 @@ function NavBar () {
             <Link to={'/profile'}>Profile</Link>
             <Link to={'/foods/new'}>Write a Foods</Link>
             <Link to={'/allergies_diet'}>Allergies and Diet</Link>
+            <Link to={'/dish_survey'}>Dish Survey</Link>
             <button onClick={logoutUser}>Logout</button>
           </div>
+          {/* {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>} */}
+          <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>
         </div>
       );
     } else {

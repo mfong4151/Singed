@@ -5,7 +5,7 @@
     overflow-y:scroll;
 }
 
-.modal-overlay{
+#modal-overlay {
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -14,21 +14,30 @@
     right: 0;
     position: fixed;
     background-color: transparent;
-    transition: opacity 0.4s ease-in-out 0s;
+    /* transition: opacity 0.4s ease-in-out 0s; */
+
+    background:rgba(0,0,0,0.5);
+    /* opacity: 1;
+    transition: all 1.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;  */
 }
+
 
 /* color of the modal, size of the modal */
 
 
-.modal-menu-content{
+#modal-menu-content{
     display: flex;
     flex-direction: column;
 
     position: absolute;
     background-color: white;
-    width:300px;
+    width:250px;
     height:100%;
-   
+    padding: 20px;
+    border-right: 1px solid grey;
+    transition: .5s;
 }
 
 .search-bar-results{

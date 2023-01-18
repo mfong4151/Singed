@@ -3,13 +3,28 @@
   margin: 0;
   padding: 0;
   font-weight: normal;
-  font-family: 'IBM Plex Sans Regular';
+  /* font-family: 'IBM Plex Sans Regular'; */
+  font-family: 'Sofia Pro Regular';
 }
-
+html{
+  background-color: rgb(251, 241, 229);
+}
 .root > *{
   margin-top: 50px; /* workaround for navbar. gets overwritten for navbar*/
 }
+a{
+  text-decoration: none;
+  color: inherit;
+}
+@font-face{
+  font-family: 'Sofia Pro Regular';
+  src: url('./assets/Sofia\ Pro\ Regular\ Az.otf');
+}
 
+@font-face{
+  font-family: 'Sofia Pro Light';
+  src: url('./assets/sofiapro-light.otf');
+}
 @font-face {
   font-family: 'Hinge';
   src: url('./assets/Hinge.otf');
