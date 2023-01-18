@@ -14,7 +14,9 @@ export default function Map() {
     dispatch(restaurantActions.fetchRestaurants())
   },[dispatch])
 
-  return <MapContainer restaurants={Object.values(restaurants)} center={{lat:37.773972, lng:-122.431297}}/>
+  let lat =  37.779180920571605;
+  let lng =  -122.42151230151367;
+  return <MapContainer restaurants={Object.values(restaurants)} center={{lat, lng}}/>
 }
 
 export function RestaurantCard({restaurant, onClick}) {
@@ -48,7 +50,7 @@ export function MapContainer({restaurants, center}) {
 
   if (!isLoaded) return <div>Loading...</div>
   return (
-    <>
+    <div className="map-div">
       <GoogleMap zoom={12} center={centerM} onClick={mapOnClick} mapContainerClassName="map-container" options={{styles: styles}}>
         {restaurants.map(restaurant => {
           return (
@@ -58,6 +60,6 @@ export function MapContainer({restaurants, center}) {
           )
         })}
       </GoogleMap>
-    </>
+    </div>
   )
 }
