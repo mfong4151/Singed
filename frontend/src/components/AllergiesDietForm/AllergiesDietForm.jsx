@@ -49,25 +49,19 @@ function AllergiesDietForm() {
             <div className="allergies-diet-form-container">
                 <form className="allergies-diet-form" onSubmit={handleSubmit}>
                     <div className="allergies-form">
-                        <h2>Allergies</h2>
+                        <h1>Allergies</h1>
                         <div className="allergies-inputs">
                             
-                            <div className="survey-input">
-                                <label>Shellfish 
-                                    <img src={shellfish}/>
-                                    <input
-                                        type="checkbox"
-                                        checked={shellfishAllergy}
-                                        onChange={(e) =>{setShellfishAllergy(e.target.checked)}} />
-                                </label>
-                            </div>
+                            
                             <div className="survey-input">
                                 <label>Fish
                                 <img src={fish}/>
                                     <input
                                         type="checkbox"
                                         checked={fishAllergy}
-                                        onChange={(e) =>{setFishAllergy(e.target.checked)}} />
+                                        onChange={(e) =>{setFishAllergy(e.target.checked)}} >
+
+                                    </input>
                                 </label>
                             </div>
                             <div className="survey-input">
@@ -79,10 +73,19 @@ function AllergiesDietForm() {
                                         onChange={(e) =>{setNutsAllergy(e.target.checked)}} />
                                 </label>
                             </div>
+                            <div className="survey-input">
+                                <label>Shellfish 
+                                    <img src={shellfish}/>
+                                    <input
+                                        type="checkbox"
+                                        checked={shellfishAllergy}
+                                        onChange={(e) =>{setShellfishAllergy(e.target.checked)}} />
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div className="diet-form">
-                        <h2>Dietary Restrictions</h2>
+                        <h1>Dietary Restrictions</h1>
                         <div className="dietary-inputs">
                             <div className="survey-input">
                                 <label>Vegan

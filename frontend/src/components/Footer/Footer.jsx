@@ -12,7 +12,7 @@ function Footer () {
         <div className='footer-left'>
         </div>
         <div className='contacts'>
-          <h3>Contact Us</h3>
+          <h3>Contact Us!</h3>
           <ul>          
             <div className="bio-links">
               Max Fong
