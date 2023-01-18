@@ -2,12 +2,14 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './CommunityModal.css'
+import SearchSuggestionsModal from './SearchSuggestionsModal'
 const SearchBar = () => {
     const [searchTerms, setSearchTerms] = useState('Find your friends here!')
+    const [filteredUsers, setFilteredUsers] = useState([])
     const dispatch = useDispatch()
     // const usersNames = useSelector(state => state)
 
-    //testing variable
+    //testing variables, delete upon production
     const users = ['fuck ruby',
                  'fuck this shit', 
                  'fuckfuckityfuckfuck', 
@@ -15,7 +17,6 @@ const SearchBar = () => {
                  'andrew', 
                  'amy', 
                  'Zach']
-    let filteredUsers
 
     const filterUsers = (searchTerms) =>{
         const res = [];
@@ -34,21 +35,14 @@ const SearchBar = () => {
     }
 
     useEffect(()=>{
-        filteredUsers = filterUsers(searchTerms)
-        console.log(filteredUsers)
+        setFilteredUsers(filterUsers(searchTerms))
         if(searchTerms === '') setSearchTerms('Find your friends here!')
     }, [searchTerms])
 
     return (
       <div>
             <input type='text' placeholder={searchTerms} onChange={e =>setSearchTerms(e.target.value)}/>
-            <ul className='search-bar-results'>
-                {filteredUsers?.map((user, idx) =>
-                    //change this to user.name later
-                    <li className='search-bar-result' key={idx}>{user}</li>
-                )}
-
-            </ul>
+            <SearchSuggestionsModal filteredUsers={filteredUsers}/>
 
 
       </div>
