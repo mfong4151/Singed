@@ -19,3 +19,23 @@
   font-family: 'IBM Plex Sans Regular';
   src: url('./assets/IBMPlexSans-Regular.ttf');
 }
+
+
+.udc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.udc-left{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+.udc-right{
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+}
