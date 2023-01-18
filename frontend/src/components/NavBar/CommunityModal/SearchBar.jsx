@@ -25,10 +25,7 @@ const SearchBar = () => {
             return res
         else{
             users.forEach(user=>{   
-                if (user.toLowerCase().includes(searchTerms)){
-
-                     res.push(user)           //change to user.name.lower() later
-                }
+                if (user.toLowerCase().includes(searchTerms)) res.push(user)           //change to user.name.lower() later
             })
             return res
         }
