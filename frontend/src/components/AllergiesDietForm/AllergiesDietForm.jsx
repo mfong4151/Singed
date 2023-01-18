@@ -54,33 +54,31 @@ function AllergiesDietForm() {
                             
                             
                             <div className="survey-input">
-                                <label>Fish
-                                <img src={fish}/>
-                                    <input
-                                        type="checkbox"
-                                        checked={fishAllergy}
-                                        onChange={(e) =>{setFishAllergy(e.target.checked)}} >
-
-                                    </input>
-                                </label>
+                                <input
+                                    type="checkbox" id='fish-checkbox'
+                                    checked={fishAllergy}
+                                    onChange={(e) =>{setFishAllergy(e.target.checked)}}/>
+                                <label for='fish-checkbox'>
+                                    <h3> Fish </h3>
+                                    <img src={fish}/></label>
                             </div>
                             <div className="survey-input">
-                                <label>Nuts
-                                <img src={nuts}/>
-                                    <input
-                                        type="checkbox"
-                                        checked={nutsAllergy}
-                                        onChange={(e) =>{setNutsAllergy(e.target.checked)}} />
-                                </label>
+                                <input
+                                    type="checkbox" id='nuts-checkbox'
+                                    checked={nutsAllergy}
+                                    onChange={(e) =>{setNutsAllergy(e.target.checked)}}/>
+                                <label for='nuts-checkbox'>
+                                    <h3> Nuts </h3>
+                                    <img src={nuts}/></label>                                
                             </div>
                             <div className="survey-input">
-                                <label>Shellfish 
-                                    <img src={shellfish}/>
-                                    <input
-                                        type="checkbox"
-                                        checked={shellfishAllergy}
-                                        onChange={(e) =>{setShellfishAllergy(e.target.checked)}} />
-                                </label>
+                                <input
+                                    type="checkbox" id='shellfish-checkbox'
+                                    checked={shellfishAllergy}
+                                    onChange={(e) =>{setShellfishAllergy(e.target.checked)}}/>
+                                <label for='shellfish-checkbox'>
+                                    <h3> ShellFish </h3>
+                                    <img src={shellfish}/></label>
                             </div>
                         </div>
                     </div>
@@ -88,31 +86,31 @@ function AllergiesDietForm() {
                         <h1>Dietary Restrictions</h1>
                         <div className="dietary-inputs">
                             <div className="survey-input">
-                                <label>Vegan
-                                <img src={vegan}/>
-                                    <input
-                                        type="checkbox"
-                                        checked={veganDiet}
-                                        onChange={(e) =>{setVeganDiet(e.target.checked)}} />
-                                </label>
+                                <input
+                                    type="checkbox" id='vegan-checkbox'
+                                    checked={veganDiet}
+                                    onChange={(e) =>{setVeganDiet(e.target.checked)}}/>
+                                <label for='vegan-checkbox'>
+                                    <h3> Vegan </h3>
+                                    <img src={vegan}/></label>
                             </div>
                             <div className="survey-input">
-                                <label>Gluten
-                                <img src={gluten}/>
-                                    <input
-                                        type="checkbox"
-                                        checked={glutenDiet}
-                                        onChange={(e) =>{setGlutenDiet(e.target.checked)}} />
-                                </label>
+                                <input
+                                    type="checkbox" id='gluten-checkbox'
+                                    checked={glutenDiet}
+                                    onChange={(e) =>{setGlutenDiet(e.target.checked)}}/>
+                                <label for='gluten-checkbox'>
+                                    <h3> Gluten </h3>
+                                    <img src={gluten}/></label>
                             </div>
                             <div className="survey-input">
-                                <label>Lactose
-                                <img src={lactose}/>
-                                    <input
-                                        type="checkbox"
-                                        checked={lactoseDiet}
-                                        onChange={(e) =>{setLactoseDiet(e.target.checked)}} />
-                                </label>
+                                <input
+                                    type="checkbox" id='lactose-checkbox'
+                                    checked={lactoseDiet}
+                                    onChange={(e) =>{setLactoseDiet(e.target.checked)}}/>
+                                <label for='lactose-checkbox'>
+                                    <h3> Lactose </h3>
+                                    <img src={lactose}/></label>
                             </div>
                         </div>
                     </div>

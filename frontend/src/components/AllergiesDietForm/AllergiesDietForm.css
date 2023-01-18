@@ -34,10 +34,11 @@
   justify-content: center;
 }
 .allergies-diet-form img{
-  height:60px;
-  width:60px;
+  height:90px;
+  width:90px;
   /* border: 1px solid grey; */
-  border-radius: 2px;
+  border-radius: 50%;
+  transition-duration: .2s;
 }
 
 .allergies-inputs, .dietary-inputs{
@@ -58,3 +59,59 @@
   font-size: 30px;
   text-align: center;
 } */
+
+label {
+  /* padding: 10px; */
+  /* display: block; */
+  position: relative;
+  /* margin: 10px; */
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input[type="checkbox"] {
+  display: none;
+  /* gets rid of original checkbox */
+}
+
+label::before {
+  background-color: white;
+  color: white;
+  content: " ";
+  /* display: block; */
+  border-radius: 50%;
+  /* border: 1px solid grey; */
+  position: absolute;
+  top: 15px;
+  left: -6px;
+  width: 20px; /*checkmark size*/
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+:checked+label {
+  border-color: #ddd;
+}
+
+:checked+label::before {
+  content: "✓";
+  background-color: rgb(186, 110, 110);
+  transform: scale(1);
+}
+label img:hover{
+  box-shadow: 0 0 5pt 0.5pt #c5c5c5;
+
+}
+:checked+label img {
+  transform: scale(0.9);
+  box-shadow: 0 0 5px #333;
+  z-index: -1;
+}
