@@ -5,9 +5,10 @@
   font-weight: normal;
   /* font-family: 'IBM Plex Sans Regular'; */
   font-family: 'Sofia Pro Light';
+}
+html{
   background-color: rgb(251, 241, 229);
 }
-
 .root > *{
   margin-top: 50px; /* workaround for navbar. gets overwritten for navbar*/
 }

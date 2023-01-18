@@ -19,6 +19,7 @@
   justify-content: left;
   margin-top: 10px;
   margin-right: 5%;
+  background-color: inherit;
 }
 .bio-links{
   display: flex;
