@@ -1,0 +1,68 @@
+item_name:string,description: string,price: number,header,number,formatted_taste:array$number,formatted_genre:array$number,formatted_allergy:array$bool,formatted_preference:array$bool
+Lobster Red-Chili Oil Tontasku Ramen,"Flavor with roast pork and pork shoulder meat, pork belly meat, half flavored egg &seasonal vegetables",13.95,House Specialty Ramen,1,0.394/0.63/0.158/0.63/0.158,1/0/0/0,true/false/true,true/false/false
+Seafood Combo Maze Soba,Thick noodle without soup.,11,Maze Soba,1,0.265/0.795/0.265/0.397/0.265,1/0/0/0,true/false/true,true/false/false
+Spicy Kimchi and Beef Fried Rice,"Served with shredded cabbage, green onion and onion.",9.5,Special Fried Rice Dishes,1,0.167/0.5/0.5/0.667/0.167,1/0/0/0,false/false/false,false/false/false
+Unagi Fried Rice with Teriyaki Sauce,"Served with egg, shredded cabbage, green onion and onion.",14.95,Special Fried Rice Dishes,1,0.25/0.75/0.25/0.25/0.5,1/0/0/0,true/false/false,false/false/false
+Teriyaki Chicken Fried Rice,"Served with shredded cabbage, green onion and onion.",9.25,Special Fried Rice Dishes,1,0.265/0.795/0.265/0.397/0.265,1/0/0/0,true/false/true,true/false/false
+Unagi Don,Special rice bowl.,13.95,Donburi,1,0.167/0.5/0.5/0.667/0.167,1/0/0/0,false/false/false,false/false/false
+Fettuccine Alfredo,(Vegetarian),17,Pasta,2,0.277/0.832/0.277/0.277/0.277,0/0/1/0,false/false/false,true/true/false
+Salsicce con patate,Oven cooked Italian sausages with rosemary-garlic roasted potatoes,17,Entre,2,0.209/0.834/0.209/0.417/0.209,0/0/1/0,false/false/false,true/false/false
+Patate Pizza,"Thinly sliced potatoes, mozzarella, garlic and rosemary (NO tomato sauce, Vegetarian).",19,Pizza Romana,2,0.224/0.894/0.224/0.224/0.224,0/0/1/0,false/false/false,true/false/true
+Focaccia Bianca,"Nice and crunchy topped up with salt, extra virgin olive oil and fresh rosemary.",12,Pizza Romana,2,0.224/0.894/0.224/0.224/0.224,0/0/1/0,false/false/false,true/false/true
+Hamburger,niman ranch natural beef,8.45,Served With Fries And Mixed Greens,3,0.224/0.894/0.224/0.224/0.224,0/1/0/0,false/false/false,true/false/false
+Veggie Burger,"relish, tomato, onions and pickles",8.45,Served With Fries And Mixed Greens,3,0.277/0.832/0.277/0.277/0.277,0/1/0/0,false/false/false,true/false/true
+Philly Cheesesteak,balsamic or ranch dressing,9.45,Served With Fries And Mixed Greens,3,0.224/0.894/0.224/0.224/0.224,0/1/0/0,false/false/false,true/true/false
+Grilled Chicken Breast,with cheese,9.45,Served With Fries And Mixed Greens,3,0.277/0.832/0.277/0.277/0.277,0/1/0/0,false/false/false,false/false/true
+Super Quesadilla,"Sauteed shrimp, bell pepper, onion and salsa fresca.",8.95,Quesadillas,4,0.189/0.756/0.189/0.567/0.189,0/0/0/1,false/false/false,true/true/false
+Super Surf n Turf,"2 eggs, meat, beans, cheese, green salsa",10.5,Burritos,4,0.209/0.834/0.209/0.417/0.209,0/0/0/1,true/false/true,false/false/false
+California Burrito,"Meat, beans, rice and cheese.",9.25,Burritos,4,0.171/0.686/0.343/0.514/0.343,0/0/0/1,false/false/false,true/false/false
+Regular Taco,"Meat, onion, cilantro and green salsa.",4.95,Tacos,4,0.18/0.718/0.359/0.539/0.18,0/0/0/1,false/false/false,true/false/false
+Vegan,Made from tapioca flour and served with seasonal fruits.,14.25,Tapiocas (Brazilian Gluten-Free Crepes),5,0.277/0.832/0.277/0.277/0.277,0/0/1/0,false/false/false,false/false/true
+Smoked Salmon,Made from tapioca flour and served with seasonal fruits.,16.25,Tapiocas (Brazilian Gluten-Free Crepes),5,0.305/0.812/0.406/0.203/0.203,0/0/1/0,true/false/false,false/false/false
+Romeu & Julieta,Gluten-free crepe made from tapioca flour filled with guava jelly and fresh mozzarella.,10.25,Tapiocas Doces (Gluten-free Sweet Crepes),5,0.179/0.626/0.179/0.179/0.716,0/0/1/0,false/false/false,true/true/false
+Brigadeiro,"Box of 5 traditional Brazilian chocolate truffles, made with condensed milk and cocoa powder.",7.5,Treats,5,0.224/0.224/0.224/0.224/0.894,0/0/1/0,false/false/false,false/true/false
+Margherita With Artichokes,"Artichokes, Tomato Sauce, Fresh Mozzarella, Grana, Basil, Artichokes (V)",17,Pizza,6,0.346/0.808/0.346/0.231/0.231,0/0/1/0,false/false/false,true/true/false
+Calzone,"Buffalo Mozzarella, Arugula, Cherry Tomatoes, Prosciutto di Parma, Grana Padano",19,Pizza,6,0.325/0.868/0.217/0.217/0.217,0/0/1/0,false/false/false,true/true/false
+Spaghetti al Pomodoro,"Cherry Tomatoes, Extra Virgin Olive Oil, Sea Salt, Basil",14,Lunch and Dinner Pasta Risotto,6,0.25/0.75/0.5/0.25/0.25,0/0/1/0,false/false/false,true/false/true
+Chicken Breast Scaloppine,"Mushroom Marsala Sauce, Grated Black Truffles, Roasted Potato",22,Today Offering Selection fish or Meat,6,0.224/0.894/0.224/0.224/0.224,0/0/1/0,false/false/false,false/false/false
+Super Burrito,"Meat, rice, beans, guacamole, sour cream, cheese, lettuce and salsa",11.5,"Meat Selection: Broiled Steak, Broiled Chicken, Mild Chicken, Mole Chicken, Tinga Chicken. Beans Selection: Black Beans, Pinto Beans, Refried Beans",7,0.277/0.74/0.185/0.555/0.185,0/0/0/1,false/false/false,true/false/false
+Burrito,"Tortilla Selection: Flour, Whole Wheat, Spinach. Burrito Style | Made to Order: Fajita Steak $1.75, Fajita Chicken $1.75, Al Pastor | BBQ Pork $1, Chorizo | Mexican Sausage $1, Shrimp Fajitas $2.75. Beans Selection: Black Beans, Pinto Beans, Refried Beans",11.5,Made to Order from the Grill,7,0.228/0.798/0.228/0.456/0.228,0/0/0/1,false/false/false,true/false/false
+Flautas,"Platters with rice, beans and salad",12.99,"Traditional Dishes                                        Beans Selection: Black Beans, Pinto Beans, Refried Beans",7,0.168/0.755/0.168/0.587/0.168,0/0/0/1,false/false/false,true/false/false
+Enchiladas,"Platters with rice, beans and salad",12.99,"Traditional Dishes                                        Beans Selection: Black Beans, Pinto Beans, Refried Beans",7,0.189/0.756/0.189/0.567/0.189,0/0/0/1,false/false/false,true/false/false
+Spinach Pancetta Salad,"Mixed greens, caramelized walnuts, Gorgonzola cheese, tomatoes and champagne vinaigrette.",17,Dinner Appetizers,8,0.392/0.784/0.392/0.196/0.196,0/0/0/1,false/false/false,false/false/false
+Penne Melanzane,"Eggplant, Kalamata olives, tomatoes, fresh spinach and light pomodoro sauce.",23,Dinner Pastas,8,0.217/0.868/0.217/0.325/0.217,0/0/1/0,false/false/false,true/true/false
+Lunch Ham and Cheese Panini,Served on focaccia bread with your choice of mixed greens or hand-cut fries.,11,Lunch Paninis and Sandwiches,8,0.224/0.894/0.224/0.224/0.224,0/0/1/0,false/false/false,true/true/false
+Crab Bisque,"Tossed with pine nuts, cherry tomatoes, balsamic vinegar and olive oil.",9,Valentine's Day Menu (Archived),8,0.224/0.894/0.224/0.224/0.224,0/0/1/0,true/false/true,false/true/false
+Garlic Chili Tilapia,"Battered filet tilapia topped with Chaiya garlic-chili sauce, served with steamed assorted vegetables and Thai-curried rice",18.95,Chaiya's Signatures,9,0.189/0.756/0.189/0.567/0.189,1/0/0/0,true/false/false,false/false/false
+Thai Fish Cake,Deep fried Thai red curry-flavored fish cake mixed with herbal sliced served with cucumber and crushed peanut in sweet & sour sauce and crispy basil,12,Starters,9,0.189/0.756/0.189/0.567/0.189,1/0/0/0,true/false/false,false/false/false
+Pad Kee Mow,"In wok - Flat noodle, red bell, onion, baby corn, basil and bean sprout with soy sauce",15.95,Original Plates,9,0.189/0.756/0.189/0.567/0.189,1/0/0/0,false/false/false,false/false/false
+Pumpkin Curry (served with jasmine rice),Steamed kabocha and basil in spicy red curry coconut sauce,15.95,Original Plates,9,0.189/0.756/0.189/0.567/0.189,1/0/0/0,false/false/false,false/false/true
+Anchovies Pizza,"Tomato sauce, anchovies, black olives, basil, Parmesan and mozzarella cheese.",14,Pizza,10,0.224/0.894/0.224/0.224/0.224,0/0/1/0,true/false/false,true/true/false
+Breakfast Margherita Pizza,Includes an egg.,13,Breakfast,10,0.224/0.894/0.224/0.224/0.224,0/0/1/0,false/false/false,true/true/false
+1 Cheese Slice and 5 Piece Chicken Wings Combo,also comes with your choice of a canned soda or a bottle of water,8,Pizza and Wings Combos,10,0.199/0.796/0.199/0.498/0.199,0/0/1/0,false/false/false,true/true/false
+Chicken Parmesan Sandwich,"Breaded chicken, marinara sauce, fresh basil, mozzarella cheese and house made bread.",7.5,Sandwiches,10,0.224/0.894/0.224/0.224/0.224,0/0/1/0,false/false/false,true/true/false
+Mini Meatball Sub Meal,"2 house made meatballs, marinara sauce, fresh basil, mozzarella cheese on a house made bread.",8.75,Sandwich Meals,10,0.224/0.894/0.224/0.224/0.224,0/0/1/0,false/false/false,true/true/false
+Ikura Nigiri,2 pieces hamachi belly.,8.5,Nigiri,11,0.221/0.883/0.331/0.11/0.221,1/0/0/0,true/false/true,false/false/false
+Albacore Toro Nigiri,Fatty albacore tuna.,12,Special Nigiris,11,0.228/0.912/0.228/0.114/0.228,1/0/0/0,true/false/false,false/false/false
+Jalapeo Hamachi Maki,Jalapeo with yellowtail and sea salt.,9,Maki,11,0.209/0.834/0.209/0.417/0.209,1/0/0/0,true/false/false,false/false/false
+Negi Toro Roll,Fatty tuna and scallions.,12,Special Rolls,11,0.228/0.912/0.228/0.114/0.228,1/0/0/0,true/false/false,false/false/false
+Fiocchi di pera,Egg pasta filled with robiola cheese and pear with gorgonzola and radicchio sauce.,19,Pasta,12,0.171/0.683/0.171/0.085/0.683,0/0/1/0,false/true/false,true/true/false
+Napule' pizza,"Fried pizza filled with Smoked Fior di latte mozzarella, ricotta cheese, tomato sauce, italian salami, black pepper",18,White Pizza,12,0.228/0.912/0.228/0.114/0.228,0/0/1/0,false/false/false,true/true/false
+Bistecca,"black Angus rib-eye steak, served with roasted potatoes",32,Entrees,12,0.228/0.912/0.228/0.114/0.228,0/0/1/0,false/false/false,false/false/false
+Eggplant Parmigiana,"4 servings.Ready to bake.Traditional italian parmigiana made with layers of eggplant, marinara sauce, fresh basil, Fior di Latte Mozzarella and Parmigiano Reggiano Cheese",54,Italian Specialty,12,0.228/0.912/0.228/0.114/0.228,0/0/1/0,false/false/false,false/true/false
+Trecciolina Salad,"Fresh Organic arugula, hearts of palm, tomatoes, shaved Parmigiano Reggiano cheese and mozzarella cheese in lemon avocado vinaigrette.",12,Salads,,0.171/0.683/0.171/0.085/0.683,0/0/1/0,false/false/false,false/false/true
+Pear Salad,"Fresh Organic Arugula, Nectarine, goat cheese and pumpkin seeds in lemon honey thyme dressing.",12,Salads,13,0.228/0.912/0.228/0.114/0.228,0/0/1/0,false/false/false,false/false/true
+Fried Calamari and Shrimp,"Deep-fried calamari, shrimp, and fresh vegetables.",14,Small Plates,13,0.228/0.912/0.228/0.114/0.228,0/0/1/0,true/false/true,false/false/false
+Polpo alla Griglia,"Grilled Mediterranean octopus served with arugula, cherry tomato, red onion, with anchovies sauce.",16,Small Plates,13,0.228/0.912/0.228/0.114/0.228,0/0//,false/false/false,false/false/false
+Wonton Soup,Seasend broth with filled wonton dumplings.,15.95,Soup,14,0.228/0.912/0.228/0.114/0.228,1/0/0/0,true/false/true,false/false/false
+Pork Dumplings with Sesame Sauce and Red Chili Oil,Spicy.,13.95,Boiled,14,0.169/0.676/0.169/0.676/0.169,1/0/0/0,false/false/false,true/false/false
+Pork Wonton,8 pieces.,12.95,Fried,14,0.228/0.912/0.228/0.114/0.228,1/0/0/0,false/false/false,true/false/false
+House Special Bean Paste Noodle,Zha hiang.,17.95,Noodle,14,0.169/0.676/0.169/0.676/0.169,1/0/0/0,false/false/false,true/false/false
+"Beef Brisket, Tendon and Tripe","Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,Pho Beef Noodle Soup,14,0.228/0.912/0.228/0.114/0.228,1/0/0/0,false/false/false,false/false/false
+Curry Chicken Vermicelli Soup,Contains coconut milk.,16.75,"Hu Tieu, Mubun - Noodle Soup",14,0.169/0.676/0.169/0.676/0.169,1/0/0/0,false/false/false,false/false/false
+Spare Rib Vermicelli Soup,"Substitute with satay beef broth, spicy beef broth or curry broth for an additional charge.",16.75,"Hu Tieu, Mubun - Noodle Soup",14,0.228/0.912/0.228/0.114/0.228,1/0/0/0,false/false/false,false/false/false
+Fried Tofu,Vegetarian dish.,13.95,Dry Vermicelli Bowls,14,0.331/0.883/0.11/0.221/0.221,1/0/0/0,false/false/false,false/false/true
+Heirloom Tomatoes,"sopa de lima chicken, rice, tomato-corn salsa, avocado, queso fresco, mexican oregano",14.95,Snacks,15,0.236/0.354/0.354/0.118/0.825,1/0/0/1,false/false/false,false/false/true
+Pasian,"habanero tequila, passion fruit, lime",10.5,Chupitos,15,0.367/0.855/0.244/0.122/0.244,1/0/0/1,false/false/false,false/false/true
+Traditional Churros con Chocolate,"humphry slocombe harvey milk-honey ice cream, chocolate-dipped waffle shell",9,Dessert,15,0.204/0.306/0.102/0.102/0.919,1/0/0/1,false/false/false,true/true/false
+Choco-tacoliciou,"toasted coconut flakes, seasonal fruit",9,Dessert,15,0.204/0.306/0.102/0.102/0.919,1/0/0/1,false/false/false,true/true/false
