@@ -50,6 +50,11 @@ const userSchema = Schema({
       required: false
     },
 
+    friendsList: {
+      type: [Schema.Types.ObjectId],
+      ref: 'User'
+    },
+
     groupIds: {
       type: Array,
       required: false
