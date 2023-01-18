@@ -9,7 +9,10 @@
 .root > *{
   margin-top: 50px; /* workaround for navbar. gets overwritten for navbar*/
 }
-
+a{
+  text-decoration: none;
+  color: inherit;
+}
 @font-face {
   font-family: 'Hinge';
   src: url('./assets/Hinge.otf');
