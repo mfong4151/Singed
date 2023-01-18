@@ -18,12 +18,21 @@ export const fetchRestaurants = () => async dispatch => {
   }
 };
 
+export const fetchRestaurantsCoordinate = ({lat, lng}) => async dispatch => {
+  console.log(`/api/restaurants/map?lat=${lat}&lng=${lng}`)
+  const response = await jwtFetch(`/api/restaurants/map?lat=${lat}&lng=${lng}`);
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(receiveRestaurants(data.restaurants));
+  }
+};
+
 const initialState = {};
 
 const restaurantReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_RESTAURANTS:
-      return { ...state, ...action.payload };
+      return { ...action.payload };
     default:
       return state;
   }
