@@ -8,6 +8,7 @@ const { loginUser, restoreUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
 const validateRegisterInput = require('../../validations/register');
 const validateLoginInput = require('../../validations/login');
+const {updateUserAllergiesDiet, getUser} = require('../../controllers/userController');
 
 
 /* GET users listing. */
@@ -94,5 +95,8 @@ router.get('/current', restoreUser, (req, res) => {
     email: req.user.email
   });
 });
+
+router.patch('/:id', updateUserAllergiesDiet);
+router.get('/:id', getUser);
 
 module.exports = router;

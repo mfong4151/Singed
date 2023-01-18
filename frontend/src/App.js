@@ -11,6 +11,7 @@ import SignupForm from './components/SessionForms/SignupForm';
 import { getCurrentUser } from './store/session';
 import AllergiesDietForm from './components/AllergiesDietForm/AllergiesDietForm';
 import Map from './components/Map';
+import SurveyForm from './components/SurveyForm/SurveyForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -27,6 +28,7 @@ function App() {
         <AuthRoute exact path="/login" component={LoginForm} />
         <AuthRoute exact path="/signup" component={SignupForm} />
         <Route exact path="/allergies_diet" component={AllergiesDietForm}/>
+        <Route exact path="/dish_survey" component={SurveyForm}/>
         <Route exact path="/map" component={Map}/>
         {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
       </Switch>

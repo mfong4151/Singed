@@ -3,11 +3,15 @@ import thunk from 'redux-thunk';
 import session from './session';
 import errors from './errors';
 import restaurants from './restaurant';
+import users from './user'
+import dishes from './dish';
 
 const rootReducer = combineReducers({
   session,
   errors,
-  restaurants
+  restaurants,
+  users,
+  dishes
 });
 
 let enhancer;

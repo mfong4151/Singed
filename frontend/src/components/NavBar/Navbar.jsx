@@ -25,6 +25,7 @@ function NavBar () {
             <Link to={'/profile'}>Profile</Link>
             <Link to={'/foods/new'}>Write a Foods</Link>
             <Link to={'/allergies_diet'}>Allergies and Diet</Link>
+            <Link to={'/dish_survey'}>Dish Survey</Link>
             <button onClick={logoutUser}>Logout</button>
           </div>
         </div>
