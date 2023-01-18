@@ -85,15 +85,7 @@ function AllergiesDietForm() {
                     <div className="diet-form">
                         <h1>Dietary Restrictions</h1>
                         <div className="dietary-inputs">
-                            <div className="survey-input">
-                                <input
-                                    type="checkbox" id='vegan-checkbox'
-                                    checked={veganDiet}
-                                    onChange={(e) =>{setVeganDiet(e.target.checked)}}/>
-                                <label for='vegan-checkbox'>
-                                    <h3> Vegan </h3>
-                                    <img src={vegan}/></label>
-                            </div>
+                            
                             <div className="survey-input">
                                 <input
                                     type="checkbox" id='gluten-checkbox'
@@ -111,6 +103,15 @@ function AllergiesDietForm() {
                                 <label for='lactose-checkbox'>
                                     <h3> Lactose </h3>
                                     <img src={lactose}/></label>
+                            </div>
+                            <div className="survey-input">
+                                <input
+                                    type="checkbox" id='vegan-checkbox'
+                                    checked={veganDiet}
+                                    onChange={(e) =>{setVeganDiet(e.target.checked)}}/>
+                                <label for='vegan-checkbox'>
+                                    <h3> Vegan </h3>
+                                    <img src={vegan}/></label>
                             </div>
                         </div>
                     </div>
