@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import "./AllergiesDietForm.css"
 import shellfish from "../../assets/survey_imgs/shellfish_cropped.jpg"
@@ -7,18 +7,11 @@ import gluten from "../../assets/survey_imgs/gluten.jpg"
 import lactose from "../../assets/survey_imgs/lactose.jpg"
 import nuts from "../../assets/survey_imgs/nuts_cropped.jpg"
 import vegan from "../../assets/survey_imgs/vegan.jpg"
+import { fetchUser, updateUser } from "../../store/user";
 
 
 function AllergiesDietForm() {
-    // const sessionUser = useSelector((store) => store.session.user);
-    // const allergies = sessionUser.allergies;
-    // const diet = sessionUser.diet;
-    // const shellfish = allergies.shellfish;
-    // const fish = allergies.fish;
-    // const nuts = allergies.nuts;
-    // const vegan = diet.vegan;
-    // const gluten = diet.gluten;
-    // const lactose = diet.lactose;
+    const sessionUser = useSelector((store) => store.session.user);
     const [shellfishAllergy, setShellfishAllergy] = useState(false);
     const [fishAllergy, setFishAllergy] = useState(false);
     const [nutsAllergy, setNutsAllergy] = useState(false);
@@ -27,21 +20,19 @@ function AllergiesDietForm() {
     const [lactoseDiet, setLactoseDiet]  = useState(false);
     const dispatch = useDispatch();
 
-    // const updatedUser = {
-    //     id: sessionUser.id,
-    //     shellfish: shellfishAllergy,
-    //     fish: fishAllergy,
-    //     nuts: nutsAllergy,
-    //     vegan: veganDiet,
-    //     gluten: glutenDiet,
-    //     lactose: lactoseDiet
-    // }
+    useEffect(() => {
+        dispatch(fetchUser(sessionUser._id))
+    }, [])
+
+    const updatedUser = {
+        id: sessionUser._id,
+        allergies: [fishAllergy, nutsAllergy, shellfishAllergy],
+        diet: [glutenDiet, lactoseDiet, veganDiet]
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // dispatch(updateUser(updatedUser))
-            // don't have thunk for this yet
-        // render survey page of food image items based off of these allergies and dietary restrictions
+        dispatch(updateUser(updatedUser));
     }
 
     return (
