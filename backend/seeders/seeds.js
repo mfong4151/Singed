@@ -54,19 +54,17 @@ groups.push(
 const dishRelativePath = 'seed_files/menu_item_seeds.csv'
 // local
 const dishes = easySeeds.formatSeeds(`./${dishRelativePath}`)
-
 // render
 // const restaurants = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/${dishRelativePath}`))
 
 // Create restaurants
-const restaurantRelativePath = 'seed_files/menu_item_seeds.csv'
-// local
-const restaurants = easySeeds.formatSeeds(`./${restaurantRelativePath}`)
+// const restaurantRelativePath = 'seed_files/menu_item_seeds.csv'/ // local
+// const restaurants = easySeeds.formatSeeds(`./${restaurantRelativePath}`)
 
 // render
 // const restaurants = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/${restaurantRelativePath}`))
 
-console.log(dishes[0])
+// console.log(dishes[0])
 
 // for (const r of restaurants) {
 //   restaurantSeeds.push(

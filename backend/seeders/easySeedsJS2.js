@@ -25,9 +25,15 @@ const cleanHeaders = (header) => {
     return header
 }
 
+const commaCheck = (datum)=>{
+  if (datum.includes('/')) return datum.replaceAll('/',',')
+  return datum
+
+}
+
 const typeConversion = (dataType = 'string',datum ) => {
     if (['text', 'string', 's'].includes(dataType)) {
-      return datum.toString();
+      return commaCheck(datum.toString());
     
     } else if (['number', 'n'].includes(dataType)) {
       return Number(datum);
@@ -48,7 +54,7 @@ const typeConversion = (dataType = 'string',datum ) => {
         return data;
         
     } else {
-      return datum;
+      return commaCheck(datum.toString());
     }
   }
 
@@ -65,7 +71,7 @@ const formatSeeds = (seedFile) =>{
     for(const[idx, row] of rows.entries()){
         rows[idx] = convertEachRow(types, row)
     }
-    
+    console.log(rows)
     return rows
 }
 
