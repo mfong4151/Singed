@@ -21,14 +21,15 @@ export default function MainPage() {
   }, )
 
 
-
+  
   return (
     <div className="mainpage">
       <Map />
       <MainPageRestaurants />
     
-      {!messengerModal && <MessengerModalTab messengerModal={messengerModal} setMessengerModal={setMessengerModal}/>}
-      {messengerModal && <MessengerModal messengerModal={messengerModal} setMessengerModal={setMessengerModal}/>}
+      {/* {!messengerModal && <MessengerModalTab messengerModal={messengerModal} setMessengerModal={setMessengerModal}/>}
+      {messengerModal && <MessengerModal messengerModal={messengerModal} setMessengerModal={setMessengerModal}/>} */}
+      <MessengerModal />
     </div>
   );
 }
