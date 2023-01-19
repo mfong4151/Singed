@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchRestaurantsCoordinate } from "../../store/restaurant";
 import RestaurantCard from './RestaurantCard.jsx'
 
+
 export default function MainPageRestaurants() {
   const dispatch = useDispatch()
   const restaurants = useSelector(state => state.restaurants);
@@ -18,6 +19,8 @@ export default function MainPageRestaurants() {
       {Object.values(restaurants).map(restaurant => {
         return <RestaurantCard key={restaurant._id} restaurant={restaurant} />
       })}
+
+     
     </div>
   )
 }

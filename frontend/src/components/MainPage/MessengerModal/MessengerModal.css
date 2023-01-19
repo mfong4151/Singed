@@ -1,0 +1,29 @@
+.messenger-univ{
+
+    background-color: rgb(168, 104, 104);
+    width:400px;
+    position:fixed;
+    bottom:0px;
+    right:0px;
+    z-index:99;
+
+}
+
+
+#messenger-modal-tab{
+
+    height:40px;
+}
+
+
+
+/* design for messenger body  */
+
+#messenger-modal-left{
+    background-color: rgb(112, 76, 76);
+}
+
+#messenger-show-body{
+    height:800px;
+    overflow-y: scroll;
+}
