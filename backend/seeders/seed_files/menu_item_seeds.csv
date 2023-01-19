@@ -50,10 +50,10 @@ Fiocchi di pera,Egg pasta filled with robiola cheese and pear with gorgonzola an
 Napule' pizza,Fried pizza filled with Smoked Fior di latte mozzarella/ ricotta cheese/ tomato sauce/ italian salami/ black pepper,18,White Pizza,12,0.228/0.912/0.228/0.114/0.228,0/0/1/0,false/false/false,true/true/false,end
 Bistecca,black Angus rib-eye steak/ served with roasted potatoes,32,Entrees,12,0.228/0.912/0.228/0.114/0.228,0/0/1/0,false/false/false,false/false/false,end
 Eggplant Parmigiana,4 servings.Ready to bake.Traditional italian parmigiana made with layers of eggplant/ marinara sauce/ fresh basil/ Fior di Latte Mozzarella and Parmigiano Reggiano Cheese,54,Italian Specialty,12,0.228/0.912/0.228/0.114/0.228,0/0/1/0,false/false/false,false/true/false,end
-Trecciolina Salad,Fresh Organic arugula/ hearts of palm/ tomatoes/ shaved Parmigiano Reggiano cheese and mozzarella cheese in lemon avocado vinaigrette.,12,Salads,,0.171/0.683/0.171/0.085/0.683,0/0/1/0,false/false/false,false/false/true,end
+Trecciolina Salad,Fresh Organic arugula/ hearts of palm/ tomatoes/ shaved Parmigiano Reggiano cheese and mozzarella cheese in lemon avocado vinaigrette.,12,Salads,12,0.171/0.683/0.171/0.085/0.683,0/0/1/0,false/false/false,false/false/true,end
 Pear Salad,Fresh Organic Arugula/ Nectarine/ goat cheese and pumpkin seeds in lemon honey thyme dressing.,12,Salads,13,0.228/0.912/0.228/0.114/0.228,0/0/1/0,false/false/false,false/false/true,end
 Fried Calamari and Shrimp,Deep-fried calamari/ shrimp/ and fresh vegetables.,14,Small Plates,13,0.228/0.912/0.228/0.114/0.228,0/0/1/0,true/false/true,false/false/false,end
-Polpo alla Griglia,Grilled Mediterranean octopus served with arugula/ cherry tomato/ red onion/ with anchovies sauce.,16,Small Plates,13,0.228/0.912/0.228/0.114/0.228,0/0//,false/false/false,false/false/false,end
+Polpo alla Griglia,Grilled Mediterranean octopus served with arugula/ cherry tomato/ red onion/ with anchovies sauce.,16,Small Plates,13,0.228/0.912/0.228/0.114/0.228,0/0/1/0,false/false/false,false/false/false,end
 Wonton Soup,Seasend broth with filled wonton dumplings.,15.95,Soup,14,0.228/0.912/0.228/0.114/0.228,1/0/0/0,true/false/true,false/false/false,end
 Pork Dumplings with Sesame Sauce and Red Chili Oil,Spicy.,13.95,Boiled,14,0.169/0.676/0.169/0.676/0.169,1/0/0/0,false/false/false,true/false/false,end
 Pork Wonton,8 pieces.,12.95,Fried,14,0.228/0.912/0.228/0.114/0.228,1/0/0/0,false/false/false,true/false/false,end
