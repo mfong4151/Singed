@@ -1,7 +1,7 @@
 .messenger-univ{
 
     background-color: rgb(168, 104, 104);
-    width:400px;
+    width:500px;
     position:fixed;
     bottom:0px;
     right:0px;
@@ -19,11 +19,38 @@
 
 /* design for messenger body  */
 
-#messenger-modal-left{
-    background-color: rgb(112, 76, 76);
-}
+
 
 #messenger-show-body{
     height:800px;
     overflow-y: scroll;
 }
+
+.active-modal {
+    overflow:hidden;
+    overflow-y:scroll;
+}
+
+.modal-overlay{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    background-color: transparent;
+    transition: opacity 0.4s ease-in-out 0s;
+}
+
+#messenger-log{
+    width:27%;
+    background-color: rgb(112, 76, 76) ;
+    height:100%
+}
+
+#messenger-body{
+    width:73%;
+    height:100%;
+}
+
