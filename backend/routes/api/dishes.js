@@ -9,24 +9,27 @@ const Dish = mongoose.model('Dish');
 router.get('/', async (req, res) => {
     const userConstraintQuery = req.query;
     console.log(req.query);
-    const dishConstraints = {};
+    const allergiesConstraints = {};
+    const dietConstraints = {};
+
     for (let key in userConstraintQuery) {
         if (['fish', 'nuts', 'shellfish'].includes(key) && userConstraintQuery[key]=='true') {
-            dishConstraints[key] = false;
+            allergiesConstraints[key] = false;
         }
         if (['gluten', 'milk', 'vegan'].includes(key) && userConstraintQuery[key]=='true') {
-            dishConstraints[key] = true;
+            dietConstraints[key] = true;
         }
     }
 
-    console.log({...dishConstraints});
-    
+    console.log({...allergiesConstraints});
+    console.log({...dietConstraints});
+
     const dishes = await Dish.find({
         $and: [
             { $or: [{'allergies.2': false}] },
             { $or: [{'diet.2': true}] }
         ]
-    })
+    }).limit(12);
     res.status(200).json({dishes})
 })
 
