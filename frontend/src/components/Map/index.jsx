@@ -38,12 +38,10 @@ export function MapContainer({restaurants, center}) {
 
   const restaurantCardOnClick = (e, restaurant) => {
     e.preventDefault()
-    console.log(restaurant)
   }
 
   const mapOnClick = (e => {
-    console.log("lat = ", e.latLng.lat());
-    console.log("lng = ", e.latLng.lng());
+
     dispatch(restaurantActions.fetchRestaurantsCoordinate({lat: e.latLng.lat(), lng: e.latLng.lng()}))
   })
 

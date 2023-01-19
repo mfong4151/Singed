@@ -3,15 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css';
 import { logout } from '../../store/session';
 import singed from '../../assets/singed_name_light.png';
-import { useState } from 'react';
 import CommunityModal from './CommunityModal/CommunityModal';
 import {FiMenu} from 'react-icons/fi'
-import {openCommunityModal, closeCommunityModal} from './CommunityModal/CommunityModal.jsx'
+import {openCommunityModal} from './CommunityModal/CommunityModal.jsx'
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
-  // const [communityModal, setCommunityModal] = useState(false)
 
 
   const logoutUser = e => {
@@ -34,9 +32,7 @@ function NavBar () {
             <Link to={'/foods/new'}>Write a Foods</Link>
             <Link to={'/allergies_diet'}>Allergies and Diet</Link>
             <Link to={'/dish_survey'}>Dish Survey</Link>
-            {/* <button onClick={logoutUser}>Logout</button> */}
           </div>
-          {/* {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>} */}
           <CommunityModal />
         </div>
       );
@@ -56,8 +52,6 @@ function NavBar () {
             <Link to={'/login'}><button>Login</button></Link>
           </div>
         
-        {/* {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>} */}
-        {/* <CommunityModal /> */}
         </div>
       );
     }

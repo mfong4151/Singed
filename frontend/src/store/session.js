@@ -32,7 +32,6 @@ export const signup = user => startSession(user, 'api/users/register');
 export const login = user => startSession(user, 'api/users/login');
 
 const startSession = (userInfo, route) => async dispatch => {
-  console.log(userInfo, route)
   try {
     const res = await jwtFetch(route, {
       method: "POST",
@@ -86,7 +85,6 @@ export const sessionErrorsReducer = (state = nullErrors, action) => {
 
   export const getCurrentUser = () => async dispatch => {
     const res = await jwtFetch('/api/users/current');
-    console.log(res)
     const user = await res.json();
     return dispatch(receiveCurrentUser(user));
   };
