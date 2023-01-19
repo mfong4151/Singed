@@ -32,6 +32,7 @@ function App() {
         <ProtectedRoute exact path="/allergies_diet" component={AllergiesDietForm}/>
         <ProtectedRoute exact path="/dish_survey" component={SurveyForm}/>
         <Route exact path="/map" component={Map}/>
+        <Route exact path="/groups/:groupId" component={MainPage} />
         {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
       </Switch>
       <Footer />

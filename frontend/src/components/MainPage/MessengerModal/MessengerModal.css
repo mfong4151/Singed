@@ -1,0 +1,145 @@
+.messenger-univ{
+
+    background-color: rgb(168, 104, 104);
+    width:700px;
+    position:fixed;
+    bottom:0px;
+    right:0px;
+    z-index:99;
+
+}
+
+
+#messenger-modal-tab{
+
+    height:40px;
+}
+
+
+
+/* design for messenger body  */
+
+
+
+#messenger-show-body{
+    height:800px;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: space-between;
+}
+
+.active-modal {
+    overflow:hidden;
+    overflow-y:scroll;
+}
+
+.modal-overlay{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    background-color: transparent;
+    transition: opacity 0.4s ease-in-out 0s;
+}
+
+#my-chatrooms{
+    width:27%;
+    background-color: rgb(112, 76, 76) ;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+
+}
+
+
+
+
+
+.add-to-chatroom{
+    padding-top: 2rem;
+    width:100%;
+    height:10px;
+}
+
+#messenger-body{
+    width:73%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    
+}
+
+.messenger-body-scroll{
+    width:100%;
+
+}
+
+#messenger-style-boarder{
+    border-top: 4px solid black
+}
+
+
+
+.channel-message{
+
+
+}
+
+.user-message{
+
+}
+
+.message-container{
+
+
+}
+
+.message-info{
+
+}
+
+.message-username{
+
+}
+
+.message-date{
+
+}
+
+.logo-icon{
+
+}
+
+.message-content{
+
+}
+
+.className{
+
+
+}
+
+.message-form-container{
+    width:100%;
+    padding-bottom:.2rem;
+}
+
+.message-form{
+    width:100%;
+}
+
+.message-form input {
+    background-color: transparent;
+    border: none;
+    appearance: none;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.375rem;
+    width: 100%;
+    height: 44px;
+}
