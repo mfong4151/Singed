@@ -1,16 +1,16 @@
-name:string,address:string,rating:number,city:string,state_code:string,longitude:number,latitude:number,cuisine_type:string
-21 Taste House,"1109 Ocean Ave, San Francisco, CA 94112, United States",4.3,San Francisco,CA,-122.4544376,37.7233872,asian
-BOTTEGA,"1132 Valencia St, San Francisco, CA 94110, United States",4.4,San Francisco,CA,-122.4211945,37.7547152,european
-Burger Joint,"806 S Airport Blvd, San Francisco, CA 94128, United States",3.8,San Francisco,CA,-122.3816145,37.6177257,american
-Burrito Loco,"850 Ulloa St, San Francisco, CA 94127, United States",4.5,San Francisco,CA,-122.4655902,37.7409158,mexican
-Cafe de Casa,"3985 17th St, San Francisco, CA 94114, United States",4.7,San Francisco,CA,-122.4348101,37.7623385,american
-Cafe Tiramisu,"28 Belden Pl, San Francisco, CA 94104, United States",4.3,San Francisco,CA,-122.403641,37.791213,american
-Casa Mexicana,"3917 24th St, San Francisco, CA 94114, United States",4.4,San Francisco,CA,-122.4301562,37.7513321,mexican
-Cesario's,"601 Sutter St, San Francisco, CA 94102, United States",4.2,San Francisco,CA,-122.4105083,37.7888853,european
-Chaiya Thai Restaurant,"272 Claremont Blvd, San Francisco, CA 94127, United States",4.3,San Francisco,CA,-122.4651024,37.7410867,asian
-Crossroad Pizzeria,"1596 Market St, San Francisco, CA 94102, United States",4.6,San Francisco,CA,-122.4206809,37.7744592,american
-Domo,"511 Laguna St, San Francisco, CA 94102, United States",4.4,San Francisco,CA,-122.4262943,37.7758879,asian
-Doppio Zero San Francisco,"395 Hayes St, San Francisco, CA 94102, United States",4.4,San Francisco,CA,-122.4227688,37.7767846,european
-Dumpling Home,"298 Gough St, San Francisco, CA 94102, United States",4.5,San Francisco,CA,-122.4226361,37.7758205,asian
-Pho Ha Tien,"1900 Ocean Ave, San Francisco, CA 94127, United States",4.1,San Francisco,CA,-122.4622038,37.725428,asian
-Tacolicious,"741 Valencia St, San Francisco, CA 94110, United States",4.4,San Francisco,CA,-122.4213678,37.7609638,mexican
+name:string,address:string,rating:number,city:string,state_code:string,longitude:number,latitude:number,cuisine_type:string,end
+21 Taste House,1109 Ocean Ave/ San Francisco/ CA 94112/ United States,4.3,San Francisco,CA,-122.4544376,37.7233872,asian,end
+BOTTEGA,1132 Valencia St/ San Francisco/ CA 94110/ United States,4.4,San Francisco,CA,-122.4211945,37.7547152,european,end
+Burger Joint,806 S Airport Blvd/ San Francisco/ CA 94128/ United States,3.8,San Francisco,CA,-122.3816145,37.6177257,american,end
+Burrito Loco,850 Ulloa St/ San Francisco/ CA 94127/ United States,4.5,San Francisco,CA,-122.4655902,37.7409158,mexican,end
+Cafe de Casa,3985 17th St/ San Francisco/ CA 94114/ United States,4.7,San Francisco,CA,-122.4348101,37.7623385,american,end
+Cafe Tiramisu,28 Belden Pl/ San Francisco/ CA 94104/ United States,4.3,San Francisco,CA,-122.403641,37.791213,american,end
+Casa Mexicana,3917 24th St/ San Francisco/ CA 94114/ United States,4.4,San Francisco,CA,-122.4301562,37.7513321,mexican,end
+Cesario's,601 Sutter St/ San Francisco/ CA 94102/ United States,4.2,San Francisco,CA,-122.4105083,37.7888853,european,end
+Chaiya Thai Restaurant,272 Claremont Blvd/ San Francisco/ CA 94127/ United States,4.3,San Francisco,CA,-122.4651024,37.7410867,asian,end
+Crossroad Pizzeria,1596 Market St/ San Francisco/ CA 94102/ United States,4.6,San Francisco,CA,-122.4206809,37.7744592,american,end
+Domo,511 Laguna St/ San Francisco/ CA 94102/ United States,4.4,San Francisco,CA,-122.4262943,37.7758879,asian,end
+Doppio Zero San Francisco,395 Hayes St/ San Francisco/ CA 94102/ United States,4.4,San Francisco,CA,-122.4227688,37.7767846,european,end
+Dumpling Home,298 Gough St/ San Francisco/ CA 94102/ United States,4.5,San Francisco,CA,-122.4226361,37.7758205,asian,end
+Pho Ha Tien,1900 Ocean Ave/ San Francisco/ CA 94127/ United States,4.1,San Francisco,CA,-122.4622038,37.725428,asian,end
+Tacolicious,741 Valencia St/ San Francisco/ CA 94110/ United States,4.4,San Francisco,CA,-122.4213678,37.7609638,mexican,end
