@@ -9,6 +9,10 @@
 html{
   background-color: rgb(251, 241, 229);
 }
+.root{
+  position: relative;
+  min-height: 100vh;
+}
 .root > *{
   margin-top: 50px; /* workaround for navbar. gets overwritten for navbar*/
   /* padding-bottom: 50px; */
