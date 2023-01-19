@@ -20,54 +20,66 @@ const removeDish = (dishId) => ({
   payload: dishId
 })
 
-export const fetchDishes = ({constraints}) => async dispatch => {
-    const res = await jwtFetch('/api/dishes');
-    if(res.ok){
-        const data = await res.json();
-        dispatch(receiveDishes(data))
-    }
+export const fetchSurveyDishes = ({allergies, diet}) => async dispatch => {
+  const [fish, nuts, shellfish] = allergies;
+  const [gluten, milk, vegan] = diet;
+  const params = new URLSearchParams({fish, nuts, shellfish, gluten, milk, vegan})
+
+  const res = await jwtFetch('/api/dishes?'+params);
+  if(res.ok){
+    const data = await res.json();
+    dispatch(receiveDishes(data))
+  }
+};
+
+export const fetchDishes = () => async dispatch => {
+  const res = await jwtFetch('/api/dishes');
+  if(res.ok){
+    const data = await res.json();
+    dispatch(receiveDishes(data))
+  }
 };
 
 export const fetchDish = (id) => async dispatch => {
-    const res = await jwtFetch(`/api/dishes/${id}`);
-    if(res.ok){
-        const data = await res.json();
-        dispatch(receiveDish(data))
-    }
+  const res = await jwtFetch(`/api/dishes/${id}`);
+  if(res.ok){
+    const data = await res.json();
+    dispatch(receiveDish(data))
+  }
 }
 
 export const deleteDish = (dishId) => async dispatch => {
-    const res = await jwtFetch(`/api/dishes/${dishId}`, {
-        method: "DELETE"
-    })
-    if(res.ok){
-        dispatch(removeDish(dishId))
-    }
+  const res = await jwtFetch(`/api/dishes/${dishId}`, {
+    method: "DELETE"
+  })
+  if(res.ok){
+    dispatch(removeDish(dishId))
+  }
 }
 
 export const clearDishes = () => ({
-    type: CLEAR_DISHES
+  type: CLEAR_DISHES
 })
 
 const initialState = {
-    dishes: undefined
+  dishes: undefined
 }
 
 const dishReducer = (state = initialState, action) => {
-    switch(action.type){
-        case RECEIVE_DISHES:
-            return {...action.payload}
-        case RECEIVE_DISH:
-            return {...state, [action.payload._id]: action.payload};
-        case REMOVE_DISH:
-            const newState = {...state}
-            delete newState[action.payload]
-            return newState
-        case CLEAR_DISHES:
-            return initialState
-        default:
-            return state
-    }
+  switch(action.type){
+    case RECEIVE_DISHES:
+      return {...action.payload}
+    case RECEIVE_DISH:
+      return {...state, [action.payload._id]: action.payload};
+    case REMOVE_DISH:
+      const newState = {...state}
+      delete newState[action.payload]
+      return newState
+    case CLEAR_DISHES:
+      return initialState
+    default:
+      return state
+  }
 }
 
 export default dishReducer;

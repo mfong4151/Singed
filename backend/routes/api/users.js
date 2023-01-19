@@ -14,7 +14,7 @@ const FriendRequest = require('../../models/FriendRequest');
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
   const user = await User.findOne()
-  res.json({'user': user });
+  res.json({user});
 });
 
 
@@ -73,6 +73,7 @@ router.post('/login', validateLoginInput, async (req, res, next) => {
       err.errors = { email: "Invalid credentials" };
       return next(err);
     }
+    console.log(user);
     return res.json(await loginUser(user)); // <-- THIS IS THE CHANGED LINE
   })(req, res, next);
 });
@@ -87,11 +88,10 @@ router.get('/current', restoreUser, (req, res) => {
     const csrfToken = req.csrfToken();
     res.cookie("CSRF-TOKEN", csrfToken);
   }
-  if (!req.user) return res.json(null);
+  console.log("/current", req.user);
+  if (!req.user) return res.json({'user': null});
   const user = req.user;
-  res.json(
-    {'user': user}
-  );
+  res.status(200).json({user});
 });
 
 router.get('/:id', async (req, res) => {
@@ -107,7 +107,7 @@ router.get('/:id', async (req, res) => {
     return res.status(404).json({error: 'No such user found'})
   }
 
-  res.status(200).json(user)
+  res.status(200).json({user})
 });
 
 router.patch('/:id', async (req, res)=>{
@@ -121,7 +121,7 @@ router.patch('/:id', async (req, res)=>{
   if(!user){
     return res.status(404).json({error: 'No such user found'})
   }
-  res.status(200).json(user)
+  res.status(200).json({user})
 })
 
 // Send friend request

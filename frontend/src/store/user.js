@@ -10,12 +10,12 @@ const receiveUser = (user) => ({
 })
 
 const receiveUsers = (users) => ({
-    type: RECEIVE_USERS, 
+    type: RECEIVE_USERS,
     payload: users
 })
 
 const removeUser = (userId) => ({
-    type: REMOVE_USER, 
+    type: REMOVE_USER,
     payload: userId
 })
 
@@ -23,7 +23,7 @@ export const fetchUser = (userId) => async dispatch => {
     const res = await jwtFetch(`/api/users/${userId}`)
     if(res.ok){
         const data = await res.json();
-        dispatch(receiveUser(data))
+        dispatch(receiveUser(data.payload))
     }
 }
 
@@ -34,7 +34,7 @@ export const updateUser = (user) => async dispatch => {
     })
     if (res.ok){
         const data = await res.json();
-        dispatch(receiveUser(data))
+        dispatch(receiveUser(data.payload))
     }
 }
 
@@ -42,7 +42,7 @@ const userReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_USERS:
             return {...action.payload}
-        case RECEIVE_USER: 
+        case RECEIVE_USER:
             return {...state, [action.payload._id]: action.payload};
         case REMOVE_USER:
             const newState = {...state}

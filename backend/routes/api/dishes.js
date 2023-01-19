@@ -6,13 +6,14 @@ const Dish = mongoose.model('Dish');
 
 // Get all dishes
 router.get('/', async (req, res) => {
+    console.log(req.params);
     const dishes = await Dish.find({})
 
-    res.status(200).json(dishes)
+    res.status(200).json({dishes})
 })
 
 
-// Get a single dish 
+// Get a single dish
 router.get('/:id', async (req, res) => {
     const { id } = req.params
 
@@ -26,7 +27,7 @@ router.get('/:id', async (req, res) => {
         return res.status(404).json({error: 'No such dish found'})
     }
 
-    res.status(200).json(dish)
+    res.status(200).json({dish})
 })
 
 // remove a single dish
@@ -43,7 +44,7 @@ router.delete('/:id', async (req, res) => {
         return res.status(404).json({error: 'No such dish found'})
     }
 
-    res.status(200).json(dish)
+    res.status(200).json({dish})
 })
 
 module.exports = router;

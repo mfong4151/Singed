@@ -12,14 +12,14 @@ router.get('/map', async (req, res, next) => {
   try {
     let lat = req.query.lat
     let lng = req.query.lng
-    console.log(lat, lng);
+    // console.log(lat, lng);
     if (!lat || !lng) {
       const restaurants = await Restaurant.find();
-      res.json({'restaurants': restaurants});
+      res.json({restaurants});
     } else {
-      console.log('lng', lng-0.0004, lng-(-0.0004));
-      console.log('lat', lat-0.0004, lat-(-0.0004));
-      console.log(-122.413709 > lng-0.04, -122.413709 < lng-(-0.04))
+      // console.log('lng', lng-0.0004, lng-(-0.0004));
+      // console.log('lat', lat-0.0004, lat-(-0.0004));
+      // console.log(-122.413709 > lng-0.04, -122.413709 < lng-(-0.04))
       const restaurants = await Restaurant.find({
         longitude: {
           $gt: lng-0.04,
@@ -37,8 +37,8 @@ router.get('/map', async (req, res, next) => {
       // .limit(10).exec();
 
       // const restaurants = await Restaurant.find();
-      console.log(restaurants);
-      res.json({'restaurants': restaurants});
+      // console.log(restaurants);
+      res.json({restaurants});
     }
   } catch (err) {
     res.status(500).json({message: err.message})
