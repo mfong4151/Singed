@@ -1,18 +1,32 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { fetchDish, fetchDishes } from "../../store/dish";
+import { fetchDishes, fetchSurveyDishes } from "../../store/dish";
 import './SurveyForm.css'
 
 function SurveyForm () {
     const dispatch = useDispatch();
     const dishes = useSelector((store) => store.dishes)
-    const sessionUser = useSelector((store) => store.session.user)
+    const sessionUser = useSelector(state => state.session.user)
     const [prefernce, setPrefernce] = useState("")
     const history = useHistory();
 
+    if (dishes) {
+        console.log(dishes);
+        // console.log(Object.values(dishes).dishes.length)
+        console.log("in dish")
+        console.log(Object.values(dishes).length)
+    }
     useEffect(() => {
-        dispatch(fetchDishes({}))
+        if (sessionUser) {
+            const constraints = {
+                allergies: sessionUser.allergies,
+                diet: sessionUser.diet
+            }
+            dispatch(fetchSurveyDishes(constraints))
+            // dispatch(fetchDishes(constraints))
+
+        }
     }, [dispatch])
 
     const handleSubmit = (e) => {
@@ -23,19 +37,24 @@ function SurveyForm () {
         <div className="dish-survey-container">
             <div className="dish-form-container">
                 <h1>Which dishes do you like?</h1>
+                <h2>We recommend these food based on your profile.</h2>
+                <h2>Allergic to: {JSON.stringify(sessionUser.allergies)}</h2>
+                <h2>Diet preference: {JSON.stringify(sessionUser.diet)}</h2>
                 <form onSubmit={handleSubmit} className="dishes-form-grid">
                     <div className="dishes-form-grid-inputs">
-                        {Object.values(dishes)?.map((dish) => (
-                            <div className="dish-item" key={dish?._id} >
+                        {Object.values(dishes).length>1 && Object.values(dishes).map((dish) => (
+                            <div className="dish-item" key={dish._id} >
                                 <input
-                                    type="checkbox" id={`dish-survey-${dish?.name}`}
+                                    type="checkbox" id={`dish-survey-${dish.name}`}
                                     checked={prefernce}
                                     onChange={(e) => {setPrefernce(e.target.checked)}} />
-                                <label for={`dish-survey-${dish?.name}`}>
-                                    <p>{dish?.name}</p>
+                                <label for={`dish-survey-${dish.name}`}>
+                                    <p>{dish.name}</p>
+                                    <p>allergies: {JSON.stringify(dish.allergies)}</p>
+                                    <p>diet: {JSON.stringify(dish.diet)}</p>
                                     <img
-                                        src={dish?.imageUrl}
-                                        alt={`${dish?.name}-img`}
+                                        src={dish.imageUrl}
+                                        alt={`${dish.name}-img`}
                                         className="dish-image"/>
                                 </label>
                             </div>

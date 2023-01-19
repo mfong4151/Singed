@@ -43,7 +43,7 @@ groups.push(
   new Group({
     name: 'test group',
     flavorProfile: [5,5,5,5,5],
-    genre: [5,5,5,5],
+    genre: [1,0,0,0],
     allergies: [true, false, true],
     diet: [true, true, false],
     userIds: [users[0]._id, users[1]._id]
