@@ -14,6 +14,10 @@
   margin-top: 0px !important;
 }
 
+.navbar-left {
+  cursor: pointer;
+}
+
 .navbar > *{
   margin-right: 10px;
   margin-left: 10px;
