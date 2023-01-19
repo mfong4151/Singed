@@ -12,6 +12,8 @@ require('./models/User');
 require('./models/Group');
 require('./models/Dish');
 require('./models/Restaurant');
+require('./models/Message');
+require('./models/FriendRequest');
 require('./config/passport');
 
 const passport = require('passport');
@@ -19,6 +21,9 @@ const app = express();
 
 const usersRouter = require('./routes/api/users');
 const csrfRouter = require('./routes/api/csrf');
+const messagesRouter = require('./routes/api/messages');
+const restaurantRouter = require('./routes/api/restaurants');
+const groupsRouter = require('./routes/api/groups');
 
 
 
@@ -49,6 +54,9 @@ app.use(passport.initialize());
 
 app.use('/api/users', usersRouter);
 app.use('/api/csrf', csrfRouter);
+app.use('/api/groups', groupsRouter);
+app.use('/api/messages', messagesRouter);
+app.use('/app/restaurants', restaurantRouter)
 
 
 

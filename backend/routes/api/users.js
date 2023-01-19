@@ -8,6 +8,7 @@ const { loginUser, restoreUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
 const validateRegisterInput = require('../../validations/register');
 const validateLoginInput = require('../../validations/login');
+const FriendRequest = require('../../models/FriendRequest');
 
 
 /* GET users listing. */
@@ -92,5 +93,131 @@ router.get('/current', restoreUser, (req, res) => {
     email: req.user.email
   });
 });
+
+router.get('/:id', async (req, res) => {
+  const { id } = req.params
+
+  if (!mongoose.Types.ObjectId.isValid(id)){
+      return res.status(404).json({error: 'No such user found'})
+  }
+
+  const user = await User.findById(id)
+
+  if(!user){
+      return res.status(404).json({error: 'No such user found'})
+  }
+
+  res.status(200).json(user)
+});
+
+router.patch('/:id', async (req, res)=>{
+  const { id } = req.params
+  if (!mongoose.Types.ObjectId.isValid(id)){
+      return res.status(404).json({error: 'No such user found'})
+  }
+  const user = await User.findByIdAndUpdate({_id: id}, {
+      ...req.body
+  })
+  if(!user){
+      return res.status(404).json({error: 'No such user found'})
+  }
+  res.status(200).json(user)
+})
+
+// Send friend request
+router.post('/sendfriendrequest', async (req, res) => {
+  const {userId} = req.body.sender;
+  const {recipientId} = req.body.recipient;
+
+  const foundFriendRequest = await FriendRequest.findOne({
+    sender: userId,
+    recipient: recipientId,
+  });
+  if (foundFriendRequest) {
+    return res.status(400).send();
+  }
+
+  const newFriendRequest = new FriendRequest({
+    sender: userId,
+    recipient: recipientId,
+    status: 'pending',
+  });
+
+  newFriendRequest
+    .save()
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+});
+
+// get friend requests of current user
+router.get('/getfriendrequests/:id', async (req, res) => {
+  const requests = await FriendRequest.find({
+    recipient: req.params._id,
+  });
+  res.status(200).send(requests);
+});
+
+router.post('/acceptfriendrequest', auth, async (req, res) => {
+  const recipientId = req.body.recipient;
+  // this line is probably wrong, the recipient now is the current user
+  const senderId = req.body.sender;
+  const updatedSender = await User.findOneAndUpdate(
+    { _id: senderId, friendList: { $nin: [recipientId] } },
+    { $push: { friendList: recipientId } },
+    { new: true }
+  );
+  const updatedRecipient = await User.findOneAndUpdate(
+    { _id: recipientId, friendList: { $nin: [senderId] } },
+    {
+      $push: { friendList: senderId },
+    },
+    { new: true }
+  );
+  if (updatedRecipient) {
+    const updatedFriendRequest = await FriendRequest.findOneAndUpdate(
+      {
+        sender: senderId,
+        recipient: recipientId,
+      },
+      {
+        $set: { status: 'accepted' },
+        $push: { friendshipParticipants: [senderId, recipientId] },
+      },
+      { new: true }
+    );
+
+    const updatedRequests = await FriendRequest.find({
+      recipient: recipientId,
+      status: 'pending',
+    });
+    res.status(200).send({
+      updatedRequests: updatedRequests,
+      updatedUserFriendList: updatedRecipient.friendList,
+    });
+  }
+});
+
+router.post('/rejectfriendrequest', auth, async (req, res) => {
+  const recipientId = req.body.recipient;
+  const senderId = req.body.sender;
+  const deletedFriendRequest = await FriendRequest.findOneAndDelete({
+    sender: senderId,
+    recipient: recipientId,
+  });
+
+  const updatedRequests = await FriendRequest.find({
+    recipient: recipientId,
+    status: 'pending',
+  });
+
+  res.status(200).send({
+    updatedRequests: updatedRequests,
+  });
+});
+
 
 module.exports = router;
