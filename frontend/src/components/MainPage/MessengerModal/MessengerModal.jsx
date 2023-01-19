@@ -1,7 +1,18 @@
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from 'react'
 import MessageForm from './MessegeForm'
 import {useSelector} from 'react-redux';
 import { RxDoubleArrowUp, RxDoubleArrowDown } from "react-icons/rx";
+import { useParams } from 'react-router-dom';
+
+const useChatScroll = (dep) => {
+  const ref = useRef(null);
+  useEffect(() => {
+    if(ref.current){
+      ref.current.scrollTop = ref.current.scrollHeight;
+    }
+  }, [dep])
+  return ref
+}
 
 export const openMessengerModal = () => {
   document.getElementById("modal-overlay-chat").style.height = "100vw";
@@ -25,8 +36,8 @@ export const closeMessengerModal = () => {
 }
 
 const MessengerModal = () => {
-
-  // const chats = useSelector(state => state)
+  const {groupId} = useParams();
+  const group = useSelector((store) => store.groups[groupId])
       
   // if (messengerModal) document.body.classList.add('active-modal')
   // else document.body.classList.remove('active-modal')
