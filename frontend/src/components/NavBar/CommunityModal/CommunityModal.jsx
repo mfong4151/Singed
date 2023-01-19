@@ -41,7 +41,7 @@ const CommunityModal = () => {
 
     const sessionUser = useSelector((store) => store.session.user);
     //get rid of this once we have an actual friends list selector going 
-    const friendsList = ['Ricky', 'Tammy', 'Juan', 'McDonalds','Fuck ruby']
+    const friendsList = ['Ricky', 'Tammy', 'Juan', 'McDonalds','McNoodles']
     useEffect(()=>{
         
     }, [dispatch])
@@ -57,7 +57,10 @@ const CommunityModal = () => {
                         <div className="modal-profile-content">
                             <h2>{sessionUser.username}</h2>
                         </div>
-                        <SearchBar/>
+                        <div>
+                            <SearchBar/>
+                            <button>Add To Group </button>
+                        </div>                        
                         <ul>
                             {friendsList.map((friend, idx) =>
                                 <FriendsListItem friend={friend} key={idx}/>

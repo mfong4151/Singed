@@ -17,7 +17,6 @@ const FriendsListItem = ({friend}) => {
         </div>
 
           {friend}
-          <button className="friendslist-item-button">Add to group</button>
 
           <button className="friendslist-item-button">+</button>
           <button className="friendslist-item-button">-</button>
