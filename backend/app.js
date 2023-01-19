@@ -24,6 +24,7 @@ const csrfRouter = require('./routes/api/csrf');
 const messagesRouter = require('./routes/api/messages');
 const restaurantRouter = require('./routes/api/restaurants');
 const groupsRouter = require('./routes/api/groups');
+const dishesRouter = require('./routes/api/dishes');
 
 
 
@@ -56,7 +57,8 @@ app.use('/api/users', usersRouter);
 app.use('/api/csrf', csrfRouter);
 app.use('/api/groups', groupsRouter);
 app.use('/api/messages', messagesRouter);
-app.use('/app/restaurants', restaurantRouter)
+app.use('/api/restaurants', restaurantRouter);
+app.use('/api/dishes', dishesRouter);
 
 
 

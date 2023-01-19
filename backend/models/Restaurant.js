@@ -12,7 +12,7 @@ const restaurantSchema = Schema(
       required: true
     },
     rating: {
-      type: mongoose.Types.Decimal128,
+      type: Number,
       required: true
     },
     city: {
@@ -24,11 +24,11 @@ const restaurantSchema = Schema(
       required: true
     },
     longitude: {
-      type: mongoose.Types.Decimal128,
+      type: Number,
       required: true
     },
     latitude: {
-      type: mongoose.Types.Decimal128,
+      type: Number,
       required: true
     },
     cuisine_type: {

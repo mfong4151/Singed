@@ -5,13 +5,17 @@ import errors from './errors';
 import restaurants from './restaurant';
 import users from './user'
 import dishes from './dish';
+import messages from './message';
+import groups from './group';
 
 const rootReducer = combineReducers({
   session,
   errors,
   restaurants,
   users,
-  dishes
+  dishes,
+  messages,
+  groups
 });
 
 let enhancer;

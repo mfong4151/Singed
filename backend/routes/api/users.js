@@ -163,7 +163,7 @@ router.get('/getfriendrequests/:id', async (req, res) => {
   res.status(200).send(requests);
 });
 
-router.post('/acceptfriendrequest', auth, async (req, res) => {
+router.post('/acceptfriendrequest', async (req, res) => {
   const recipientId = req.body.recipient;
   // this line is probably wrong, the recipient now is the current user
   const senderId = req.body.sender;
@@ -203,7 +203,7 @@ router.post('/acceptfriendrequest', auth, async (req, res) => {
   }
 });
 
-router.post('/rejectfriendrequest', auth, async (req, res) => {
+router.post('/rejectfriendrequest', async (req, res) => {
   const recipientId = req.body.recipient;
   const senderId = req.body.sender;
   const deletedFriendRequest = await FriendRequest.findOneAndDelete({
