@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { fetchDish, fetchDishes } from "../../store/dish";
 import './SurveyForm.css'
+
 function SurveyForm () {
     const dispatch = useDispatch();
     const dishes = useSelector((store) => store.dishes)
     const sessionUser = useSelector((store) => store.session.user)
     const [prefernce, setPrefernce] = useState("")
-
+    const history = useHistory()
     useEffect(() => {
         dispatch(fetchDishes())
     }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        history.push('/')
     }
     return(
         <>

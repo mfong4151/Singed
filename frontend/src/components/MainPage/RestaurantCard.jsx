@@ -1,5 +1,4 @@
 export default function RestaurantCard({restaurant}) {
-  console.log(restaurant)
   return (
     <div className="restaurant-container">
       <div className="restaurant-img">

@@ -26,11 +26,11 @@ function App() {
     <>
       <NavBar />
       <Switch >
-        <AuthRoute exact path="/" component={MainPage} />
-        <AuthRoute exact path="/login" component={LoginForm} />
-        <AuthRoute exact path="/signup" component={SignupForm} />
-        <Route exact path="/allergies_diet" component={AllergiesDietForm}/>
-        <Route exact path="/dish_survey" component={SurveyForm}/>
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/login" component={LoginForm} />
+        <Route exact path="/signup" component={SignupForm} />
+        <ProtectedRoute exact path="/allergies_diet" component={AllergiesDietForm}/>
+        <ProtectedRoute exact path="/dish_survey" component={SurveyForm}/>
         <Route exact path="/map" component={Map}/>
         {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
       </Switch>

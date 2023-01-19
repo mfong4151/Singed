@@ -30,16 +30,16 @@
   height: 26px;
   width: 100%;
   border: solid 1.5px #D3D3D3;
-  -webkit-transition: 1s; 
+  -webkit-transition: 1s;
   transition: 1s;
   margin-top: 2px;
 }
-.session-form h2{
+/* .session-form h2{ */
   /* margin-left: auto;
   margin-right: auto; */
   /* margin-left: 30%;
   margin-right: 10%; */
-}
+/* } */
 
 .session-form  input:hover{
   box-shadow: 0 0 5pt 0.5pt #c5c5c5;

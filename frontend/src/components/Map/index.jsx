@@ -20,7 +20,6 @@ export default function Map() {
 }
 
 export function RestaurantCard({restaurant, onClick}) {
-  console.log(restaurant.rating)
   return (
     <div className="map-price-card cursor" onClick={onClick}>
       <p>Star: {restaurant.rating}</p>
