@@ -2,7 +2,7 @@ import React from 'react'
 import MessageForm from './MessegeForm'
 import {useSelector} from 'react-redux';
 
-export const openCommunityModal = () => {
+export const openMessengerModal = () => {
 
   document.getElementById("modal-overlay").style.width = "100vw";
   document.getElementById("messenger-show-body").style.width = "250px";
@@ -14,13 +14,14 @@ export const openCommunityModal = () => {
       children[i].style.display = "inline";
   }
 }
-export const closeCommunityModal = () => {
-  document.getElementById("modal-overlay").style.width = "0";
+export const closeMessengerModal = () => {
+  document.getElementById("modal-overlay-chat").style.width = "0";
   document.getElementById("messenger-show-body").style.width = "0";
   document.getElementById("messenger-show-body").style.padding = "0";
   let children = document.querySelectorAll('#messenger-show-body > *');
   for (let i = 0; i < children.length; i++) {
       children[i].style.display = "none";
+      console.log('hello')
   }
 }
 
@@ -31,27 +32,23 @@ const MessengerModal = ({messengerModal, setMessengerModal}) => {
   // if (messengerModal) document.body.classList.add('active-modal')
   // else document.body.classList.remove('active-modal')
 
-  
 
   return (
         <div>
-            <div id='modal-overlay-chat' onClick={()=>setMessengerModal(!messengerModal)}>
+            {/* <div id='modal-overlay-chat' onClick={()=>setMessengerModal(!messengerModal)}> */}
+            <div id='modal-overlay-chat' onClick={closeMessengerModal}>
+
                 <div className='messenger-univ' id='messenger-show-body' onClick={e => e.stopPropagation()}>
                   <div id="my-chatrooms">
-                    
                       {/* <ul>
                         {
                           Object.values(chats).map((chat, idx) =>(
                             <li id="chatroom" key={idx}>{chat}</li>
-
                           ))
                         }
-
                       </ul> */}
-
                   </div>
                   <div id='messenger-body'>
-
                     <ul className="message-body-scroll">
                       {/* {
                         Object.values(messages)?.map((message) => {
@@ -76,6 +73,7 @@ const MessengerModal = ({messengerModal, setMessengerModal}) => {
                     </ul>
                     <MessageForm/>
                   </div>
+
                </div>
         </div>
     </div>
