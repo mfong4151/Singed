@@ -58,9 +58,9 @@ const dishes = easySeeds.formatSeeds(`./${dishRelativePath}`)
 // const restaurants = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/${dishRelativePath}`))
 
 // Create restaurants
-const restaurantRelativePath = 'seed_files/restaurant_seeds.csv'
-// local
+const restaurantRelativePath = 'seed_files/restaurant_seeds.csv' // local
 const restaurants = easySeeds.formatSeeds(`./${restaurantRelativePath}`)
+
 
 // render
 // const restaurants = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/${restaurantRelativePath}`))
