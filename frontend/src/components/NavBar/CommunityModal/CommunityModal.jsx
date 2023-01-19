@@ -41,7 +41,7 @@ const CommunityModal = () => {
 
     const sessionUser = useSelector((store) => store.session.user);
     //get rid of this once we have an actual friends list selector going 
-    const friendsList = ['Ricky', 'Tammy', 'Juan', 'McDonalds','Fuck ruby']
+    const friendsList = ['Ricky', 'Tammy', 'Juan', 'McDonalds','Stuff']
     useEffect(()=>{
         
     }, [dispatch])
