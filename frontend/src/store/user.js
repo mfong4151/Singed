@@ -23,7 +23,7 @@ export const fetchUser = (userId) => async dispatch => {
     const res = await jwtFetch(`/api/users/${userId}`)
     if(res.ok){
         const data = await res.json();
-        dispatch(receiveUser(data.payload))
+        dispatch(receiveUser(data.user))
     }
 }
 

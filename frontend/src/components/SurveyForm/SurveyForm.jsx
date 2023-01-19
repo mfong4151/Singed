@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { fetchSurveyDishes } from "../../store/dish";
+import { fetchDishes, fetchSurveyDishes } from "../../store/dish";
 import './SurveyForm.css'
 
 function SurveyForm () {
@@ -13,8 +13,9 @@ function SurveyForm () {
 
     if (dishes) {
         console.log(dishes);
-        console.log(Object.values(dishes).length)
+        // console.log(Object.values(dishes).dishes.length)
         console.log("in dish")
+        console.log(Object.values(dishes).length)
     }
     useEffect(() => {
         if (sessionUser) {
@@ -23,6 +24,8 @@ function SurveyForm () {
                 diet: sessionUser.diet
             }
             dispatch(fetchSurveyDishes(constraints))
+            // dispatch(fetchDishes(constraints))
+
         }
     }, [dispatch])
 
@@ -34,6 +37,9 @@ function SurveyForm () {
         <div className="dish-survey-container">
             <div className="dish-form-container">
                 <h1>Which dishes do you like?</h1>
+                <h2>We recommend these food based on your profile.</h2>
+                <h2>Allergic to: {JSON.stringify(sessionUser.allergies)}</h2>
+                <h2>Diet preference: {JSON.stringify(sessionUser.diet)}</h2>
                 <form onSubmit={handleSubmit} className="dishes-form-grid">
                     <div className="dishes-form-grid-inputs">
                         {Object.values(dishes).length>1 && Object.values(dishes).map((dish) => (
@@ -44,6 +50,8 @@ function SurveyForm () {
                                     onChange={(e) => {setPrefernce(e.target.checked)}} />
                                 <label for={`dish-survey-${dish.name}`}>
                                     <p>{dish.name}</p>
+                                    <p>allergies: {JSON.stringify(dish.allergies)}</p>
+                                    <p>diet: {JSON.stringify(dish.diet)}</p>
                                     <img
                                         src={dish.imageUrl}
                                         alt={`${dish.name}-img`}
