@@ -6,21 +6,21 @@ const REMOVE_DISH = "dishes/REMOVE_DISH"
 const CLEAR_DISHES = "dishes/CLEAR_DISHES"
 
 const receiveDishes = (dishes) => ({
-    type: RECEIVE_DISHES,
-    payload: dishes
+  type: RECEIVE_DISHES,
+  payload: dishes
 })
 
 const receiveDish = (dish) => ({
-    type: RECEIVE_DISH,
-    payload: dish
+  type: RECEIVE_DISH,
+  payload: dish
 })
 
 const removeDish = (dishId) => ({
-    type: REMOVE_DISH,
-    payload: dishId
+  type: REMOVE_DISH,
+  payload: dishId
 })
 
-export const fetchDishes = () => async dispatch => {
+export const fetchDishes = ({constraints}) => async dispatch => {
     const res = await jwtFetch('/api/dishes');
     if(res.ok){
         const data = await res.json();
@@ -57,14 +57,14 @@ const dishReducer = (state = initialState, action) => {
     switch(action.type){
         case RECEIVE_DISHES:
             return {...action.payload}
-        case RECEIVE_DISH: 
+        case RECEIVE_DISH:
             return {...state, [action.payload._id]: action.payload};
         case REMOVE_DISH:
             const newState = {...state}
             delete newState[action.payload]
             return newState
         case CLEAR_DISHES:
-            return initialState 
+            return initialState
         default:
             return state
     }

@@ -12,10 +12,9 @@ const FriendRequest = require('../../models/FriendRequest');
 
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.json({
-    message: "GET /api/users"
-  });
+router.get('/', async function(req, res, next) {
+  const user = await User.findOne()
+  res.json({'user': user });
 });
 
 
@@ -83,30 +82,29 @@ router.get('/current', restoreUser, (req, res) => {
     // In development, allow React server to gain access to the CSRF token
     // whenever the current user information is first loaded into the
     // React application
-    console.log(req)
-    console.log(req.host)
+    // console.log(req)
+    // console.log(req.host)
     const csrfToken = req.csrfToken();
     res.cookie("CSRF-TOKEN", csrfToken);
   }
   if (!req.user) return res.json(null);
-  res.json({
-    _id: req.user._id,
-    username: req.user.username,
-    email: req.user.email
-  });
+  const user = req.user;
+  res.json(
+    {'user': user}
+  );
 });
 
 router.get('/:id', async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)){
-      return res.status(404).json({error: 'No such user found'})
+    return res.status(404).json({error: 'No such user found'})
   }
 
   const user = await User.findById(id)
 
   if(!user){
-      return res.status(404).json({error: 'No such user found'})
+    return res.status(404).json({error: 'No such user found'})
   }
 
   res.status(200).json(user)
@@ -115,13 +113,13 @@ router.get('/:id', async (req, res) => {
 router.patch('/:id', async (req, res)=>{
   const { id } = req.params
   if (!mongoose.Types.ObjectId.isValid(id)){
-      return res.status(404).json({error: 'No such user found'})
+    return res.status(404).json({error: 'No such user found'})
   }
   const user = await User.findByIdAndUpdate({_id: id}, {
-      ...req.body
+    ...req.body
   })
   if(!user){
-      return res.status(404).json({error: 'No such user found'})
+    return res.status(404).json({error: 'No such user found'})
   }
   res.status(200).json(user)
 })
