@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     }
 
     console.log({...dishConstraints});
-
+    
     const dishes = await Dish.find({
         $and: [
             { $or: [{'allergies.2': false}] },
