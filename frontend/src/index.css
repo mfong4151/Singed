@@ -9,8 +9,15 @@
 html{
   background-color: rgb(251, 241, 229);
 }
+
+.root{
+  position: relative;
+  min-height: 100vh;
+}
+
 .root > *{
   margin-top: 50px; /* workaround for navbar. gets overwritten for navbar*/
+  /* padding-bottom: 50px; */
 }
 a{
   text-decoration: none;
@@ -33,4 +40,25 @@ a{
 @font-face {
   font-family: 'IBM Plex Sans Regular';
   src: url('./assets/IBMPlexSans-Regular.ttf');
+}
+
+
+
+.udc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.udc-left{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+.udc-right{
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
 }
