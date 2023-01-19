@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import './SessionForm.css';
 import { signup, clearSessionErrors } from '../../store/session';
 
@@ -11,11 +12,15 @@ function SignupForm () {
   const [password2, setPassword2] = useState('');
   const errors = useSelector(state => state.errors.session);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const sessionUser = useSelector(state => state.session.user);
+
+  if (sessionUser) {
+    history.push('/allergies_diet')
+  }
 
   useEffect(() => {
-    return () => {
-      dispatch(clearSessionErrors());
-    };
+    dispatch(clearSessionErrors());
   }, [dispatch]);
 
   const update = field => {
@@ -48,8 +53,7 @@ function SignupForm () {
       username,
       password
     };
-
-    dispatch(signup(user)); 
+    dispatch(signup(user));
   }
 
   return (
@@ -63,7 +67,7 @@ function SignupForm () {
         <input type="text"
           value={email}
           onChange={update('email')}
-          
+
         />
       </label>
       <div className="errors">{errors?.username}</div>
@@ -72,7 +76,7 @@ function SignupForm () {
         <input type="text"
           value={username}
           onChange={update('username')}
-          
+
         />
       </label>
       <div className="errors">{errors?.password}</div>
@@ -81,7 +85,7 @@ function SignupForm () {
         <input type="password"
           value={password}
           onChange={update('password')}
-          
+
         />
       </label>
       <div className="errors">
@@ -92,7 +96,7 @@ function SignupForm () {
         <input type="password"
           value={password2}
           onChange={update('password2')}
-          
+
         />
       </label>
       <input className="session-submit"

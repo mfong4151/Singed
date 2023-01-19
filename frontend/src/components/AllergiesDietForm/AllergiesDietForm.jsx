@@ -8,6 +8,7 @@ import lactose from "../../assets/survey_imgs/lactose.jpg"
 import nuts from "../../assets/survey_imgs/nuts_cropped.jpg"
 import vegan from "../../assets/survey_imgs/vegan.jpg"
 import { fetchUser, updateUser } from "../../store/user";
+import { useHistory } from "react-router-dom"
 
 
 function AllergiesDietForm() {
@@ -19,6 +20,7 @@ function AllergiesDietForm() {
     const [glutenDiet, setGlutenDiet]  = useState(false);
     const [lactoseDiet, setLactoseDiet]  = useState(false);
     const dispatch = useDispatch();
+    const history = useHistory()
 
     useEffect(() => {
         dispatch(fetchUser(sessionUser._id))
@@ -33,6 +35,7 @@ function AllergiesDietForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(updateUser(updatedUser));
+        history.push('/dish_survey')
     }
 
     return (
@@ -42,8 +45,8 @@ function AllergiesDietForm() {
                     <div className="allergies-form">
                         <h1>Allergies</h1>
                         <div className="allergies-inputs">
-                            
-                            
+
+
                             <div className="survey-input">
                                 <input
                                     type="checkbox" id='fish-checkbox'
@@ -60,7 +63,7 @@ function AllergiesDietForm() {
                                     onChange={(e) =>{setNutsAllergy(e.target.checked)}}/>
                                 <label for='nuts-checkbox'>
                                     <h3> Nuts </h3>
-                                    <img src={nuts}/></label>                                
+                                    <img src={nuts}/></label>
                             </div>
                             <div className="survey-input">
                                 <input
@@ -76,7 +79,7 @@ function AllergiesDietForm() {
                     <div className="diet-form">
                         <h1>Dietary Restrictions</h1>
                         <div className="dietary-inputs">
-                            
+
                             <div className="survey-input">
                                 <input
                                     type="checkbox" id='gluten-checkbox'
