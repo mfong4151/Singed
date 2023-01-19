@@ -1,0 +1,12 @@
+
+
+.splash-page-component {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+} 
+
+.splash-text{
+  padding: 50px;
+  width: 40%;
+}
