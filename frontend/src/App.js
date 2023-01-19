@@ -13,7 +13,7 @@ import AllergiesDietForm from './components/AllergiesDietForm/AllergiesDietForm'
 import Map from './components/Map';
 import SurveyForm from './components/SurveyForm/SurveyForm';
 import Footer from './components/Footer/Footer';
-
+import SplashPage from './components/SplashPage/SplashPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -26,6 +26,8 @@ function App() {
     <>
       <NavBar />
       <Switch >
+        {/* temporary route for splash page, */}
+        <AuthRoute exact path="/splashpage" component={SplashPage} />
         <AuthRoute exact path="/" component={MainPage} />
         <AuthRoute exact path="/login" component={LoginForm} />
         <AuthRoute exact path="/signup" component={SignupForm} />
