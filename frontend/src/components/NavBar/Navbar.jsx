@@ -4,7 +4,7 @@ import './NavBar.css';
 import { logout } from '../../store/session';
 import singed from '../../assets/singed_name_light.png';
 import CommunityModal from './CommunityModal/CommunityModal';
-import {FiMenu} from 'react-icons/fi'
+import {FiMenu} from 'react-icons/fi';
 import {openCommunityModal} from './CommunityModal/CommunityModal.jsx'
 
 function NavBar () {
