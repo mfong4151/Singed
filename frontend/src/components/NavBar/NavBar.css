@@ -14,10 +14,6 @@
   margin-top: 0px !important;
 }
 
-.navbar-left {
-  cursor: pointer;
-}
-
 .navbar > *{
   margin-right: 10px;
   margin-left: 10px;
@@ -35,4 +31,9 @@
   height:100%;
   width: auto;
   border-radius: 4px;
+}
+
+.community-menu-icon{
+  cursor: pointer;
+  color: white;
 }
