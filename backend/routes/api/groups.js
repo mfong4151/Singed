@@ -7,6 +7,9 @@ const Message = mongoose.model('Message');
 // create group
 router.post('/creategroup', async(req, res) => {
     const {name, flavorProfile, genre, allergies, diet, userIds} = req.body;
+    if(!userIds || !name){
+        return res.status(400).send({error: "Please fill all of the fields"})
+    }
     const newGroup = new Group({
         name,
         flavorProfile,
@@ -29,7 +32,11 @@ router.post('/creategroup', async(req, res) => {
 
 // get all groups
 router.get('/', async (req, res) => {
+    // const groups = await Group.find({
+    //     userIds: { $elemMatch: { $eq: req.user._id }}
+    // })
     const groups = await Group.find({})
+    // need to figure out logic for only current user
     if(groups){
         return res.status(200).json(groups)
     } else {
@@ -109,12 +116,15 @@ router.get('/:id/messages', async (req, res) => {
 // create message 
 router.post('/:id/createmessage', async(req, res) => {
     const { id } = req.params;
-    const {sender, content} = req.body;
+    const {content} = req.body;
+    if(!content || !id){
+        return res.status(400).json({error: "Missing group Id or content" })
+    }
     const newMessage = new Message({
-        sender,
-        content,
+        sender: req.user._id,
+        content: content,
         messageLocation: id
-    })
+    });
 
     newMessage
         .save()
