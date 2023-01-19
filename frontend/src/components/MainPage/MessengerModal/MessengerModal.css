@@ -22,18 +22,28 @@
 
 
 #messenger-show-body{
-    height:800px;
+    height:500px;
     overflow-y: scroll;
     display: flex;
     justify-content: space-between;
 }
 
-.active-modal {
+/* .active-modal {
     overflow:hidden;
     overflow-y:scroll;
-}
+} */
 
-.modal-overlay{
+#modal-overlay-chat{
+    /* width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    background-color: transparent;
+    transition: opacity 0.4s ease-in-out 0s; */
+    /*width: 0;  will be edited when button is clicked*/
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -42,7 +52,7 @@
     right: 0;
     position: fixed;
     background-color: transparent;
-    transition: opacity 0.4s ease-in-out 0s;
+    background:rgba(0,0,0,0.35);
 }
 
 #my-chatrooms{
