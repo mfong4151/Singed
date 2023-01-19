@@ -9,7 +9,6 @@ export default function MainPage() {
   //Added to manage the messenger
   const [messengerModal, setMessengerModal] = useState(false)
 
-  
 
 
   return (

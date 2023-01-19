@@ -8,13 +8,15 @@ const MessengerModal = ({messengerModal, setMessengerModal}) => {
   if (messengerModal) document.body.classList.add('active-modal')
   else document.body.classList.remove('active-modal')
 
+
   return (
         <div>
             <div className='modal-overlay' onClick={()=>setMessengerModal(!messengerModal)}>
 
                 <div className='messenger-univ' id='messenger-show-body' onClick={e => e.stopPropagation()}>
 
-                  <div id="chats">
+                  <div id="my-chatrooms">
+                    
                       {/* <ul>
                         {
                           Object.values(chats).map((chat, idx) =>(
