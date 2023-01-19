@@ -16,7 +16,7 @@ export default function MainPageRestaurants() {
   return (
     <div className="mainpage-restaurants">
       {Object.values(restaurants).map(restaurant => {
-        return <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+        return <RestaurantCard key={restaurant._id} restaurant={restaurant} />
       })}
     </div>
   )

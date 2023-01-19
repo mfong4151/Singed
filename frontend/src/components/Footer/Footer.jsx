@@ -11,6 +11,10 @@ function Footer () {
        
         <div className='footer-left'>
         </div>
+        <div className="website-info">
+          <h3>About Us</h3>
+          <p>Welcome! Singe is a MERN fullstack application made by 4 aspiring web developers. Blah blah blah</p>
+        </div>
         <div className='contacts'>
           <h3>Contact Us!</h3>
           <ul>          
