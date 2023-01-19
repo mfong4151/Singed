@@ -1,7 +1,7 @@
 .messenger-univ{
 
     background-color: rgb(168, 104, 104);
-    width:500px;
+    width:700px;
     position:fixed;
     bottom:0px;
     right:0px;
@@ -24,6 +24,8 @@
 #messenger-show-body{
     height:800px;
     overflow-y: scroll;
+    display: flex;
+    justify-content: space-between;
 }
 
 .active-modal {
@@ -43,14 +45,94 @@
     transition: opacity 0.4s ease-in-out 0s;
 }
 
-#messenger-log{
+#chats{
     width:27%;
     background-color: rgb(112, 76, 76) ;
-    height:100%
+    height:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+#chatroom{
+
 }
 
 #messenger-body{
     width:73%;
     height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    
 }
 
+.messenger-body-scroll{
+    width:100%;
+
+}
+
+#messenger-style-boarder{
+    border-top: 4px solid black
+}
+
+
+
+.channel-message{
+
+
+}
+
+.user-message{
+
+}
+
+.message-container{
+
+
+}
+
+.message-info{
+
+}
+
+.message-username{
+
+}
+
+.message-date{
+
+}
+
+.logo-icon{
+
+}
+
+.message-content{
+
+}
+
+.className{
+
+
+}
+
+.message-form-container{
+    width:100%;
+    padding-bottom:.2rem;
+}
+
+.message-form{
+    width:100%;
+}
+
+.message-form input {
+    background-color: transparent;
+    border: none;
+    appearance: none;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.375rem;
+    width: 100%;
+    height: 44px;
+}
