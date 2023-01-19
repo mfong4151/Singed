@@ -6,7 +6,7 @@
 }
 
 #modal-overlay {
-    width: 100vw;
+    width: 0; /* will be edited when button is clicked*/
     height: 100vh;
     top: 0;
     left: 0;
@@ -16,7 +16,7 @@
     background-color: transparent;
     /* transition: opacity 0.4s ease-in-out 0s; */
 
-    background:rgba(0,0,0,0.5);
+    background:rgba(0,0,0,0.35);
     /* opacity: 1;
     transition: all 1.5s;
     -webkit-transition: all 0.5s;
@@ -30,16 +30,35 @@
 #modal-menu-content{
     display: flex;
     flex-direction: column;
-
+    align-items: left;
     position: absolute;
     background-color: white;
-    width:250px;
+    width:0;
     height:100%;
-    padding: 20px;
+    /* padding: 20px; */
     border-right: 1px solid grey;
-    transition: .5s;
+    transition: .4s;
+    /* transition-delay: .1s; */
+    margin-right:10px;
 }
+#modal-menu-content > *{
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
 
+}
+#modal-menu-content ul *{
+    /* display: block; */
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px; */
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+}
+.searchbar-container{
+    width: auto;
+}
 .search-bar-results{
     height:auto;
 }

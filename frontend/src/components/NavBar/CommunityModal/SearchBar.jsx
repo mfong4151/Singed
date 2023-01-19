@@ -40,11 +40,9 @@ const SearchBar = () => {
     }, [searchTerms])
 
     return (
-      <div>
+      <div className="searchbar-container">
             <input type='text' placeholder={searchTerms} onChange={e =>setSearchTerms(e.target.value)}/>
             <SearchSuggestionsModal filteredUsers={filteredUsers}/>
-
-
       </div>
     )
 }

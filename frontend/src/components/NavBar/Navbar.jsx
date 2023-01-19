@@ -6,19 +6,18 @@ import power from '../../assets/power_happy.png';
 import { useState } from 'react';
 import CommunityModal from './CommunityModal/CommunityModal';
 import {FiMenu} from 'react-icons/fi'
-import {openCommunityModal} from './CommunityModal/CommunityModal.jsx'
+import {openCommunityModal, closeCommunityModal} from './CommunityModal/CommunityModal.jsx'
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
-  const [communityModal, setCommunityModal] = useState(false)
+  // const [communityModal, setCommunityModal] = useState(false)
 
 
   const logoutUser = e => {
       e.preventDefault();
       dispatch(logout());
   }
-
   const getLinks = () => {
     if (loggedIn) {
       return (
@@ -38,7 +37,7 @@ function NavBar () {
             <button onClick={logoutUser}>Logout</button>
           </div>
           {/* {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>} */}
-          <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>
+          <CommunityModal />
         </div>
       );
     } else {
@@ -46,7 +45,10 @@ function NavBar () {
         <div className="navbar">
           {/* <Link to={'/signup'}>Signup</Link>
           <Link to={'/login'}>Login</Link> */}
-          <div className='navbar-left' onClick={()=>setCommunityModal(!communityModal)}>
+          <div className='navbar-left'>
+            {/* <div className="community-menu-icon" onClick={openCommunityModal}>
+              <FiMenu/>
+            </div> */}
             <img src={power} className='logo'></img>
           </div>
           <div className='navbar-right'>
@@ -54,8 +56,8 @@ function NavBar () {
             <Link to={'/login'}><button>Login</button></Link>
           </div>
         
-        {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>}
-
+        {/* {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>} */}
+        {/* <CommunityModal /> */}
         </div>
       );
     }
