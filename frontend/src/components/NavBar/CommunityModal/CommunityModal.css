@@ -82,4 +82,8 @@
 .search-bar-results{
     height:auto;
 }
-
+.friend-list-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

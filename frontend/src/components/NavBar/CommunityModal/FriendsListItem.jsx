@@ -9,20 +9,18 @@ const FriendsListItem = ({friend}) => {
 
 
   return (
-    <li className='udc-right friend-list-item'>
-
-        {/* //Do we wnat profile pictures? made a placeholder for it */}
-        <div className='profile-picture '>
-
-        </div>
-
-          {friend}
-          <button className="friendslist-item-button">Add to group</button>
-
-          <button className="friendslist-item-button">+</button>
-          <button className="friendslist-item-button">-</button>
-
-    </li>
+    <div className='udc-right friend-list-item'>
+          {/* //Do we wnat profile pictures? made a placeholder for it */}
+          {/* <div className="friends-container"> */}
+            {/* <div className='profile-picture '></div> */}
+            <div className="friendslist-name"> {friend} </div>
+            <div className="friendslist-items-container">
+              <button className="friendslist-item-button">Add to group</button>
+              <button className="friendslist-item-button">+</button>
+              <button className="friendslist-item-button">-</button>
+            </div>
+          {/* </div> */}
+    </div>
   )
 }
 
