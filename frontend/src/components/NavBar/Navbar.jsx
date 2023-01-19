@@ -2,14 +2,16 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css';
 import { logout } from '../../store/session';
-import power from '../../assets/power_happy.png';
+import singed from '../../assets/singed_name_light.png';
+import { useState } from 'react';
 import CommunityModal from './CommunityModal/CommunityModal';
 import {FiMenu} from 'react-icons/fi'
-import {openCommunityModal} from './CommunityModal/CommunityModal.jsx'
+import {openCommunityModal, closeCommunityModal} from './CommunityModal/CommunityModal.jsx'
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
+  // const [communityModal, setCommunityModal] = useState(false)
 
 
   const logoutUser = e => {
@@ -24,7 +26,7 @@ function NavBar () {
             <div className="community-menu-icon" onClick={openCommunityModal}>
               <FiMenu/>
             </div>
-            <img src={power} className='logo'></img>
+            <img src={singed} className='logo'></img>
           </div>
           <div className='navbar-right'>
             <Link to={'/tweets'}>All Foods</Link>
@@ -32,7 +34,7 @@ function NavBar () {
             <Link to={'/foods/new'}>Write a Foods</Link>
             <Link to={'/allergies_diet'}>Allergies and Diet</Link>
             <Link to={'/dish_survey'}>Dish Survey</Link>
-            <button onClick={logoutUser}>Logout</button>
+            {/* <button onClick={logoutUser}>Logout</button> */}
           </div>
           {/* {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>} */}
           <CommunityModal />
@@ -47,7 +49,7 @@ function NavBar () {
             {/* <div className="community-menu-icon" onClick={openCommunityModal}>
               <FiMenu/>
             </div> */}
-            <img src={power} className='logo'></img>
+            <img src={singed} className='logo'></img>
           </div>
           <div className='navbar-right'>
             <Link to={'/signup'}><button>Signup</button></Link>
