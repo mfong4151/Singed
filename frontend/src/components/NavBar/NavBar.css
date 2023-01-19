@@ -32,3 +32,8 @@
   width: auto;
   border-radius: 4px;
 }
+
+.community-menu-icon{
+  cursor: pointer;
+  color: white;
+}

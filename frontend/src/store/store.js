@@ -14,8 +14,8 @@ const rootReducer = combineReducers({
   restaurants,
   users,
   dishes,
-  messages,
-  groups
+  groups,
+  messages
 });
 
 let enhancer;

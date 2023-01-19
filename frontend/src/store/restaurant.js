@@ -19,7 +19,6 @@ export const fetchRestaurants = () => async dispatch => {
 };
 
 export const fetchRestaurantsCoordinate = ({lat, lng}) => async dispatch => {
-  console.log(`/api/restaurants/map?lat=${lat}&lng=${lng}`)
   const response = await jwtFetch(`/api/restaurants/map?lat=${lat}&lng=${lng}`);
   if (response.ok) {
     const data = await response.json();

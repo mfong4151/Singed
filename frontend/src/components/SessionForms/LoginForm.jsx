@@ -3,17 +3,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import './SessionForm.css';
 
 import { login, clearSessionErrors } from '../../store/session';
+import { useHistory } from 'react-router-dom';
 
 function LoginForm () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(state => state.errors.session);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const sessionUser = useSelector(state => state.session.user)
+
+  if (sessionUser) {
+    history.push('/')
+  }
 
   useEffect(() => {
-    return () => {
-      dispatch(clearSessionErrors());
-    };
+    dispatch(clearSessionErrors());
   }, [dispatch]);
 
   const update = (field) => {
@@ -23,7 +28,7 @@ function LoginForm () {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login({ email, password })); 
+    dispatch(login({ email, password }));
   }
 
   return (
