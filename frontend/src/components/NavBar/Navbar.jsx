@@ -11,7 +11,7 @@ import {openCommunityModal, closeCommunityModal} from './CommunityModal/Communit
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
-  // const [communityModal, setCommunityModal] = useState(false)
+  const [addToGroupModal, setAddToGroupModal] = useState(false)
 
 
   const logoutUser = e => {
@@ -36,7 +36,6 @@ function NavBar () {
             <Link to={'/dish_survey'}>Dish Survey</Link>
             {/* <button onClick={logoutUser}>Logout</button> */}
           </div>
-          {/* {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>} */}
           <CommunityModal />
         </div>
       );
@@ -46,9 +45,7 @@ function NavBar () {
           {/* <Link to={'/signup'}>Signup</Link>
           <Link to={'/login'}>Login</Link> */}
           <div className='navbar-left'>
-            {/* <div className="community-menu-icon" onClick={openCommunityModal}>
-              <FiMenu/>
-            </div> */}
+            
             <img src={singed} className='logo'></img>
           </div>
           <div className='navbar-right'>
@@ -56,8 +53,7 @@ function NavBar () {
             <Link to={'/login'}><button>Login</button></Link>
           </div>
         
-        {/* {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>} */}
-        {/* <CommunityModal /> */}
+      
         </div>
       );
     }

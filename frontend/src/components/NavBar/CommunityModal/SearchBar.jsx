@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './CommunityModal.css'
-import SearchSuggestionsModal from './SearchSuggestionsModal'
-const SearchBar = () => {
+
+const SearchBar = ({groupList, setGroupList}) => {
     const [searchTerms, setSearchTerms] = useState('Find your friends here!')
     const [filteredUsers, setFilteredUsers] = useState([])
     const dispatch = useDispatch()
@@ -31,6 +31,13 @@ const SearchBar = () => {
         }
     }
 
+
+    const handleOnClick = e =>{
+        e.preventDefault();
+        e.stopPropogation();
+        
+    }
+
     useEffect(()=>{
         setFilteredUsers(filterUsers(searchTerms))
         if(searchTerms === '') setSearchTerms('Find your friends here!')
@@ -39,7 +46,12 @@ const SearchBar = () => {
     return (
       <div className="searchbar-container">
             <input type='text' placeholder={searchTerms} onChange={e =>setSearchTerms(e.target.value)}/>
-            <SearchSuggestionsModal filteredUsers={filteredUsers}/>
+            <div className="modal-searchsuggestions-container">
+            {filteredUsers?.map((user, idx) =>
+                    //change this to user.name later
+            <div className='search-bar-result' key={idx} onClick={handleOnClick}>{user}</div>
+        )}
+    </div>
       </div>
     )
 }

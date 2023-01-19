@@ -2,7 +2,7 @@ import React from 'react'
 
 
 //preconditions: friend, should have an id, name, and picture?
-const FriendsListItem = ({friend}) => {
+const GroupListItem = ({friend}) => {
   
 
 
@@ -25,4 +25,4 @@ const FriendsListItem = ({friend}) => {
   )
 }
 
-export default FriendsListItem
+export default GroupListItem

@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './CommunityModal.css'
-import FriendsListItem from './FriendsListItem'
+import GroupListItem from './GroupListItem'
 import SearchBar from './SearchBar'
 import { logout } from '../../../store/session';
+import AddToGroupModal from './AddtoGroupModal/AddToGroupModal'
 
 
 
@@ -30,7 +31,10 @@ export const closeCommunityModal = () => {
 }
 
 const CommunityModal = () => {
-    
+    //state for opening add to group modal, delete on refactor
+    const [groupList, setGroupList] = useState({})
+
+
     //We should get a list of peoples names at the very least
     // const friendsList = useSelector(state => state)
     const dispatch = useDispatch()
@@ -39,9 +43,10 @@ const CommunityModal = () => {
         dispatch(logout());
     }
 
+
+
     const sessionUser = useSelector((store) => store.session.user);
     //get rid of this once we have an actual friends list selector going 
-    const friendsList = ['Ricky', 'Tammy', 'Juan', 'McDonalds','McNoodles']
     useEffect(()=>{
         
     }, [dispatch])
@@ -54,19 +59,24 @@ const CommunityModal = () => {
             <div id='modal-overlay' onClick={closeCommunityModal}>
                 <div className="modal-menu-container">
                     <div id="modal-menu-content" onClick={e => e.stopPropagation()}>
-                        <div className="modal-profile-content">
-                            <h2>{sessionUser.username}</h2>
+                        <div id='community-upper'>
+                            <div className="modal-profile-content">
+                                <h2>{sessionUser.username}</h2>
+                            </div>
+                            <div>
+                                <SearchBar groupList={groupList} setGroupList={setGroupList}/>
+                            </div>                        
                         </div>
-                        <div>
-                            <SearchBar/>
+                        <div id='community-lower'>
+                            <ul>
+                                {Object.values(groupList)?.map((groupMember, idx) =>
+                                    <GroupListItem groupMember={groupMember} key={idx}/>
+                                    )}
+                            </ul>
                             <button>Add To Group </button>
-                        </div>                        
-                        <ul>
-                            {friendsList.map((friend, idx) =>
-                                <FriendsListItem friend={friend} key={idx}/>
-                            )}
-                        </ul>
-                        <button onClick={logoutUser}>Logout</button>
+                            <button onClick={logoutUser}>Logout</button>
+                           
+                        </div>   
                      </div>
                 </div>    
             </div>
