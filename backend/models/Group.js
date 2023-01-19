@@ -1,7 +1,8 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const groupSchema = Schema({
+const groupSchema = Schema(
+  {
     name: {
       type: String,
       required: true
@@ -43,8 +44,9 @@ const groupSchema = Schema({
     },
 
     userIds: {
-      type: Array,
-      required: true
+      type: [Schema.Types.ObjectId],
+      required: true,
+      ref: 'User'
     }
   }, {
     timestamps: true

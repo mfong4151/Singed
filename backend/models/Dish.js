@@ -1,7 +1,8 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const dishSchema = Schema({
+const dishSchema = Schema(
+  {
     name: {
       type: String,
       required: true
@@ -11,7 +12,7 @@ const dishSchema = Schema({
       required: true
     },
     price: {
-      type: Number,
+      type: Schema.Types.Decimal128,
       required: true
     },
     header: {

@@ -1,7 +1,8 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const restaurantSchema = Schema({
+const restaurantSchema = Schema(
+  {
     name: {
       type: String,
       required: true
@@ -11,7 +12,7 @@ const restaurantSchema = Schema({
       required: true
     },
     rating: {
-      type: Number,
+      type: mongoose.Types.Decimal128,
       required: true
     },
     city: {
@@ -23,11 +24,11 @@ const restaurantSchema = Schema({
       required: true
     },
     longitude: {
-      type: Number,
+      type: mongoose.Types.Decimal128,
       required: true
     },
     latitude: {
-      type: Number,
+      type: mongoose.Types.Decimal128,
       required: true
     },
     cuisine_type: {
@@ -82,6 +83,5 @@ const restaurantSchema = Schema({
     timestamps: true
   });
 
-const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-module.exports = Restaurant;
+module.exports = mongoose.model('Restaurant', restaurantSchema);

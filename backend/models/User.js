@@ -1,7 +1,8 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = Schema({
+const userSchema = Schema(
+  {
     username: {
       type: String,
       required: true
@@ -48,6 +49,11 @@ const userSchema = Schema({
     diet: {
       type: Array,
       required: false
+    },
+
+    friendsList: {
+      type: [Schema.Types.ObjectId],
+      ref: 'User'
     },
 
     groupIds: {
