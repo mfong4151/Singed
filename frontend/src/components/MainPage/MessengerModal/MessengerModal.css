@@ -1,20 +1,16 @@
 .messenger-univ{
-
     background-color: rgb(168, 104, 104);
     width:700px;
     position:fixed;
     bottom:0px;
     right:0px;
     z-index:99;
-
 }
 
 
-#messenger-modal-tab{
-
+/* #messenger-modal-tab{
     height:40px;
-}
-
+} */
 
 
 /* design for messenger body  */
@@ -53,6 +49,8 @@
     position: fixed;
     background-color: transparent;
     background:rgba(0,0,0,0.35);
+    transition: 1s;
+
 }
 
 #my-chatrooms{

@@ -4,20 +4,19 @@ import {useSelector} from 'react-redux';
 
 export const openMessengerModal = () => {
 
-  document.getElementById("modal-overlay").style.width = "100vw";
-  document.getElementById("messenger-show-body").style.width = "250px";
+  document.getElementById("modal-overlay").style.height = "100vw";
+  document.getElementById("messenger-show-body").style.height = "40px";
   // document.getElementById("modal-menu-content").style.display = "inline";
-  document.getElementById("messenger-show-body").style.padding = "20px";
-
+  // document.getElementById("messenger-show-body").style.padding = "20px";
   let children = document.querySelectorAll('#messenger-show-body > *'); //this workaround is bc my children does not disappear when modal is gone
   for (let i = 0; i < children.length; i++) {
       children[i].style.display = "inline";
   }
 }
 export const closeMessengerModal = () => {
-  document.getElementById("modal-overlay-chat").style.width = "0";
-  document.getElementById("messenger-show-body").style.width = "0";
-  document.getElementById("messenger-show-body").style.padding = "0";
+  document.getElementById("modal-overlay-chat").style.height = "0";
+  document.getElementById("messenger-show-body").style.height = "0";
+  // document.getElementById("messenger-show-body").style.padding = "0";
   let children = document.querySelectorAll('#messenger-show-body > *');
   for (let i = 0; i < children.length; i++) {
       children[i].style.display = "none";
@@ -25,14 +24,14 @@ export const closeMessengerModal = () => {
   }
 }
 
-const MessengerModal = ({messengerModal, setMessengerModal}) => {
+const MessengerModal = () => {
 
   // const chats = useSelector(state => state)
       
   // if (messengerModal) document.body.classList.add('active-modal')
   // else document.body.classList.remove('active-modal')
 
-
+  console.log('messenger modal running')
   return (
         <div>
             {/* <div id='modal-overlay-chat' onClick={()=>setMessengerModal(!messengerModal)}> */}
