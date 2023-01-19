@@ -18,7 +18,7 @@ const SearchSuggestionsModal = ({filteredUsers}) => {
     }
 
     return (
-    <div>
+    <div className="modal-searchsuggestions-container">
          {filteredUsers?.map((user, idx) =>
                     //change this to user.name later
             <div className='search-bar-result' key={idx} onClick={handleOnClick}>{user}</div>

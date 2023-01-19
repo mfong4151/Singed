@@ -11,6 +11,7 @@ html{
 }
 .root > *{
   margin-top: 50px; /* workaround for navbar. gets overwritten for navbar*/
+  /* padding-bottom: 50px; */
 }
 a{
   text-decoration: none;

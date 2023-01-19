@@ -39,12 +39,11 @@ const CommunityModal = () => {
         dispatch(logout());
     }
 
+    const sessionUser = useSelector((store) => store.session.user);
     //get rid of this once we have an actual friends list selector going 
     const friendsList = ['Ricky', 'Tammy', 'Juan', 'McDonalds','Fuck ruby']
-  
     useEffect(()=>{
         
-
     }, [dispatch])
 
     // if (communityModal) document.body.classList.add('active-modal')
@@ -55,6 +54,9 @@ const CommunityModal = () => {
             <div id='modal-overlay' onClick={closeCommunityModal}>
                 <div className="modal-menu-container">
                     <div id="modal-menu-content" onClick={e => e.stopPropagation()}>
+                        <div className="modal-profile-content">
+                            <h2>{sessionUser.username}</h2>
+                        </div>
                         <SearchBar/>
                         <ul>
                             {friendsList.map((friend, idx) =>
