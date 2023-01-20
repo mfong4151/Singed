@@ -1,22 +1,31 @@
 import { useState } from "react";
-import './MessengerModal.css'
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router";
+import './MessengerModal.css';
+import { createMessage } from "../../../store/message";
 
 const MessageForm = () => {
     const [body, setBody] = useState("");
+    const {groupId} = useParams();
+    const sessionUser = useSelector((store) => store.session.user);
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
+    const message = {
+        sender: sessionUser._id,
+        username: sessionUser.username,
+        content: body,
+        messageLocation: groupId
+    }
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     let message = {content: body}
-    //     dispatch(createMessage(channelId, message))
-    //     setBody("");
-    // }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(createMessage(message))
+        setBody("");
+    }
 
     return(
         <div className="message-form-container">
-            {/* <form className="message-form" onSubmit={handleSubmit}> */}
-            <form className="message-form">
+            <form className="message-form" onSubmit={handleSubmit}>
                 <input 
                     type="text"
                     value={body}

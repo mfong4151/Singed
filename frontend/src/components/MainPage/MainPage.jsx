@@ -6,6 +6,7 @@ import MessengerModalTab from "./MessengerModal/MessengerModalTab";
 import MessengerModal from "./MessengerModal/MessengerModal";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGroups } from "../../store/group";
+import { Redirect } from "react-router";
 
 export default function MainPage() {
   //Added to manage the messenger
@@ -18,10 +19,10 @@ export default function MainPage() {
       dispatch(fetchGroups())
     }
 
-  }, )
+  },[dispatch, sessionUser] )
 
 
-  
+  if(!sessionUser) return <Redirect to="/"/>
   return (
     <div className="mainpage">
       <Map />

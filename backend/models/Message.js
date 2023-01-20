@@ -8,6 +8,10 @@ const messageSchema = Schema(
             required: true,
             ref: 'User'
         },
+        username: {
+            type: String,
+            required: true
+        },
         content: {
             type: String,
             required: true

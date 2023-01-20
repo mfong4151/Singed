@@ -27,8 +27,19 @@ export const fetchMessages = (groupId) => async dispatch => {
     }
 }
 
-export const createMessage = (groupId, messageData) => async dispatch => {
-    const res = await jwtFetch(`/api/groups/${groupId}/createmessage`,{
+// export const createMessage = (groupId, messageData) => async dispatch => {
+//     const res = await jwtFetch(`/api/groups/${groupId}/createmessage`,{
+//         method: "POST",
+//         body: JSON.stringify(messageData)
+//     });
+//     if(res.ok){
+//         const data = await res.json();
+//         dispatch(addMessage(data))
+//     }
+// }
+
+export const createMessage = (messageData) => async dispatch => {
+    const res = await jwtFetch(`/api/messages/createmessage`,{
         method: "POST",
         body: JSON.stringify(messageData)
     });
