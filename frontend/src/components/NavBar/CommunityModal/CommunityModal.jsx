@@ -32,25 +32,94 @@ export const closeCommunityModal = () => {
 }
 
 const CommunityModal = () => {
+    //state for opening add to group modal, delete on refactor
+    const [groupList, setGroupList] = useState([])
+    const [searchTerms, setSearchTerms] = useState('Find your friends here!')
+    const [groupName, setGroupName] = useState('Name your group!')
+    const [filteredUsers, setFilteredUsers] = useState([])
+    const dispatch = useDispatch()
+    const sessionUser = useSelector((store) => store.session.user);
+    const allUsers = useSelector(getUsers)
+    const history = useHistory()
     
     //We should get a list of peoples names at the very least
     // const friendsList = useSelector(state => state)
-    const dispatch = useDispatch()
     const logoutUser = e => {
         e.preventDefault();
         dispatch(logout());
-        history.push('/')
     }
 
-    const sessionUser = useSelector((store) => store.session.user);
-    //get rid of this once we have an actual friends list selector going 
-    const friendsList = ['Ricky', 'Tammy', 'Juan', 'McDonalds','Fuck ruby']
-    useEffect(()=>{
+    const handleOnClick = (e)=>{
+        e.preventDefault();
+        e.stopPropagation();
         
-    }, [dispatch])
+    }
+    const addToGroup = user =>{
+       
+        if(!groupList.includes(user)) setGroupList([...groupList, user])
+    }
 
-    // if (communityModal) document.body.classList.add('active-modal')
-    // else document.body.classList.remove('active-modal')
+    const handleSendGroupInvite = () =>{
+
+
+        let flavorProfiles = [], genreProfiles = [], allergyProfiles=[], dietProfiles = [], userIds = [];
+        for(const gm of groupList){
+            flavorProfiles.push(gm.flavorProfile)
+            genreProfiles.push(gm.genre)
+            allergyProfiles.push(gm.allergies)
+            dietProfiles.push(gm.diet)
+            userIds.push(gm._id)
+        }
+
+        let normalizedFlavorProfile = normalizeGroupFlavorProfile(flavorProfiles)
+        let normalizedGenreProfile = normalizeGroupGenreProfile(genreProfiles)
+        let normalizedAllergyProfile = normalizeGroupAllergiesProfile(allergyProfiles)
+        let normalizedDietProfile = normalizeGroupDietProfile(dietProfiles)
+
+       dispatch(createGroup(
+            {
+                name: groupName,
+                flavorProfile: normalizedFlavorProfile,
+                genre: normalizedGenreProfile,
+                allergies: normalizedAllergyProfile,
+                diet: normalizedDietProfile,
+                userIds
+            }
+        )).then(async (group) => {
+            history.push(`/groups/${group._id}`);
+        })
+
+        setGroupList([])
+    
+       
+    }
+
+
+    const filterUsers = (searchTerms) =>{
+        const res = [];
+        
+        if(!searchTerms || searchTerms=== 'Find your friends here!')
+            return res
+        else{
+            allUsers.forEach(user=>{   
+                if (user?.username.toLowerCase().includes(searchTerms) && user?._id !== sessionUser.user?._id ) res.push(user)           //change to user.name.lower() later
+            })
+            return res
+        }
+    }
+
+
+    useEffect(()=>{
+        setFilteredUsers(filterUsers(searchTerms))
+        if(searchTerms === '') setSearchTerms('Find your friends here!')
+    }, [searchTerms])
+
+
+    useEffect(()=>{
+        dispatch(fetchUsers())
+    }, [])
+
+   
     
     return (
         <div>
@@ -101,7 +170,7 @@ const CommunityModal = () => {
                            
                         </div>   
                      </div>
-                </div>
+                </div>    
             </div>
         </div>
   )
