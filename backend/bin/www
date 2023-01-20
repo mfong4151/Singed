@@ -17,7 +17,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '5000');
+const port = normalizePort(process.env.PORT || 5000);
 app.set('port', port);
 
 /**
@@ -25,6 +25,51 @@ app.set('port', port);
  */
 
 const server = http.createServer(app);
+
+const { Server } = require('socket.io');
+const io = new Server(server, {
+  pingTimeout: 60000,
+  cors: {
+    origin: "*",
+  }
+});
+
+io.on("connection", (socket) => {
+  console.log("Sockets are in action");
+  socket.on("setup", (userData) => {
+    socket.join(userData._id);
+    console.log(userData.username, "connected");
+    socket.emit("connected");
+  });
+  socket.on("join chat", (room) => {
+    socket.join(room);
+    console.log("User joined room: " + room);
+  });
+  socket.on("new message", (newMessage) => {
+    var group = newMessage.messageLocation;
+    if (!group.userIds[0]) return console.log("group.userIds not defined");
+    console.log(newMessage);
+    group.userIds[0].forEach((user) => {
+      // if (user === newMessage.sender._id) return;
+      socket.in(user).emit("message received", newMessage);
+    });
+    socket.on("typing", (room) => {
+      socket.in(room).emit("typing");
+    });
+    socket.on("stop typing", (room) => {
+      socket.in(room).emit("stop typing");
+    });
+  });
+  socket.off("setup", () => {
+    console.log("USER DISCONNECTED");
+    socket.leave(userData._id);
+  });
+  
+})
+
+// app.listen(5001, () => {
+//   console.log(`Server is UP`);
+// });
 
 /**
  * Connect to Mongo database, then allow the server to listen for requests

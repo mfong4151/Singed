@@ -4,10 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { RxDoubleArrowUp, RxDoubleArrowDown } from "react-icons/rx";
 import { useLocation, useParams } from 'react-router-dom';
 import { fetchMessages,createMessage, addMessage } from '../../../store/message';
-import io from "socket.io-client";
-// const ENDPOINT = "http://localhost:3001";
-const ENDPOINT = "https://singed.onrender.com/"
-var socket
+import socket from '../../../util/socket';
 
 const useChatScroll = (dep) => {
   const ref = useRef(null);
@@ -54,7 +51,6 @@ const MessengerModal = () => {
   // if (messengerModal) document.body.classList.add('active-modal')
   // else document.body.classList.remove('active-modal')
   useEffect(() => {
-    socket = io(ENDPOINT);
     socket.emit("setup", sessionUser);;
   }, [])
 
@@ -67,7 +63,7 @@ const MessengerModal = () => {
     socket.on("message received", (newMessageRecieved) => {
       dispatch(addMessage(newMessageRecieved))
     })
-  })
+  },[])
 
   const handleOpen = (e) => {
     e.stopPropagation();
