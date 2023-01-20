@@ -98,14 +98,19 @@
     flex-direction: column;
     justify-content: space-around;
     /* justify-content:flex-end; */
-    background-color: rgb(203, 157, 157);
+    background-color: rgb(213, 181, 181);;
 }
+
+#messenger-body input:focus {
+    outline: none;
+  }
 #messenger-body input::placeholder{
     color: black;
 }
 
 .message-body-scroll{
     width:100%;
+    height: 100px;
 }
 
 #messenger-style-boarder{
