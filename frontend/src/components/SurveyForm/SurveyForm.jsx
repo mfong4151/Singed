@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { fetchDishes, fetchSurveyDishes } from "../../store/dish";
 import { getCurrentUser } from "../../store/session";
+import { updateUser } from "../../store/user";
 import './SurveyForm.css'
 
 
@@ -21,6 +22,7 @@ function SurveyForm () {
 
     const history = useHistory();
     const [flavorProfileTotal, setFlavorProfileTotal] = useState([0,0,0,0,0])
+    const [dishCount, setDishCount] = useState(0);
 
     const handleOnChange = (position) => {
         const updatedCheckedState = checkedState.map((item, index) =>
@@ -31,6 +33,7 @@ function SurveyForm () {
         // console.log(dishes[position].flavorProfile)
         let dishFlavorProfile = dishes[position].flavorProfile;
         if (checkedState[position]===false) {
+            setDishCount(dishCount => dishCount+1);
             setFlavorProfileTotal(flavorProfileTotal.map((num, index) => num + dishFlavorProfile[index]))
         }
         // console.log('flavorProfileTotal after', flavorProfileTotal)
@@ -49,9 +52,25 @@ function SurveyForm () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log()
-        history.push('/main', {from: flavorProfileTotal})
+        let finalPreference = flavorProfileTotal.map(n => n/dishCount)
+        console.log("flavorProfileTotal", flavorProfileTotal);
+        console.log("dishCount", dishCount);
+        console.log("finalPreference", finalPreference)
+
+        let updatedUser;
+        if (sessionUser) {
+            // console.log('sessionUser', sessionUser)
+            updatedUser = {...sessionUser,
+                        ...{id: sessionUser._id,
+                        flavorProfile: finalPreference}
+            }
+            // console.log('updatedUser', updatedUser)
+        }
+
+        dispatch(updateUser(updatedUser));
+        history.push('/main', {from: finalPreference})
     }
+
     return(
         <div className="dish-survey-container">
             <div className="dish-form-container">

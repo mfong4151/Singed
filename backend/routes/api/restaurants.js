@@ -19,13 +19,14 @@ router.get('/map', async (req, res, next) => {
     console.log("preference", preference.split(',').map(n => parseFloat(n)))
 
     let preferenceArr = preference.split(',').map(n => parseFloat(n))
+    // preferenceArr = [0.447, 0.447, 0.447, 0.447, 0.447]
     // console.log(lat, lng);
     if (!lat || !lng || !preferenceArr) {
       const restaurants = await Restaurant.find();
       res.json({restaurants});
     } else {
-      // console.log('lng', lng-0.0004, lng-(-0.0004));
-      // console.log('lat', lat-0.0004, lat-(-0.0004));
+      console.log('lng', parseFloat(lng-0.1), lng, parseFloat(lng)+0.1);
+      console.log('lat', parseFloat(lat-0.1), lat, parseFloat(lat)+0.1);
       // console.log(-122.413709 > lng-0.04, -122.413709 < lng-(-0.04))
       console.log("in restaurants");
       const restaurants = await Restaurant.aggregate([
@@ -83,8 +84,20 @@ router.get('/map', async (req, res, next) => {
               }
             }
           }
-        }
+        }, { $match: {
+          $and: [
+            {longitude: { $gt: parseFloat(lng)-0.08, $lt: parseFloat(lng)+0.08 }},
+            {latitude: { $gt: parseFloat(lat)-0.08, $lt: parseFloat(lat)+0.08 }}
+          ]
+        } }
       ]).sort({dotProduct: -1}).exec();
+
+      // {
+      //   $and: [
+      //     { longitude: { $gt: lng-0.04, $lt: lng-(-0.04) } },
+      //     { latitude: { $gt: lat-0.04, $lt: lat-(-0.04) } }
+      //   ]
+      // }
 
       // Restaurant.aggregate([
       //   {
@@ -101,6 +114,13 @@ router.get('/map', async (req, res, next) => {
       //     }
       //   }
       // ]).sort({dotProduct: -1}).exec();
+
+      // { $match: {
+      //   $and: [
+      //     { longitude: { $gt: lng-0.04, $lt: lng-(-0.04) } },
+      //     { latitude: { $gt: lat-0.04, $lt: lat-(-0.04) } }
+      //   ]
+      // } }
 
       // .find({
       //   longitude: {
@@ -119,7 +139,7 @@ router.get('/map', async (req, res, next) => {
       // .limit(10).exec();
 
       // const restaurants = await Restaurant.find();
-      console.log("restaurants", restaurants);
+      // console.log("restaurants", restaurants);
       res.json({restaurants});
     }
   } catch (err) {

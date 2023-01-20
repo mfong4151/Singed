@@ -4,19 +4,20 @@ import { GoogleMap, useLoadScript, OverlayView } from "@react-google-maps/api";
 import './Map.css'
 import {styles} from './MapStyles'
 import { useHistory } from "react-router-dom";
-import * as restaurantActions from '../../store/restaurant'
+import {fetchRestaurantsCoordinatePreference} from '../../store/restaurant'
 
-export default function Map() {
+export default function Map({preference}) {
   const dispatch = useDispatch()
   let restaurants = useSelector(state => state.restaurants)
 
-  useEffect(() => {
-    dispatch(restaurantActions.fetchRestaurants())
-  },[dispatch])
-
   let lat =  37.779180920571605;
   let lng =  -122.42151230151367;
-  return <MapContainer restaurants={Object.values(restaurants)} center={{lat, lng}}/>
+
+  useEffect(() => {
+    dispatch(fetchRestaurantsCoordinatePreference({lat, lng, preference}))
+  },[dispatch])
+
+  return <MapContainer restaurants={Object.values(restaurants)} center={{lat, lng}} preference={preference}/>
 }
 
 export function RestaurantCard({restaurant, onClick}) {
@@ -27,14 +28,13 @@ export function RestaurantCard({restaurant, onClick}) {
   )
 }
 
-export function MapContainer({restaurants, center}) {
+export function MapContainer({restaurants, center, preference}) {
   const dispatch = useDispatch();
   const {isLoaded} = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY
   });
 
   const centerM = useMemo(() => (center), [])
-  const history = useHistory()
 
   const options = {
     mapId: '73cef3161f877bcd',
@@ -49,7 +49,7 @@ export function MapContainer({restaurants, center}) {
 
   const mapOnClick = (e => {
 
-    dispatch(restaurantActions.fetchRestaurantsCoordinate({lat: e.latLng.lat(), lng: e.latLng.lng()}))
+    dispatch(fetchRestaurantsCoordinatePreference({lat: e.latLng.lat(), lng: e.latLng.lng(), preference}))
   })
 
   if (!isLoaded) return <div>Loading...</div>

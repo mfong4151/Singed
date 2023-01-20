@@ -13,7 +13,7 @@ export default function MainPage({location}) {
   let preference
   if (location.state) {
     preference = location.state.from;
-    console.log(preference);
+    console.log("mainpage-preference", preference);
   } else {
     preference = new Array(5).fill(0.447);
   }
@@ -26,14 +26,11 @@ export default function MainPage({location}) {
     if(sessionUser){
       dispatch(fetchGroups())
     }
-
-  }, )
-
-
+  },)
 
   return (
     <div className="mainpage">
-      <Map />
+      <Map preference={preference}/>
       <MainPageRestaurants preference={preference}/>
 
       {/* {!messengerModal && <MessengerModalTab messengerModal={messengerModal} setMessengerModal={setMessengerModal}/>}
