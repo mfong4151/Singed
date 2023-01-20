@@ -6,10 +6,10 @@ export default function RestaurantCard({restaurant}) {
       </div>
       <div className="restaurant-info">
         <ul>
-          <li>{restaurant.name}</li>
-          <li>{restaurant.address}</li>
-          <li>{restaurant.rating}</li>
-          <li>{restaurant.cuisine_type}</li>
+          <h2>{restaurant.name}</h2>
+          <li>- {restaurant.address}</li>
+          <li>- rating: {restaurant.rating}</li>
+          <li>- {restaurant.cuisine_type}</li>
         </ul>
 
       </div>
