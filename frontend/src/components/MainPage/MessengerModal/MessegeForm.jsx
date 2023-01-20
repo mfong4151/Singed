@@ -10,7 +10,7 @@ const MessageForm = () => {
     const sessionUser = useSelector((store) => store.session.user);
 
     const dispatch = useDispatch();
-    const message = {
+    const newMessage = {
         sender: sessionUser._id,
         username: sessionUser.username,
         content: body,
@@ -19,7 +19,7 @@ const MessageForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(createMessage(message))
+        dispatch(createMessage(newMessage))
         setBody("");
     }
 

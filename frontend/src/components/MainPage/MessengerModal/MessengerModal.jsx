@@ -3,7 +3,7 @@ import MessageForm from './MessegeForm'
 import {useDispatch, useSelector} from 'react-redux';
 import { RxDoubleArrowUp, RxDoubleArrowDown } from "react-icons/rx";
 import { useLocation, useParams } from 'react-router-dom';
-import { fetchMessages } from '../../../store/message';
+import { fetchMessages,createMessage } from '../../../store/message';
 
 const useChatScroll = (dep) => {
   const ref = useRef(null);
@@ -38,11 +38,12 @@ export const closeMessengerModal = () => {
 
 const MessengerModal = () => {
   const {groupId} = useParams();
-  const group = useSelector((store) => store.groups[groupId]);
   const location = useLocation();
   const messages = useSelector((store) => store.messages);
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [body, setBody] = useState("");
+  const sessionUser = useSelector((store) => store.session.user);
   // const ref = useChatScroll(messages);
       
   // if (messengerModal) document.body.classList.add('active-modal')
@@ -116,6 +117,19 @@ const MessengerModal = () => {
     }
   }
 
+  const newMessage = {
+    sender: sessionUser._id,
+    username: sessionUser.username,
+    content: body,
+    messageLocation: groupId
+}
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createMessage(newMessage))
+    setBody("");
+}
+
   if(location.pathname !== `/groups/${groupId}`){
     return null
   } else{
@@ -158,7 +172,15 @@ const MessengerModal = () => {
                   } */}
                   {groupMessages()}
                 </ul>
-                <MessageForm/>
+                <div className="message-form-container">
+                  <form className="message-form" onSubmit={handleSubmit}>
+                      <input 
+                          type="text"
+                          value={body}
+                          onChange={(e) => setBody(e.currentTarget.value)}
+                          placeholder='Message your friends!'/>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
