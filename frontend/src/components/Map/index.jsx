@@ -22,7 +22,7 @@ export default function Map() {
 export function RestaurantCard({restaurant, onClick}) {
   return (
     <div className="map-price-card cursor" onClick={onClick}>
-      <p>Star: {restaurant.rating}</p>
+      <p>Score: {Math.round(restaurant.dotProduct*100)}</p>
     </div>
   )
 }

@@ -10,6 +10,7 @@ export default function RestaurantCard({restaurant}) {
           <li>- {restaurant.address}</li>
           <li>- rating: {restaurant.rating}</li>
           <li>- {restaurant.cuisine_type}</li>
+          <li>- Score: {Math.round(restaurant.dotProduct*100)}</li>
         </ul>
 
       </div>
