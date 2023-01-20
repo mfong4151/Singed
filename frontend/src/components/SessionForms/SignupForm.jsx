@@ -46,15 +46,19 @@ function SignupForm () {
     return e => setState(e.currentTarget.value);
   }
 
-  const usernameSubmit = e => {
+  const usernameSubmit = async e => {
     e.preventDefault();
     const user = {
       email,
       username,
       password
     };
-    dispatch(signup(user));
-    history.push('/allergies_diet')
+    await dispatch(signup(user))
+    console.log('errors', errors)
+    if (!errors) {
+      history.push('/allergies_diet')
+    }
+
   }
 
   return (

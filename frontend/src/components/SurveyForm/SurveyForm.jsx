@@ -26,7 +26,6 @@ function SurveyForm () {
             }
             dispatch(fetchSurveyDishes(constraints))
             // dispatch(fetchDishes(constraints))
-
         }
     }, [dispatch])
 

@@ -50,44 +50,44 @@ const startSession = (userInfo, route) => async dispatch => {
 };
 
 export const logout = () => dispatch => {
-    localStorage.removeItem('jwtToken');
-    dispatch(logoutUser());
-  };
+  localStorage.removeItem('jwtToken');
+  dispatch(logoutUser());
+};
 
 
 const initialState = {
-    user: undefined
-  };
+  user: undefined
+};
 
 const sessionReducer = (state = initialState, action) => {
-    switch (action.type) {
-      case RECEIVE_CURRENT_USER:
-        return { user: action.currentUser };
-      case RECEIVE_USER_LOGOUT:
-        return initialState;
-      default:
-        return state;
-    }
-  };
+  switch (action.type) {
+    case RECEIVE_CURRENT_USER:
+      return { user: action.currentUser };
+    case RECEIVE_USER_LOGOUT:
+      return initialState;
+    default:
+      return state;
+  }
+};
 
 const nullErrors = null;
 
 export const sessionErrorsReducer = (state = nullErrors, action) => {
-    switch(action.type) {
-      case RECEIVE_SESSION_ERRORS:
-        return action.errors;
-      case RECEIVE_CURRENT_USER:
-      case CLEAR_SESSION_ERRORS:
-        return nullErrors;
-      default:
-        return state;
-    }
-  };
+  switch(action.type) {
+    case RECEIVE_SESSION_ERRORS:
+      return action.errors;
+    case RECEIVE_CURRENT_USER:
+    case CLEAR_SESSION_ERRORS:
+      return nullErrors;
+    default:
+      return state;
+  }
+};
 
-  export const getCurrentUser = () => async dispatch => {
-    const res = await jwtFetch('/api/users/current');
-    const data = await res.json();
-    return dispatch(receiveCurrentUser(data.user));
-  };
+export const getCurrentUser = () => async dispatch => {
+  const res = await jwtFetch('/api/users/current');
+  const data = await res.json();
+  return dispatch(receiveCurrentUser(data.user));
+};
 
-  export default sessionReducer;
+export default sessionReducer;

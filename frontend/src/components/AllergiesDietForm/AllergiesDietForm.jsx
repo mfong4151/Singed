@@ -24,24 +24,29 @@ function AllergiesDietForm() {
     const [veganDiet, setVeganDiet]  = useState(false);
 
     useEffect(() => {
-        if (sessionUser.allergies.length > 0 && sessionUser.diet.length > 0) {
-            setFishAllergy(sessionUser.allergies[0])
-            setNutsAllergy(sessionUser.allergies[1])
-            setShellfishAllergy(sessionUser.allergies[2])
-            setGlutenDiet(sessionUser.diet[0])
-            setLactoseDiet(sessionUser.diet[1])
-            setVeganDiet(sessionUser.diet[2])
+        if(sessionUser) {
+            dispatch(fetchUser(sessionUser._id))
+            if (sessionUser.allergies.length > 0 && sessionUser.diet.length > 0) {
+                setFishAllergy(sessionUser.allergies[0])
+                setNutsAllergy(sessionUser.allergies[1])
+                setShellfishAllergy(sessionUser.allergies[2])
+                setGlutenDiet(sessionUser.diet[0])
+                setLactoseDiet(sessionUser.diet[1])
+                setVeganDiet(sessionUser.diet[2])
+            }
         }
-        dispatch(fetchUser(sessionUser._id))
     }, [dispatch])
 
-    // console.log('sessionUser', sessionUser)
-    const updatedUser = {...sessionUser,
-                        ...{id: sessionUser._id,
-                        allergies: [fishAllergy, nutsAllergy, shellfishAllergy],
-                        diet: [glutenDiet, lactoseDiet, veganDiet]}
+    let updatedUser;
+    if (sessionUser) {
+        console.log('sessionUser', sessionUser)
+        updatedUser = {...sessionUser,
+                    ...{id: sessionUser._id,
+                    allergies: [fishAllergy, nutsAllergy, shellfishAllergy],
+                    diet: [glutenDiet, lactoseDiet, veganDiet]}
+        }
+        console.log('updatedUser', updatedUser)
     }
-    // console.log('updatedUser', updatedUser)
 
 
     const handleSubmit = (e) => {
