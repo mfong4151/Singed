@@ -62,7 +62,23 @@ Beef Brisket/ Tendon and Tripe,Substitute with satay beef broth/ spicy beef brot
 Curry Chicken Vermicelli Soup,Contains coconut milk.,16.75,Hu Tieu/ Mubun - Noodle Soup,14,0.169/0.676/0.169/0.676/0.169,1/0/0/0,false/false/false,false/false/false,end
 Spare Rib Vermicelli Soup,Substitute with satay beef broth/ spicy beef broth or curry broth for an additional charge.,16.75,Hu Tieu/ Mubun - Noodle Soup,14,0.228/0.912/0.228/0.114/0.228,1/0/0/0,false/false/false,false/false/false,end
 Fried Tofu,Vegetarian dish.,13.95,Dry Vermicelli Bowls,14,0.331/0.883/0.11/0.221/0.221,1/0/0/0,false/false/false,false/false/true,end
-Heirloom Tomatoes,sopa de lima chicken/ rice/ tomato-corn salsa/ avocado/ queso fresco/ mexican oregano,14.95,Snacks,15,0.236/0.354/0.354/0.118/0.825,1/0/0/1,false/false/false,false/false/true,end
-Pasian,habanero tequila/ passion fruit/ lime,10.5,Chupitos,15,0.367/0.855/0.244/0.122/0.244,1/0/0/1,false/false/false,false/false/true,end
-Traditional Churros con Chocolate,humphry slocombe harvey milk-honey ice cream/ chocolate-dipped waffle shell,9,Dessert,15,0.204/0.306/0.102/0.102/0.919,1/0/0/1,false/false/false,true/true/false,end
-Choco-tacoliciou,toasted coconut flakes/ seasonal fruit,9,Dessert,15,0.204/0.306/0.102/0.102/0.919,1/0/0/1,false/false/false,true/true/false,end
+Heirloom Tomatoes,sopa de lima chicken/ rice/ tomato-corn salsa/ avocado/ queso fresco/ mexican oregano,14.95,Snacks,15,0.236/0.354/0.354/0.118/0.825,0/0/0/1,false/false/false,false/false/true,end
+Pasian,habanero tequila/ passion fruit/ lime,10.5,Chupitos,15,0.367/0.855/0.244/0.122/0.244,0/0/0/1,false/false/false,false/false/true,end
+Traditional Churros con Chocolate,humphry slocombe harvey milk-honey ice cream/ chocolate-dipped waffle shell,9,Dessert,15,0.204/0.306/0.102/0.102/0.919,0/0/0/1,false/false/false,true/true/false,end
+Choco-tacoliciou,toasted coconut flakes/ seasonal fruit,9,Dessert,15,0.204/0.306/0.102/0.102/0.919,0/0/0/1,false/false/false,true/true/false,end
+Bitter Melon,very bitter food,9.99,Small Plates,16,0.996/0.001/0.001/0.001/0.001,1/0/0/0,false/false/false,true/true/true,end
+Healthy Bitter Kale,very bitter food,9.99,Small Plates,16,0.996/0.001/0.001/0.001/0.001,1/0/0/0,false/false/false,true/true/true,end
+Healthy Bitter Broccoli Soup,very bitter food,9.99,Small Plates,16,0.996/0.001/0.001/0.001/0.001,1/0/0/0,false/false/false,true/true/true,end
+Bitter Celery,very bitter food,9.99,Small Plates,16,0.996/0.001/0.001/0.001/0.001,1/0/0/0,false/false/false,true/true/true,end
+Sour Cream,very sour food,9.99,Small Plates,17,0.001/0.001/0.996/0.001/0.001,0/1/0/0,false/false/false,true/true/true,end
+Sour Plum,very sour food,9.99,Small Plates,17,0.001/0.001/0.996/0.001/0.001,0/1/0/0,false/false/false,true/true/true,end
+Warheads (Sour),very sour food,9.99,Small Plates,17,0.001/0.001/0.996/0.001/0.001,0/1/0/0,false/false/false,true/true/true,end
+Tamarind (Sour),very sour food,9.99,Small Plates,17,0.001/0.001/0.996/0.001/0.001,0/1/0/0,false/false/false,true/true/true,end
+Sichuan Chicken,very spicy food,9.99,Small Plates,18,0.001/0.001/0.001/0.996/0.001,0/0/1/0,false/false/false,true/true/true,end
+Spicy Fried Rice,very spicy food,9.99,Small Plates,18,0.001/0.001/0.001/0.996/0.001,0/0/1/0,false/false/false,true/true/true,end
+Chilli Hot Pot,very spicy food,9.99,Small Plates,18,0.001/0.001/0.001/0.996/0.001,0/0/1/0,false/false/false,true/true/true,end
+Stuffed Red Chili,very spicy food,9.99,Small Plates,18,0.001/0.001/0.001/0.996/0.001,0/0/1/0,false/false/false,true/true/true,end
+Chocolate Ice Cream,very sweet food,9.99,Small Plates,19,0.001/0.001/0.001/0.001/0.996,0/0/0/1,false/false/false,true/true/true,end
+Peanut Butter Popcorn,very sweet food,9.99,Small Plates,19,0.001/0.001/0.001/0.001/0.996,0/0/0/1,false/false/false,true/true/true,end
+Toffee Cookie,very sweet food,9.99,Small Plates,19,0.001/0.001/0.001/0.001/0.996,0/0/0/1,false/false/false,true/true/true,end
+Pink Mochi Donut,very sweet food,9.99,Small Plates,19,0.001/0.001/0.001/0.001/0.996,0/0/0/1,false/false/false,true/true/true,end

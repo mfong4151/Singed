@@ -86,7 +86,7 @@ for (let i = 0; i < restaurantsRaw.length; i++) {
 const dishRelativePath = 'seed_files/menu_item_seeds.csv'
 // const dishesRaw = easySeeds.formatSeeds(`./${dishRelativePath}`) // local
 // const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/seed_files/menu_item_seeds.csv`))
-const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/seed_files/menu_item_seeds.csv`))
+const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/seed_files/menu_item_seeds.csv`)) //for render
 dishesImageUrls = [
   'https://source.unsplash.com/gySMaocSdqs',
   'https://source.unsplash.com/XoByiBymX20',

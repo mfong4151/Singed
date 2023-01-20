@@ -5,7 +5,8 @@ import { RxDoubleArrowUp, RxDoubleArrowDown } from "react-icons/rx";
 import { useLocation, useParams } from 'react-router-dom';
 import { fetchMessages,createMessage, addMessage } from '../../../store/message';
 import io from "socket.io-client";
-const ENDPOINT = "http://localhost:3001";
+// const ENDPOINT = "http://localhost:3001";
+const ENDPOINT = "https://singed.onrender.com/"
 var socket
 
 const useChatScroll = (dep) => {
