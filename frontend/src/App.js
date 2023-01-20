@@ -27,10 +27,10 @@ function App() {
       <NavBar />
       <Switch >
         {/* temporary route for splash page, */}
-        <AuthRoute exact path="/splashpage" component={SplashPage} />
-        <AuthRoute exact path="/" component={MainPage} />
+        <AuthRoute exact path="/" component={SplashPage} />
         <AuthRoute exact path="/login" component={LoginForm} />
         <AuthRoute exact path="/signup" component={SignupForm} />
+        <Route exact path="/main" component={MainPage} />
         <Route exact path="/allergies_diet" component={AllergiesDietForm}/>
         <Route exact path="/dish_survey" component={SurveyForm}/>
         <Route exact path="/map" component={Map}/>
