@@ -1,6 +1,5 @@
 import jwtFetch from './jwt';
-import io from "socket.io-client";
-const socket = io("http://localhost:3001");
+import socket from '../util/socket';
 
 export const ADD_MESSAGES = "messages/ADD_MESSAGES";
 export const ADD_MESSAGE = "messages/ADD_MESSAGE";
