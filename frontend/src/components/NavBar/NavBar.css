@@ -31,10 +31,7 @@
   cursor: pointer;
   padding: 6px;
   margin-left: 10px;
-  border-radius: 25px;
-  width: 120px;
-  height: 40px;
-  font-size: 20px;
+  font-size: medium;
 }
 .logo{
   height: 100%;
