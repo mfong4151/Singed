@@ -62,7 +62,7 @@ const CommunityModal = () => {
     const handleSendGroupInvite = () =>{
 
 
-        let flavorProfiles = [], genreProfiles = [], allergyProfiles=[], dietProfiles = [], userIds = [];
+        let flavorProfiles = [], genreProfiles = [], allergyProfiles=[], dietProfiles = [], userIds = [sessionUser._id];
         for(const gm of groupList){
             flavorProfiles.push(gm.flavorProfile)
             genreProfiles.push(gm.genre)
