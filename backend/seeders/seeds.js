@@ -53,8 +53,8 @@ groups.push(
 // Create restaurants
 const restaurantRelativePath = 'seed_files/restaurant_seeds.csv'
 // const restaurantsRaw = easySeeds.formatSeeds(`./${restaurantRelativePath}`) // local
-const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/seed_files/restaurant_seeds.csv`))
-// const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/${restaurantRelativePath}`)) // render
+// const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/seed_files/restaurant_seeds.csv`))
+const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/${restaurantRelativePath}`)) // render
 restaurantsImageUrls = [
   'https://source.unsplash.com/HvhinFxq4_s',
   'https://source.unsplash.com/zmsR0qeKQyo',
@@ -85,7 +85,8 @@ for (let i = 0; i < restaurantsRaw.length; i++) {
 // Create dishes
 const dishRelativePath = 'seed_files/menu_item_seeds.csv'
 // const dishesRaw = easySeeds.formatSeeds(`./${dishRelativePath}`) // local
-const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/seed_files/menu_item_seeds.csv`))
+// const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/seed_files/menu_item_seeds.csv`))
+const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/seed_files/menu_item_seeds.csv`))
 dishesImageUrls = [
   'https://source.unsplash.com/gySMaocSdqs',
   'https://source.unsplash.com/XoByiBymX20',
@@ -108,7 +109,6 @@ for (let i = 0; i < dishesRaw.length; i++) {
 
   } else {
     // calculate normalized then reset
-    console.log(genreSum)
     flavorProfileSumSquareSum = flavorProfileSum.reduce((partialSum, a) => partialSum + a**2, 0)
     flavorProfileResult = flavorProfileSum.map(num => num/Math.sqrt(flavorProfileSumSquareSum));
     genreResult  = genreSum.map(num => num/dishesCount); // division since all the same
@@ -125,7 +125,7 @@ for (let i = 0; i < dishesRaw.length; i++) {
     dishesCount = 0
     restaurant = restaurants[parseInt(dishesRaw[i][4])-1];
   }
-  console.log(genreSum)
+
   flavorProfileSumSquareSum = flavorProfileSum.reduce((partialSum, a) => partialSum + a**2, 0)
   flavorProfileResult = flavorProfileSum.map(num => num/Math.sqrt(flavorProfileSumSquareSum));
   genreResult  = genreSum.map(num => num/dishesCount); // division since all the same
