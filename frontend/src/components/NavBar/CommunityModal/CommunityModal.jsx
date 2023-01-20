@@ -39,6 +39,7 @@ const CommunityModal = () => {
     const [filteredUsers, setFilteredUsers] = useState([])
     const dispatch = useDispatch()
     const sessionUser = useSelector((store) => store.session.user);
+    const groups = useSelector((store) => store.groups)
     const allUsers = useSelector(getUsers)
     const history = useHistory()
 
@@ -62,7 +63,7 @@ const CommunityModal = () => {
     const handleSendGroupInvite = () =>{
 
 
-        let flavorProfiles = [], genreProfiles = [], allergyProfiles=[], dietProfiles = [], userIds = [];
+        let flavorProfiles = [], genreProfiles = [], allergyProfiles=[], dietProfiles = [], userIds = [sessionUser._id];
         for(const gm of groupList){
             flavorProfiles.push(gm.flavorProfile)
             genreProfiles.push(gm.genre)
@@ -89,7 +90,9 @@ const CommunityModal = () => {
             history.push(`/groups/${group._id}`);
         })
 
-        setGroupList([])
+        closeCommunityModal();
+        setGroupName();
+        setGroupList([]);
 
 
     }

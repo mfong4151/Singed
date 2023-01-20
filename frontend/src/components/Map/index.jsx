@@ -36,6 +36,13 @@ export function MapContainer({restaurants, center}) {
   const centerM = useMemo(() => (center), [])
   const history = useHistory()
 
+  const options = {
+    mapId: '73cef3161f877bcd',
+    disableDefaultUI:false,
+    clickableIcons:false,
+
+};
+
   const restaurantCardOnClick = (e, restaurant) => {
     e.preventDefault()
   }
@@ -48,7 +55,7 @@ export function MapContainer({restaurants, center}) {
   if (!isLoaded) return <div>Loading...</div>
   return (
     <div className="map-div">
-      <GoogleMap zoom={12} center={centerM} onClick={mapOnClick} mapContainerClassName="map-container" options={{styles: styles}}>
+      <GoogleMap zoom={12} center={centerM} onClick={mapOnClick} mapContainerClassName="map-container" options={options}>
         {restaurants.map(restaurant => {
           return (
             <OverlayView key = {restaurant._id} position={{lat:restaurant.latitude, lng:restaurant.longitude}} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
