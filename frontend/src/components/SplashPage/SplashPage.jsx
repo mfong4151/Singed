@@ -12,7 +12,7 @@ function SplashPage () {
             <div className="splash-page-1 splash-page-component">
                 <div className="splash-page-1-left splash-text">
                     <h1>Find the best food for you</h1>
-                    <p>Welcome to Singed, a food recommendation app that helps you find the best nearby foods and restaurants for you!</p>
+                    <p>Welcome to Singed, a food recommendation app that helps find the best nearby foods and restaurants for you!</p>
                     {/* <div className="splash-page-buttons">
                         <Link to="/signup" className="signup-button">Sign Up</Link>
                         <Link to="/login" className="login-button">Login</Link>
