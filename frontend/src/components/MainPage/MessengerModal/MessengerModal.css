@@ -5,6 +5,8 @@
     bottom:0px;
     right:0px;
     z-index:99;
+    display: flex;
+    flex-direction: column;
 }
 #modal-overlay-chat{
     /* width: 100vw;
@@ -36,7 +38,7 @@
 
 #messenger-show-body{
     height:50px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     /* justify-content: space-between; */
     transition: 1s;
     z-index: 10;
@@ -44,7 +46,8 @@
     flex-direction: column;
     border-top-left-radius: 5px;
     box-shadow: 10px 10px 10px 10px black;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    overflow: hidden;
 }
 
 /* .active-modal {
@@ -66,7 +69,7 @@
 }
 .messages-bottom{
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     width: 100%;
     height: 100%;
     border-top: 1px solid black;
@@ -93,16 +96,16 @@
     height:100%;
     display: flex;
     flex-direction: column;
-    justify-content:flex-end;
+    justify-content: space-around;
+    /* justify-content:flex-end; */
     background-color: rgb(203, 157, 157);
 }
 #messenger-body input::placeholder{
     color: black;
 }
 
-.messenger-body-scroll{
+.message-body-scroll{
     width:100%;
-
 }
 
 #messenger-style-boarder{
@@ -138,4 +141,41 @@
 }
 #uparrow-messenger{
     height: 30px;
+}
+
+.message-content{
+    word-break: break-all;
+}
+
+.message-container {
+    width: 100%;
+}
+
+.channel-message {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    margin: 7px 0;
+    padding: 10px 28px 10px 10px;
+    border-radius: 3px;
+}
+
+.message-info {
+    display: flex; 
+    justify-content: space-between;
+    padding-bottom: 5px;
+}
+
+.message-username {
+    font-weight: bold;
+}
+
+.message-date {
+    font-size: smaller;
+}
+
+.all-messages {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 90%;
 }

@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import MessengerModalTab from "./MessengerModal/MessengerModalTab";
 import MessengerModal from "./MessengerModal/MessengerModal";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchGroups } from "../../store/group";
-import { useLocation } from "react-router-dom";
+import { clearGroups, fetchGroup, fetchGroups } from "../../store/group";
+import { Redirect, useParams } from "react-router";
 
 export default function MainPage({location}) {
   // const location = useLocation();
@@ -21,13 +21,24 @@ export default function MainPage({location}) {
   const [messengerModal, setMessengerModal] = useState(false);
   const sessionUser = useSelector((store) => store.session.user);
   const dispatch = useDispatch();
+  const {groupId} = useParams();
 
   useEffect(() => {
     if(sessionUser){
       dispatch(fetchGroups())
     }
-  },)
 
+  },[dispatch, sessionUser] )
+
+  useEffect(() => {
+    if(groupId){
+      dispatch(clearGroups())
+      dispatch(fetchGroup(groupId))
+    }
+  }, [groupId])
+
+
+  if(!sessionUser) return <Redirect to="/"/>
   return (
     <div className="mainpage">
       <Map preference={preference}/>

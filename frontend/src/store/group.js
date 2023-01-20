@@ -3,6 +3,7 @@ import jwtFetch from "./jwt";
 export const ADD_GROUPS = "groups/ADD_GROUPS";
 export const ADD_GROUP = "groups/ADD_GROUP";
 export const REMOVE_GROUP = "groups/REMOVE_GROUP";
+export const CLEAR_GROUPS = "groups/CLEAR_GROUP";
 
 export const addGroups = (groups) => ({
     type: ADD_GROUPS, 
@@ -67,6 +68,10 @@ export const updateGroup = (groupData) => async dispatch => {
     }
 }
 
+export const clearGroups = () => ({
+    type: CLEAR_GROUPS
+});
+
 const groupReducer = (state={}, action) => {
     switch (action.type){
         case ADD_GROUPS:
@@ -77,6 +82,8 @@ const groupReducer = (state={}, action) => {
             const newState = {...state}
             delete newState[action.payload]
             return newState
+        case CLEAR_GROUPS:
+            return {};
         default: 
             return state 
     }

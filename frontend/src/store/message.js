@@ -1,4 +1,6 @@
 import jwtFetch from './jwt';
+import io from "socket.io-client";
+const socket = io("http://localhost:3001");
 
 export const ADD_MESSAGES = "messages/ADD_MESSAGES";
 export const ADD_MESSAGE = "messages/ADD_MESSAGE";
@@ -27,13 +29,25 @@ export const fetchMessages = (groupId) => async dispatch => {
     }
 }
 
-export const createMessage = (groupId, messageData) => async dispatch => {
-    const res = await jwtFetch(`/api/groups/${groupId}/createmessage`,{
+// export const createMessage = (groupId, messageData) => async dispatch => {
+//     const res = await jwtFetch(`/api/groups/${groupId}/createmessage`,{
+//         method: "POST",
+//         body: JSON.stringify(messageData)
+//     });
+//     if(res.ok){
+//         const data = await res.json();
+//         dispatch(addMessage(data))
+//     }
+// }
+
+export const createMessage = (messageData) => async dispatch => {
+    const res = await jwtFetch(`/api/messages/createmessage`,{
         method: "POST",
         body: JSON.stringify(messageData)
     });
     if(res.ok){
         const data = await res.json();
+        socket.emit("new message", data);
         dispatch(addMessage(data))
     }
 }
