@@ -1,4 +1,6 @@
 import jwtFetch from './jwt';
+import io from "socket.io-client";
+const socket = io("http://localhost:3001");
 
 export const ADD_MESSAGES = "messages/ADD_MESSAGES";
 export const ADD_MESSAGE = "messages/ADD_MESSAGE";
@@ -45,6 +47,7 @@ export const createMessage = (messageData) => async dispatch => {
     });
     if(res.ok){
         const data = await res.json();
+        socket.emit("new message", data);
         dispatch(addMessage(data))
     }
 }

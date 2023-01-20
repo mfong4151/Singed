@@ -3,7 +3,10 @@ import MessageForm from './MessegeForm'
 import {useDispatch, useSelector} from 'react-redux';
 import { RxDoubleArrowUp, RxDoubleArrowDown } from "react-icons/rx";
 import { useLocation, useParams } from 'react-router-dom';
-import { fetchMessages,createMessage } from '../../../store/message';
+import { fetchMessages,createMessage, addMessage } from '../../../store/message';
+import io from "socket.io-client";
+const ENDPOINT = "http://localhost:3001";
+var socket
 
 const useChatScroll = (dep) => {
   const ref = useRef(null);
@@ -44,14 +47,26 @@ const MessengerModal = () => {
   const [open, setOpen] = useState(false);
   const [body, setBody] = useState("");
   const sessionUser = useSelector((store) => store.session.user);
-  // const ref = useChatScroll(messages);
+  const ref = useChatScroll(messages);
+  const group = useSelector((store) => store.groups[groupId])
       
   // if (messengerModal) document.body.classList.add('active-modal')
   // else document.body.classList.remove('active-modal')
+  useEffect(() => {
+    socket = io(ENDPOINT);
+    socket.emit("setup", sessionUser);;
+  }, [])
 
   useEffect(() => {
     dispatch(fetchMessages(groupId))
+    socket.emit("join chat", groupId);
   }, [dispatch, groupId])
+
+  useEffect(() => {
+    socket.on("message received", (newMessageRecieved) => {
+      dispatch(addMessage(newMessageRecieved))
+    })
+  })
 
   const handleOpen = (e) => {
     e.stopPropagation();
@@ -151,27 +166,29 @@ const handleSubmit = (e) => {
                     }
                   </ul> */}
               </div>
-              <div id='messenger-body'>
-                <ul className="message-body-scroll">
-                  {/* {
-                    Object.values(messages)?.map((message) => {
-                      return (
-                          <li className="channel-message" key={message?.id}>
-                              <div className="message-container">
-                                  <div className="message-info">
-                                      <div className="message-username">{message?.username}</div>
-                                      <div className="message-date">{formatMessageDate(message?.createdAt)}</div>
-                                  </div>
-                                  <div className="message-content">
-                                      {message.content}
-                                  </div>
-                              </div>
-                          </li>
-                      )
-                  }) 
-                  } */}
-                  {groupMessages()}
-                </ul>
+              <div id='messenger-body' >
+                <div className='all-messages' ref={ref}>
+                  <ul className="message-body-scroll">
+                    {/* {
+                      Object.values(messages)?.map((message) => {
+                        return (
+                            <li className="channel-message" key={message?.id}>
+                                <div className="message-container">
+                                    <div className="message-info">
+                                        <div className="message-username">{message?.username}</div>
+                                        <div className="message-date">{formatMessageDate(message?.createdAt)}</div>
+                                    </div>
+                                    <div className="message-content">
+                                        {message.content}
+                                    </div>
+                                </div>
+                            </li>
+                        )
+                    }) 
+                    } */}
+                    {groupMessages()}
+                  </ul>
+                </div>
                 <div className="message-form-container">
                   <form className="message-form" onSubmit={handleSubmit}>
                       <input 

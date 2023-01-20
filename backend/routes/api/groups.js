@@ -50,13 +50,14 @@ router.get('/:id', async(req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error: 'No such group found'})
     }
-    const group = await Group.findById(id)
-
-    if(!group){
-        return res.status(404).json({error: 'No such group found'})
-    }
-    res.status(200).json(group)
-})
+    try{
+        var group = await Group.findOne({_id: id})
+        group = await group.populate("userIds", "username")
+        res.json(group)
+    } catch {
+            return res.status(404).json({error: 'No such group found'})
+        }
+    })
 
 //delete group
 router.delete('/deletegroup/:id', async(req, res) => {

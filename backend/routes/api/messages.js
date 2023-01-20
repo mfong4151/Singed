@@ -24,21 +24,38 @@ router.post('/createmessage', async (req, res) => {
     if(!content || !messageLocation){
         return res.status(400).json({error: "Missing group Id or content" })
     }
-    const newMessage = new Message({
-        sender: sender,
-        username: username,
-        content: content,
-        messageLocation: messageLocation
-    });
+    // const newMessage = new Message({
+    //     sender: sender,
+    //     username: username,
+    //     content: content,
+    //     messageLocation: messageLocation
+    // });
 
-    newMessage
-        .save()
-        .then((result) => {
-            res.status(200).send(result);
-          })
-        .catch((err) => {
-          res.status(400).send(err);
-        });
+    // newMessage
+    //     .save()
+    //     .then((result) => {
+    //         res.status(200).send(result);
+    //       })
+    //     .catch((err) => {
+    //       res.status(400).send(err);
+    //     });
+
+    var newMessage = {
+        sender: sender, 
+        username: username,
+        content: content, 
+        messageLocation: messageLocation
+    }
+
+    try {
+        var message = await Message.create(newMessage);
+        message = await message.populate("sender", "name");
+        message = await message.populate("messageLocation");
+        res.json(message);
+    } catch (err) {
+        res.status(400);
+        throw new Error ("Server could not process request")
+    }
 
 })
 

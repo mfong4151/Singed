@@ -43,11 +43,13 @@ const groupSchema = Schema(
       required: true
     },
 
-    userIds: {
-      type: [Schema.Types.ObjectId],
-      required: true,
-      ref: 'User'
-    }
+    userIds: [
+      {
+        type: [Schema.Types.ObjectId],
+        required: true,
+        ref: 'User'
+      }]
+    
   }, {
     timestamps: true
   });
