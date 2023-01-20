@@ -109,7 +109,7 @@ function AllergiesDietForm() {
                             </div>
                         </div>
                     </div>
-                    <button type="submit" className="submit-button">Next</button>
+                    <button type="submit" className="survey-submit-button">Next</button>
                 </form>
             </div>
         // </div>

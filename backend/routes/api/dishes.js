@@ -7,65 +7,76 @@ const Dish = mongoose.model('Dish');
 
 // Get all dishes
 router.get('/', async (req, res) => {
-    const userConstraintQuery = req.query;
-    console.log(req.query);
-    const allergiesConstraints = {};
-    const dietConstraints = {};
+  const userConstraintQuery = req.query;
+  console.log(req.query);
+  const allergiesConstraints = [];
+  const dietConstraints = [];
+  const allergiesIndexDict = {'fish': 0, 'nuts': 1, 'shellfish': 2}
+  const dietIndexDict = {'gluten': 0, 'milk': 1, 'vegan': 2}
 
-    for (let key in userConstraintQuery) {
-        if (['fish', 'nuts', 'shellfish'].includes(key) && userConstraintQuery[key]=='true') {
-            allergiesConstraints[key] = false;
-        }
-        if (['gluten', 'milk', 'vegan'].includes(key) && userConstraintQuery[key]=='true') {
-            dietConstraints[key] = true;
-        }
+  for (let key in userConstraintQuery) {
+    if (['fish', 'nuts', 'shellfish'].includes(key) && userConstraintQuery[key]=='true') {
+      allergiesConstraints.push({[`allergies.${allergiesIndexDict[key]}`]: false});
     }
+    if (['gluten', 'milk', 'vegan'].includes(key) && userConstraintQuery[key]=='true') {
+      dietConstraints.push({[`diet.${dietIndexDict[key]}`]: true});
+    }
+  }
 
-    console.log({...allergiesConstraints});
-    console.log({...dietConstraints});
-
-    const dishes = await Dish.find({
-        $and: [
-            { $or: [{'allergies.2': false}] },
-            { $or: [{'diet.2': true}] }
-        ]
+  console.log(allergiesConstraints);
+  console.log(dietConstraints);
+  let dishes;
+  if (dietConstraints.length == 0 && allergiesConstraints.length ==0) {
+    dishes = await Dish.find().limit(12);
+  } else if (dietConstraints.length == 0) {
+    dishes = await Dish.find({$and: [...allergiesConstraints]}).limit(12);
+  } else if (allergiesConstraints.length == 0) {
+    dishes = await Dish.find({$and: [...dietConstraints] }).limit(12);
+  } else {
+    dishes = await Dish.find({
+      $and: [
+          { $and: [...allergiesConstraints] },
+          { $and: [...dietConstraints] }
+      ]
     }).limit(12);
-    res.status(200).json({dishes})
+  }
+  res.status(200).json({dishes})
+
 })
 
 
 // Get a single dish
 router.get('/:id', async (req, res) => {
-    const { id } = req.params
+  const { id } = req.params
 
-    if (!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No such dish found'})
-    }
+  if (!mongoose.Types.ObjectId.isValid(id)){
+    return res.status(404).json({error: 'No such dish found'})
+  }
 
-    const dish = await Dish.findById(id)
+  const dish = await Dish.findById(id)
 
-    if(!dish){
-        return res.status(404).json({error: 'No such dish found'})
-    }
+  if(!dish){
+    return res.status(404).json({error: 'No such dish found'})
+  }
 
-    res.status(200).json({dish})
+  res.status(200).json({dish})
 })
 
 // remove a single dish
 router.delete('/:id', async (req, res) => {
-    const { id } = req.params
+  const { id } = req.params
 
-    if (!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No such dish found'})
-    }
+  if (!mongoose.Types.ObjectId.isValid(id)){
+    return res.status(404).json({error: 'No such dish found'})
+  }
 
-    const dish = await Dish.findByIdAndDelete({_id: id})
+  const dish = await Dish.findByIdAndDelete({_id: id})
 
-    if(!dish){
-        return res.status(404).json({error: 'No such dish found'})
-    }
+  if(!dish){
+    return res.status(404).json({error: 'No such dish found'})
+  }
 
-    res.status(200).json({dish})
+  res.status(200).json({dish})
 })
 
 module.exports = router;
