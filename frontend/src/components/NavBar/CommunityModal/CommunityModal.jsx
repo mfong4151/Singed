@@ -4,6 +4,7 @@ import './CommunityModal.css'
 import FriendsListItem from './FriendsListItem'
 import SearchBar from './SearchBar'
 import { logout } from '../../../store/session';
+import { useHistory } from 'react-router-dom'
 
 
 
@@ -30,25 +31,28 @@ export const closeCommunityModal = () => {
 }
 
 const CommunityModal = () => {
-    
+
     //We should get a list of peoples names at the very least
     // const friendsList = useSelector(state => state)
     const dispatch = useDispatch()
+    const history = useHistory();
+    
     const logoutUser = e => {
         e.preventDefault();
         dispatch(logout());
+        history.push('/')
     }
 
     const sessionUser = useSelector((store) => store.session.user);
-    //get rid of this once we have an actual friends list selector going 
+    //get rid of this once we have an actual friends list selector going
     const friendsList = ['Ricky', 'Tammy', 'Juan', 'McDonalds','Fuck ruby']
     useEffect(()=>{
-        
+
     }, [dispatch])
 
     // if (communityModal) document.body.classList.add('active-modal')
     // else document.body.classList.remove('active-modal')
-    
+
     return (
         <div>
             <div id='modal-overlay' onClick={closeCommunityModal}>
@@ -65,7 +69,7 @@ const CommunityModal = () => {
                         </ul>
                         <button onClick={logoutUser}>Logout</button>
                      </div>
-                </div>    
+                </div>
             </div>
         </div>
   )

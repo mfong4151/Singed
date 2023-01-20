@@ -14,7 +14,7 @@ function LoginForm () {
   const sessionUser = useSelector(state => state.session.user)
 
   if (sessionUser) {
-    history.push('/')
+    history.push('/main')
   }
 
   useEffect(() => {
@@ -29,6 +29,7 @@ function LoginForm () {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ email, password }));
+    history.push('/main')
   }
 
   return (

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css';
 import { logout } from '../../store/session';
@@ -10,12 +10,9 @@ import {openCommunityModal} from './CommunityModal/CommunityModal.jsx'
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
+  // const sessionUser = useSelector(state => state.session.user);
 
-
-  const logoutUser = e => {
-      e.preventDefault();
-      dispatch(logout());
-  }
   const getLinks = () => {
     if (loggedIn) {
       return (
@@ -27,11 +24,11 @@ function NavBar () {
             <img src={singed} className='logo'></img>
           </div>
           <div className='navbar-right'>
-            <Link className='navbar-link' to={'/tweets'}>All Foods</Link>
+            <Link to={'/main'}>Main Page</Link>
             <Link to={'/profile'}>Profile</Link>
             <Link to={'/foods/new'}>Write a Foods</Link>
-            <Link to={'/allergies_diet'}>Allergies and Diet</Link>
-            <Link to={'/dish_survey'}>Dish Survey</Link>
+            <Link to={'/allergies_diet'}>Update Allergies and Diet</Link>
+            <Link to={'/dish_survey'}>Update Dish Preference</Link>
           </div>
           <CommunityModal />
         </div>
