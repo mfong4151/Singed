@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './CommunityModal.css'
-import FriendsListItem from './FriendsListItem'
+import GroupListItem from './GroupListItem'
 import SearchBar from './SearchBar'
 import { logout } from '../../../store/session';
-import { useHistory } from 'react-router-dom'
-
-
+import { fetchUsers, getUsers } from '../../../store/user'
+import { normalizeGroupAllergiesProfile, normalizeGroupFlavorProfile, normalizeGroupGenreProfile, normalizeGroupDietProfile } from './utils/CommunityModalsUtils'
+import { createGroup } from '../../../store/group'
+import {useHistory} from 'react-router-dom'
 
 export const openCommunityModal = () => {
 
@@ -31,45 +32,145 @@ export const closeCommunityModal = () => {
 }
 
 const CommunityModal = () => {
-
+    //state for opening add to group modal, delete on refactor
+    const [groupList, setGroupList] = useState([])
+    const [searchTerms, setSearchTerms] = useState('Find your friends here!')
+    const [groupName, setGroupName] = useState('Name your group!')
+    const [filteredUsers, setFilteredUsers] = useState([])
+    const dispatch = useDispatch()
+    const sessionUser = useSelector((store) => store.session.user);
+    const allUsers = useSelector(getUsers)
+    const history = useHistory()
+    
     //We should get a list of peoples names at the very least
     // const friendsList = useSelector(state => state)
-    const dispatch = useDispatch()
-    const history = useHistory();
-    
     const logoutUser = e => {
         e.preventDefault();
         dispatch(logout());
-        history.push('/')
     }
 
-    const sessionUser = useSelector((store) => store.session.user);
-    //get rid of this once we have an actual friends list selector going
-    const friendsList = ['Ricky', 'Tammy', 'Juan', 'McDonalds','Fuck ruby']
+    const handleOnClick = (e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        
+    }
+    const addToGroup = user =>{
+       
+        if(!groupList.includes(user)) setGroupList([...groupList, user])
+    }
+
+    const handleSendGroupInvite = () =>{
+
+
+        let flavorProfiles = [], genreProfiles = [], allergyProfiles=[], dietProfiles = [], userIds = [];
+        for(const gm of groupList){
+            flavorProfiles.push(gm.flavorProfile)
+            genreProfiles.push(gm.genre)
+            allergyProfiles.push(gm.allergies)
+            dietProfiles.push(gm.diet)
+            userIds.push(gm._id)
+        }
+
+        let normalizedFlavorProfile = normalizeGroupFlavorProfile(flavorProfiles)
+        let normalizedGenreProfile = normalizeGroupGenreProfile(genreProfiles)
+        let normalizedAllergyProfile = normalizeGroupAllergiesProfile(allergyProfiles)
+        let normalizedDietProfile = normalizeGroupDietProfile(dietProfiles)
+
+       dispatch(createGroup(
+            {
+                name: groupName,
+                flavorProfile: normalizedFlavorProfile,
+                genre: normalizedGenreProfile,
+                allergies: normalizedAllergyProfile,
+                diet: normalizedDietProfile,
+                userIds
+            }
+        )).then(async (group) => {
+            history.push(`/groups/${group._id}`);
+        })
+
+        setGroupList([])
+    
+       
+    }
+
+
+    const filterUsers = (searchTerms) =>{
+        const res = [];
+        
+        if(!searchTerms || searchTerms=== 'Find your friends here!')
+            return res
+        else{
+            allUsers.forEach(user=>{   
+                if (user?.username.toLowerCase().includes(searchTerms) && user?._id !== sessionUser.user?._id ) res.push(user)           //change to user.name.lower() later
+            })
+            return res
+        }
+    }
+
+
     useEffect(()=>{
+        setFilteredUsers(filterUsers(searchTerms))
+        if(searchTerms === '') setSearchTerms('Find your friends here!')
+    }, [searchTerms])
 
-    }, [dispatch])
 
-    // if (communityModal) document.body.classList.add('active-modal')
-    // else document.body.classList.remove('active-modal')
+    useEffect(()=>{
+        dispatch(fetchUsers())
+    }, [])
 
+   
+    
     return (
         <div>
             <div id='modal-overlay' onClick={closeCommunityModal}>
                 <div className="modal-menu-container">
                     <div id="modal-menu-content" onClick={e => e.stopPropagation()}>
-                        <div className="modal-profile-content">
-                            <h2>{sessionUser.username}</h2>
+
+                        <div id='community-upper'>
+                            <div className="modal-profile-content">
+                                <h2>{sessionUser.username}</h2>
+                            </div>
+                            <form>
+                                <input id="search-bar" type='text' placeholder={searchTerms} onChange={e =>setSearchTerms(e.target.value)}/>
+                            </form>
+
+                            <ul id="search-result-display">
+                                {filteredUsers?.map((user, idx) =>
+                                <li className='search-bar-result' key={idx} onClick={handleOnClick}>
+                                    <span>
+                                        {user.username}
+                                    </span>
+                                    <button id='add-to-group' onClick={()=> addToGroup(user)} value={user}>+</button>
+                                </li>
+                                )}  
+                            </ul>
                         </div>
-                        <SearchBar/>
-                        <ul>
-                            {friendsList.map((friend, idx) =>
-                                <FriendsListItem friend={friend} key={idx}/>
-                            )}
-                        </ul>
-                        <button onClick={logoutUser}>Logout</button>
+
+                        <div id='community-lower'>
+                        
+                            <ul id='group-list'>
+                                {groupList.map((groupMember, idx) =>
+                                    <GroupListItem groupMember={groupMember} groupList={groupList} setGroupList={setGroupList}
+                                    key={idx}/>
+                                    )}
+                            </ul>
+                            <div id='bottom-buttons'>
+                                <form id='group-form'>
+                                    <input id="search-bar" type='text' placeholder={groupName} onChange={e =>setGroupName(e.target.value)}/>
+                                </form>
+                                <div>
+                                    <button className='bottom-button-size' onClick={handleSendGroupInvite}>Send Group Invite</button>
+                                    <button className='bottom-button-size' onClick={logoutUser}>Logout</button>
+
+
+                                </div>
+
+                            </div>
+                           
+                        </div>   
                      </div>
-                </div>
+                </div>    
             </div>
         </div>
   )
