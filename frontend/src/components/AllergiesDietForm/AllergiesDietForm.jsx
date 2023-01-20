@@ -23,11 +23,11 @@ function AllergiesDietForm() {
     const history = useHistory()
 
     useEffect(() => {
-        dispatch(fetchUser(sessionUser._id))
+        dispatch(fetchUser(sessionUser.user._id))
     }, [])
 
     const updatedUser = {
-        id: sessionUser._id,
+        id: sessionUser.user._id,
         allergies: [fishAllergy, nutsAllergy, shellfishAllergy],
         diet: [glutenDiet, lactoseDiet, veganDiet]
     }

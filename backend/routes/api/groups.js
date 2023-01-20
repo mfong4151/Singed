@@ -115,15 +115,15 @@ router.get('/:id/messages', async (req, res) => {
 
 // create message 
 router.post('/:id/createmessage', async(req, res) => {
-    const { id } = req.params;
-    const {content} = req.body;
-    if(!content || !id){
+    // const { id } = req.params;
+    const {sender, content, messageLocation} = req.body;
+    if(!content){
         return res.status(400).json({error: "Missing group Id or content" })
     }
     const newMessage = new Message({
-        sender: req.user._id,
+        sender: sender,
         content: content,
-        messageLocation: id
+        messageLocation: messageLocation
     });
 
     newMessage

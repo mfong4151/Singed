@@ -58,7 +58,7 @@ const initialState = {
     user: undefined
   };
 
-const sessionReducer = (state = initialState, action) => {
+const sessionReducer = (state = {}, action) => {
     switch (action.type) {
       case RECEIVE_CURRENT_USER:
         return { user: action.currentUser };

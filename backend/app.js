@@ -19,6 +19,9 @@ require('./config/passport');
 const passport = require('passport');
 const app = express();
 
+
+
+
 const usersRouter = require('./routes/api/users');
 const csrfRouter = require('./routes/api/csrf');
 const messagesRouter = require('./routes/api/messages');
@@ -107,6 +110,14 @@ app.use((err, req, res, next) => {
       errors: err.errors
     })
   });
+
+
+  
+  
+
+
+
+
 
 
 module.exports = app;
