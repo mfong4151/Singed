@@ -23,19 +23,20 @@ passport.use(new LocalStrategy({
   }));
 
 
-  exports.loginUser = async function(user) {
-    const userInfo = {
-      _id: user._id,
-      username: user.username,
-      email: user.email
-    };
+  exports.loginUser = async function(u) {
+    // const userInfo = {
+    //   _id: user._id,
+    //   username: user.username,
+    //   email: user.email
+    // };
+    const user = u.toJSON()
     const token = await jwt.sign(
-      userInfo, // payload
+      user, // payload
       secretOrKey, // sign with secret key
       { expiresIn: 3600 } // tell the key to expire in one hour
     );
     return {
-      user: userInfo,
+      user,
       token
     };
   };
@@ -64,6 +65,7 @@ passport.use(new JwtStrategy(options, async (jwtPayload, done) => {
 exports.requireUser = passport.authenticate('jwt', { session: false });
 
 exports.restoreUser = (req, res, next) => {
+  console.log("restoreUser", req.user)
   return passport.authenticate('jwt', { session: false }, function(err, user) {
     if (err) return next(err);
     if (user) req.user = user;

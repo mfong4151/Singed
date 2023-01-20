@@ -43,7 +43,7 @@ groups.push(
   new Group({
     name: 'test group',
     flavorProfile: [5,5,5,5,5],
-    genre: [5,5,5,5],
+    genre: [1,0,0,0],
     allergies: [true, false, true],
     diet: [true, true, false],
     userIds: [users[0]._id, users[1]._id]
@@ -53,7 +53,8 @@ groups.push(
 // Create restaurants
 const restaurantRelativePath = 'seed_files/restaurant_seeds.csv'
 // const restaurantsRaw = easySeeds.formatSeeds(`./${restaurantRelativePath}`) // local
-const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/${restaurantRelativePath}`)) // render
+const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/seed_files/restaurant_seeds.csv`))
+// const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/${restaurantRelativePath}`)) // render
 restaurantsImageUrls = [
   'https://source.unsplash.com/HvhinFxq4_s',
   'https://source.unsplash.com/zmsR0qeKQyo',
@@ -84,7 +85,7 @@ for (let i = 0; i < restaurantsRaw.length; i++) {
 // Create dishes
 const dishRelativePath = 'seed_files/menu_item_seeds.csv'
 // const dishesRaw = easySeeds.formatSeeds(`./${dishRelativePath}`) // local
-const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/${dishRelativePath}`)) // render
+const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/seed_files/menu_item_seeds.csv`))
 dishesImageUrls = [
   'https://source.unsplash.com/gySMaocSdqs',
   'https://source.unsplash.com/XoByiBymX20',
