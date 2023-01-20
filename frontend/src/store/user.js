@@ -1,4 +1,5 @@
 import jwtFetch from "./jwt";
+import { getCurrentUser } from "./session";
 
 const RECEIVE_USERS = "users/RECEIVE_USERS";
 const RECEIVE_USER = "users/RECEIVE_USER";
@@ -51,7 +52,8 @@ export const updateUser = (user) => async dispatch => {
     })
     if (res.ok){
         const data = await res.json();
-        dispatch(receiveUser(data.payload))
+        dispatch(receiveUser(data.user))
+        dispatch(getCurrentUser());
     }
 }
 

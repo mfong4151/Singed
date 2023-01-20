@@ -53,7 +53,7 @@ groups.push(
 // Create restaurants
 const restaurantRelativePath = 'seed_files/restaurant_seeds.csv'
 // const restaurantsRaw = easySeeds.formatSeeds(`./${restaurantRelativePath}`) // local
-const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/seed_files/restaurant_seeds.csv`))
+const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/seed_files/restaurant_seeds.csv`))
 // const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/${restaurantRelativePath}`)) // render
 restaurantsImageUrls = [
   'https://source.unsplash.com/HvhinFxq4_s',
@@ -76,8 +76,8 @@ for (let i = 0; i < restaurantsRaw.length; i++) {
       imageUrl: restaurantsImageUrls[Math.floor(Math.random()*restaurantsImageUrls.length)],
       flavorProfile: [5,5,5,5,5],
       genre: [5,5,5,5],
-      allergies: [true, false, true],
-      diet: [true, true, false]
+      allergies: [true, true, true],
+      diet: [true, true, true]
     })
   )
 }
@@ -85,15 +85,58 @@ for (let i = 0; i < restaurantsRaw.length; i++) {
 // Create dishes
 const dishRelativePath = 'seed_files/menu_item_seeds.csv'
 // const dishesRaw = easySeeds.formatSeeds(`./${dishRelativePath}`) // local
-const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/seed_files/menu_item_seeds.csv`))
+const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/seed_files/menu_item_seeds.csv`))
 dishesImageUrls = [
   'https://source.unsplash.com/gySMaocSdqs',
   'https://source.unsplash.com/XoByiBymX20',
   'https://source.unsplash.com/RWAToPPP9RY',
   'https://source.unsplash.com/NEab1U1FfKM'
 ]
-const dishes = []
+const dishes = [];
+let foreignKey = 1;
+let dishesCount = 0;
+let flavorProfileSum = [0,0,0,0,0];
+let genreSum = [0,0,0,0]
+let restaurant = restaurants[0];
+
 for (let i = 0; i < dishesRaw.length; i++) {
+  if (parseInt(dishesRaw[i][4]) == foreignKey) {
+    // iterate over the dishes from the same
+    dishesCount += 1;
+    flavorProfileSum = flavorProfileSum.map((num, idx) => num + dishesRaw[i][5][idx])
+    genreSum = genreSum.map((num, idx) => num + dishesRaw[i][6][idx])
+
+  } else {
+    // calculate normalized then reset
+    console.log(genreSum)
+    flavorProfileSumSquareSum = flavorProfileSum.reduce((partialSum, a) => partialSum + a**2, 0)
+    flavorProfileResult = flavorProfileSum.map(num => num/Math.sqrt(flavorProfileSumSquareSum));
+    genreResult  = genreSum.map(num => num/dishesCount); // division since all the same
+    allergiesResult  = [false, false, false] // assume good for everyone, ideally majority vote
+    dietResult  = [true, true, true] // assume good for everyone, ideally majority vote
+    restaurant['flavorProfile'] = flavorProfileResult;
+    restaurant['genre'] = genreResult;
+    restaurant['allergies'] = allergiesResult;
+    restaurant['diet'] = dietResult;
+
+    flavorProfileSum = [0,0,0,0,0];
+    genreSum = [0,0,0,0]
+    foreignKey = parseInt(dishesRaw[i][4]);
+    dishesCount = 0
+    restaurant = restaurants[parseInt(dishesRaw[i][4])-1];
+  }
+  console.log(genreSum)
+  flavorProfileSumSquareSum = flavorProfileSum.reduce((partialSum, a) => partialSum + a**2, 0)
+  flavorProfileResult = flavorProfileSum.map(num => num/Math.sqrt(flavorProfileSumSquareSum));
+  genreResult  = genreSum.map(num => num/dishesCount); // division since all the same
+  allergiesResult  = [false, false, false] // assume good for everyone
+  dietResult  = [true, true, true] // assume good for everyone
+  restaurant['flavorProfile'] = flavorProfileResult;
+  restaurant['genre'] = genreResult;
+  restaurant['allergies'] = allergiesResult;
+  restaurant['diet'] = dietResult;
+
+
   dishes.push(
     new Dish({
       name: dishesRaw[i][0],
