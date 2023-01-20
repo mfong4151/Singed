@@ -98,7 +98,7 @@
 
 .search-bar-result{
     width: 80%;
-    height: 30px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items:center;
@@ -114,7 +114,11 @@
     padding-right:20px
 }
 
-
+#add-to-group{
+    position:absolute;
+    width:30px;
+    left:80%
+}
 
 .search-bar-results{
     height:auto;
@@ -122,5 +126,16 @@
 
 }
 
+#group-list{
+    margin-bottom:15%;
+
+}
+
+#community-lower{
+    margin-bottom: 15%;
+}
 
 
+#bottom-buttons{
+    margin-bottom: 15%;
+}

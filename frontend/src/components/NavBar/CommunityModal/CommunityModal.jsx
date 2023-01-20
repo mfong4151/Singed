@@ -56,6 +56,12 @@ const CommunityModal = () => {
         if(!groupList.includes(user)) setGroupList([...groupList, user])
     }
     
+    const handleSendGroupInvite = () =>{
+
+        // return(<Redirect to={{
+
+        //     }}/>)
+    }
 
 
     const filterUsers = (searchTerms) =>{
@@ -65,7 +71,7 @@ const CommunityModal = () => {
             return res
         else{
             allUsers.forEach(user=>{   
-                if (user.username.toLowerCase().includes(searchTerms) && user._id !== sessionUser.user._id ) res.push(user)           //change to user.name.lower() later
+                if (user?.username.toLowerCase().includes(searchTerms) && user?._id !== sessionUser.user._id ) res.push(user)           //change to user.name.lower() later
             })
             return res
         }
@@ -104,21 +110,25 @@ const CommunityModal = () => {
                                     <span>
                                         {user.username}
                                     </span>
-                                    <button onClick={()=> addToGroup(user)} value={user}>Add to group</button>
+                                    <button id='add-to-group' onClick={()=> addToGroup(user)} value={user}>+</button>
                                 </li>
                                 )}  
                             </ul>
                         </div>
 
                         <div id='community-lower'>
-                            <ul>
+                            <ul id='group-list'>
                                 {groupList.map((groupMember, idx) =>
                                     <GroupListItem groupMember={groupMember} groupList={groupList} setGroupList={setGroupList}
                                     key={idx}/>
                                     )}
                             </ul>
-                            <button>Send Group Invite</button>
-                            <button onClick={logoutUser}>Logout</button>
+                            <div id='bottom-buttons'>
+
+                                <button onClick={handleSendGroupInvite}>Send Group Invite</button>
+                                <button onClick={logoutUser}>Logout</button>
+
+                            </div>
                            
                         </div>   
                      </div>
