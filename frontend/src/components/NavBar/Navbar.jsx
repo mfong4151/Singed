@@ -27,7 +27,7 @@ function NavBar () {
             <img src={singed} className='logo'></img>
           </div>
           <div className='navbar-right'>
-            <Link to={'/tweets'}>All Foods</Link>
+            <Link className='navbar-link' to={'/tweets'}>All Foods</Link>
             <Link to={'/profile'}>Profile</Link>
             <Link to={'/foods/new'}>Write a Foods</Link>
             <Link to={'/allergies_diet'}>Allergies and Diet</Link>
@@ -51,7 +51,7 @@ function NavBar () {
             <Link to={'/signup'}><button>Signup</button></Link>
             <Link to={'/login'}><button>Login</button></Link>
           </div>
-        
+
         </div>
       );
     }

@@ -104,12 +104,12 @@ function AllergiesDietForm() {
                                     checked={veganDiet}
                                     onChange={(e) =>{setVeganDiet(e.target.checked)}}/>
                                 <label htmlFor='vegan-checkbox'>
-                                    <h3> Vegetarian </h3>
+                                    <h3> Vegan </h3>
                                     <img src={vegan}/></label>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" className="submit-button">Next</button>
+                    <button type="submit" className="survey-submit-button">Next</button>
                 </form>
             </div>
         // </div>

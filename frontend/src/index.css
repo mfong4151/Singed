@@ -15,10 +15,10 @@ html{
   min-height: 100vh;
 }
 
-.root > *{
-  margin-top: 50px; /* workaround for navbar. gets overwritten for navbar*/
+/* .root > *{ */
+  /* margin-top: 50px; // workround for navbar. gets overwritten for navbar */
   /* padding-bottom: 50px; */
-}
+/* } */
 a{
   text-decoration: none;
   color: inherit;

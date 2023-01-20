@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  
+
 }
 .dishes-form-grid-inputs{
   display: grid;
@@ -40,9 +40,12 @@
   margin: 10px;
 }
 
-.submit-button{
-  padding: 7px;
+.survey-submit-button{
   cursor: pointer;
+  width: 150px;
+  height: 80px;
+  border-radius: 20px;
+  font-size: 30px;
 }
 
 input[type="checkbox"] {
@@ -109,6 +112,6 @@ label img:hover{
 }
 .dish-survey-container {
   animation-name: fade;
-  animation-duration: 1s; 
-  animation-fill-mode: forwards; 
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
  }

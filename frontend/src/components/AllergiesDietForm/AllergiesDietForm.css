@@ -22,7 +22,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px;  
+  margin: 20px;
 }
 .survey-input{
   margin: 10px;
@@ -71,6 +71,13 @@ label {
 input[type="checkbox"] {
   /* gets rid of original checkbox */
   display: none;
+}
+
+.survey-submit-button {
+  width: 150px;
+  height: 80px;
+  border-radius: 20px;
+  font-size: 30px;
 }
 
 label::before {
@@ -132,6 +139,6 @@ label img:hover{
 }
 .allergies-diet-form {
   animation-name: fade;
-  animation-duration: 1s; 
-  animation-fill-mode: forwards; 
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
  }

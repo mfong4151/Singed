@@ -37,11 +37,12 @@ function SurveyForm () {
         <div className="dish-survey-container">
             <div className="dish-form-container">
                 <h1>Which dishes do you like?</h1>
-                <h2>We recommend these food based on your profile.</h2>
+                <h2>Recommended food based on your profile.</h2>
                 <h2>Allergic to: {JSON.stringify(sessionUser.allergies)}</h2>
                 <h2>Diet preference: {JSON.stringify(sessionUser.diet)}</h2>
                 <form onSubmit={handleSubmit} className="dishes-form-grid">
                     <div className="dishes-form-grid-inputs">
+                        {Object.values(dishes).length==0 &&  <h1 className="">0 food available</h1>}
                         {Object.values(dishes).length>1 && Object.values(dishes).map((dish) => (
                             <div className="dish-item" key={dish._id} >
                                 <input
@@ -60,7 +61,7 @@ function SurveyForm () {
                             </div>
                         ))}
                     </div>
-                    <button type="submit" className="submit-button">Submit</button>
+                    <button type="submit" className="survey-submit-button">Submit</button>
                 </form>
             </div>
         </div>
