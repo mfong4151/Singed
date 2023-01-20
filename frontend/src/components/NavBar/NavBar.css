@@ -14,6 +14,11 @@
   margin-top: 0px !important;
 }
 
+/* .nav-before-login{
+  display: flex;
+  justify-content: space-between;
+  
+} */
 .navbar-left img {
   height: 150px;
   width: 150px;
@@ -31,6 +36,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.navbar-right.before-login{
+  justify-content: right;
+}
+.navbar-right.before-login > *{
+  margin-right: 10px;
+  margin-left: 0px;
 }
 .navbar-right > *{
   margin-right: 15px;

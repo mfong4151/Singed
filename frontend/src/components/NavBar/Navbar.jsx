@@ -23,7 +23,7 @@ function NavBar () {
             </div>
             <img src={singed} className='logo'></img>
           </div>
-          <div className='navbar-right'>
+          <div className='navbar-right '>
             <Link to={'/main'}>Main Page</Link>
             <Link to={'/profile'}>Profile</Link>
             <Link to={'/foods/new'}>Write a Foods</Link>
@@ -35,7 +35,7 @@ function NavBar () {
       );
     } else {
       return (
-        <div className="navbar">
+        <div className="navbar nav-before-login">
           {/* <Link to={'/signup'}>Signup</Link>
           <Link to={'/login'}>Login</Link> */}
           <div className='navbar-left'>
@@ -44,7 +44,7 @@ function NavBar () {
             </div> */}
             <img src={singed} className='logo'></img>
           </div>
-          <div className='navbar-right'>
+          <div className='navbar-right before-login'>
             <Link to={'/signup'}><button>Signup</button></Link>
             <Link to={'/login'}><button>Login</button></Link>
           </div>
