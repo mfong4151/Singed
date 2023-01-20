@@ -63,9 +63,7 @@ const CommunityModal = () => {
     const addToGroup = e =>{
         e.preventDefault()
         e.stopPropagation()
-        if(!groupList.includes(e.target.value)) groupList.push(e.target.value)
-
-        setGroupList(groupList)
+        if(!groupList.includes(e.target.value)) setGroupList([...groupList, e.target.value])
     }
     
     const filterUsers = (searchTerms) =>{
@@ -80,6 +78,10 @@ const CommunityModal = () => {
             return res
         }
     }
+
+    useEffect(()=>{
+        console.log(groupList)
+    },[groupList])
 
     useEffect(()=>{
         setFilteredUsers(filterUsers(searchTerms))
