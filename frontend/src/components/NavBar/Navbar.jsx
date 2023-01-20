@@ -13,13 +13,6 @@ function NavBar () {
   const history = useHistory();
   // const sessionUser = useSelector(state => state.session.user);
 
-
-
-  const logoutUser = e => {
-      e.preventDefault();
-      dispatch(logout());
-      history.push('/')
-  }
   const getLinks = () => {
     if (loggedIn) {
       return (
