@@ -32,20 +32,61 @@ export const closeCommunityModal = () => {
 
 const CommunityModal = () => {
     //state for opening add to group modal, delete on refactor
-    const [groupList, setGroupList] = useState({})
-
+    const [groupList, setGroupList] = useState([])
+    const [searchTerms, setSearchTerms] = useState('Find your friends here!')
+    
+    const [filteredUsers, setFilteredUsers] = useState([])
+    const dispatch = useDispatch()
+    const sessionUser = useSelector((store) => store.session.user);
+    
+    const users = [
+        'mcdonalds',
+    'mcburger', 
+    'mcchicken', 
+    'alice', 
+    'andrew',
+    'amy', 
+    'Zach']
 
     //We should get a list of peoples names at the very least
     // const friendsList = useSelector(state => state)
-    const dispatch = useDispatch()
     const logoutUser = e => {
         e.preventDefault();
         dispatch(logout());
     }
 
+    const handleOnClick = (e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        
+    }
+    const addToGroup = e =>{
+        e.preventDefault()
+        e.stopPropagation()
+        if(!groupList.includes(e.target.value)) groupList.push(e.target.value)
+
+        setGroupList(groupList)
+    }
+    
+    const filterUsers = (searchTerms) =>{
+        const res = [];
+        
+        if(!searchTerms || searchTerms=== 'Find your friends here!')
+            return res
+        else{
+            users.forEach(user=>{   
+                if (user.toLowerCase().includes(searchTerms)) res.push(user)           //change to user.name.lower() later
+            })
+            return res
+        }
+    }
+
+    useEffect(()=>{
+        setFilteredUsers(filterUsers(searchTerms))
+        if(searchTerms === '') setSearchTerms('Find your friends here!')
+    }, [searchTerms])
 
 
-    const sessionUser = useSelector((store) => store.session.user);
     //get rid of this once we have an actual friends list selector going 
     useEffect(()=>{
         
@@ -59,21 +100,35 @@ const CommunityModal = () => {
             <div id='modal-overlay' onClick={closeCommunityModal}>
                 <div className="modal-menu-container">
                     <div id="modal-menu-content" onClick={e => e.stopPropagation()}>
+
                         <div id='community-upper'>
                             <div className="modal-profile-content">
                                 <h2>{sessionUser.username}</h2>
                             </div>
-                            <div>
-                                <SearchBar groupList={groupList} setGroupList={setGroupList}/>
-                            </div>                        
+                            <form>
+                                <input id="search-bar" type='text' placeholder={searchTerms} onChange={e =>setSearchTerms(e.target.value)}/>
+                            </form>
+
+                            <ul id="search-result-display">
+                                {filteredUsers?.map((user, idx) =>
+                                //change this to user.name later
+                                <li className='search-bar-result' key={idx} onClick={handleOnClick}>
+                                    <span>
+                                        {user}
+                                    </span>
+                                    <button onClick={addToGroup} value={user}>Add to group</button>
+                                </li>
+                                )}  
+                            </ul>
                         </div>
+
                         <div id='community-lower'>
                             <ul>
-                                {Object.values(groupList)?.map((groupMember, idx) =>
+                                {groupList.map((groupMember, idx) =>
                                     <GroupListItem groupMember={groupMember} key={idx}/>
                                     )}
                             </ul>
-                            <button>Add To Group </button>
+                            <button>Send Group Invite</button>
                             <button onClick={logoutUser}>Logout</button>
                            
                         </div>   

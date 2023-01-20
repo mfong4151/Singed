@@ -2,11 +2,9 @@ import React from 'react'
 
 
 //preconditions: friend, should have an id, name, and picture?
-const GroupListItem = ({friend}) => {
+const GroupListItem = ({groupMember}) => {
   
-
-
-
+  console.log(groupMember)
 
   return (
     <li className='udc-right friend-list-item'>
@@ -16,7 +14,7 @@ const GroupListItem = ({friend}) => {
 
         </div>
 
-          {friend}
+          {groupMember}
 
           <button className="friendslist-item-button">+</button>
           <button className="friendslist-item-button">-</button>

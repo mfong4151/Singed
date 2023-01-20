@@ -10,9 +10,9 @@ const SearchBar = ({groupList, setGroupList}) => {
     // const usersNames = useSelector(state => state)
 
     //testing variables, delete upon production
-    const users = ['fuck ruby',
-                 'fuck this shit', 
-                 'fuckfuckityfuckfuck', 
+    const users = ['mcdonalds',
+                 'mcmasters', 
+                 'mcchicken', 
                  'alice', 
                  'andrew', 
                  'amy', 
@@ -34,25 +34,26 @@ const SearchBar = ({groupList, setGroupList}) => {
 
     const handleOnClick = e =>{
         e.preventDefault();
-        e.stopPropogation();
+        e.stopPropagation();
         
     }
 
     useEffect(()=>{
         setFilteredUsers(filterUsers(searchTerms))
+        console.log(filteredUsers)
         if(searchTerms === '') setSearchTerms('Find your friends here!')
     }, [searchTerms])
 
     return (
-      <div className="searchbar-container">
-            <input type='text' placeholder={searchTerms} onChange={e =>setSearchTerms(e.target.value)}/>
-            <div className="modal-searchsuggestions-container">
-            {filteredUsers?.map((user, idx) =>
+      <div id="searchbar-container">
+          
+            <ul id="search-result-display">
+                {filteredUsers?.map((user, idx) =>
                     //change this to user.name later
-            <div className='search-bar-result' key={idx} onClick={handleOnClick}>{user}</div>
-        )}
+                <li className='search-bar-result' key={idx} onClick={handleOnClick}>{user}</li>
+                )}  
+            </ul>
     </div>
-      </div>
     )
 }
 
