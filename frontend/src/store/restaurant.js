@@ -26,6 +26,19 @@ export const fetchRestaurantsCoordinate = ({lat, lng}) => async dispatch => {
   }
 };
 
+export const fetchRestaurantsCoordinatePreference = ({lat, lng, preference}) => async dispatch => {
+  console.log("store-prefence", preference)
+  console.log("store-prefence-round", preference.map(n => parseFloat(n.toFixed(3))));
+  preference = preference.map(n => parseFloat(n.toFixed(3)));
+  console.log(`/api/restaurants/map?lat=${lat}&lng=${lng}&preference=${preference}`)
+  const response = await jwtFetch(`/api/restaurants/map?lat=${lat}&lng=${lng}&preference=${preference}`);
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(receiveRestaurants(data.restaurants));
+  }
+};
+
+
 const initialState = {};
 
 const restaurantReducer = (state = initialState, action) => {

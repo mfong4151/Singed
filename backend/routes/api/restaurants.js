@@ -10,26 +10,128 @@ const serverLogger = debug('backend:server');
 /* GET restaurants. */
 router.get('/map', async (req, res, next) => {
   try {
-    let lat = req.query.lat
-    let lng = req.query.lng
+    let lat = req.query.lat;
+    let lng = req.query.lng;
+    let preference = req.query.preference;
+
+    console.log("preference", typeof preference)
+    console.log("preference", preference)
+    console.log("preference", preference.split(',').map(n => parseFloat(n)))
+
+    let preferenceArr = preference.split(',').map(n => parseFloat(n))
+    // preferenceArr = [0.447, 0.447, 0.447, 0.447, 0.447]
     // console.log(lat, lng);
-    if (!lat || !lng) {
+    if (!lat || !lng || !preferenceArr) {
       const restaurants = await Restaurant.find();
       res.json({restaurants});
     } else {
-      // console.log('lng', lng-0.0004, lng-(-0.0004));
-      // console.log('lat', lat-0.0004, lat-(-0.0004));
+      console.log('lng', parseFloat(lng-0.1), lng, parseFloat(lng)+0.1);
+      console.log('lat', parseFloat(lat-0.1), lat, parseFloat(lat)+0.1);
       // console.log(-122.413709 > lng-0.04, -122.413709 < lng-(-0.04))
-      const restaurants = await Restaurant.find({
-        longitude: {
-          $gt: lng-0.04,
-          $lt: lng-(-0.04) // string convertion
-        },
-        latitude: {
-          $gt: lat-0.04,
-          $lt: lat-(-0.04) // string convertion
-        },
-      }).exec();
+      console.log("in restaurants");
+      const restaurants = await Restaurant.aggregate([
+        {
+          '$addFields': {
+            'preference': preferenceArr
+          }
+        }, {
+          '$project': {
+            'name': '$name',
+            'address': '$address',
+            'rating': '$rating',
+            'city': '$city',
+            'stateCode': '$stateCode',
+            'longitude': '$longitude',
+            'latitude': '$latitude',
+            'cuisine_type': '$cuisine_type',
+            'imageUrl': '$imageUrl',
+            'flavorProfile': '$flavorProfile',
+            'genre': '$genre',
+            'allergies': '$allergies',
+            'diet': '$diet',
+            'groupIds': '$groupIds',
+            '__v': '$__v',
+            'createdAt': '$createdAt',
+            'updatedAt': 'updatedAt',
+            'preference': '$preference',
+            'dotProduct': {
+              '$reduce': {
+                'input': {
+                  '$range': [
+                    0, {
+                      '$size': '$preference'
+                    }
+                  ]
+                },
+                'initialValue': 0,
+                'in': {
+                  '$add': [
+                    '$$value', {
+                      '$multiply': [
+                        {
+                          '$arrayElemAt': [
+                            '$preference', '$$this'
+                          ]
+                        }, {
+                          '$arrayElemAt': [
+                            '$flavorProfile', '$$this'
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }, { $match: {
+          $and: [
+            {longitude: { $gt: parseFloat(lng)-0.08, $lt: parseFloat(lng)+0.08 }},
+            {latitude: { $gt: parseFloat(lat)-0.08, $lt: parseFloat(lat)+0.08 }}
+          ]
+        } }
+      ]).sort({dotProduct: -1}).exec();
+
+      // {
+      //   $and: [
+      //     { longitude: { $gt: lng-0.04, $lt: lng-(-0.04) } },
+      //     { latitude: { $gt: lat-0.04, $lt: lat-(-0.04) } }
+      //   ]
+      // }
+
+      // Restaurant.aggregate([
+      //   {
+      //     $addFields: {
+      //       totalHomework: {$sum: "$genre"}
+      //     }
+      //   }
+      // ])
+
+      // const restaurants = await Restaurant.aggregate([
+      //   {
+      //     $addFields: {
+      //       totalHomework: {$sum: "$genre"}
+      //     }
+      //   }
+      // ]).sort({dotProduct: -1}).exec();
+
+      // { $match: {
+      //   $and: [
+      //     { longitude: { $gt: lng-0.04, $lt: lng-(-0.04) } },
+      //     { latitude: { $gt: lat-0.04, $lt: lat-(-0.04) } }
+      //   ]
+      // } }
+
+      // .find({
+      //   longitude: {
+      //     $gt: lng-0.04,
+      //     $lt: lng-(-0.04) // string convertion
+      //   },
+      //   latitude: {
+      //     $gt: lat-0.04,
+      //     $lt: lat-(-0.04) // string convertion
+      //   },
+      // }).sort({dotProduct: -1}).exec();
 
       // const restaurants = await Restaurant
       // .where('longitude').gt(lng-0.0004)
@@ -37,7 +139,7 @@ router.get('/map', async (req, res, next) => {
       // .limit(10).exec();
 
       // const restaurants = await Restaurant.find();
-      // console.log(restaurants);
+      // console.log("restaurants", restaurants);
       res.json({restaurants});
     }
   } catch (err) {
