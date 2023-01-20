@@ -120,7 +120,7 @@ const CommunityModal = () => {
 
     useEffect(()=>{
         dispatch(getCurrentUser())
-        // dispatch(fetchUsers())
+        dispatch(fetchUsers())
     }, [])
 
 
