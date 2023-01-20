@@ -107,7 +107,8 @@
     align-items:center;
     background-color: rgb(251, 241, 229);
     border: 1px solid grey;
-    border-radius: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 0.15);
     /* padding: 20px; */
     /* border-right: 2px solid black; */
     /* transition: 1.6s; */
@@ -141,7 +142,12 @@
 #groupForm{
     padding-bottom: 1rem;
 }
+.friend-list-item{
+    padding: 5px;
 
+    /* border: 1px solid grey; */
+    border-radius: 5px;
+}
 #bottom-buttons{
     margin-bottom: 15%;
 }
