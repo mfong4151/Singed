@@ -54,6 +54,7 @@ function SignupForm () {
       password
     };
     dispatch(signup(user));
+    history.push('/allergies_diet')
   }
 
   return (

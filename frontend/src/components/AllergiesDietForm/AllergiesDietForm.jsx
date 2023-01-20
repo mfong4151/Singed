@@ -12,25 +12,37 @@ import { useHistory } from "react-router-dom"
 
 
 function AllergiesDietForm() {
+    const dispatch = useDispatch();
+    const history = useHistory();
     const sessionUser = useSelector((store) => store.session.user);
-    const [shellfishAllergy, setShellfishAllergy] = useState(false);
+
     const [fishAllergy, setFishAllergy] = useState(false);
     const [nutsAllergy, setNutsAllergy] = useState(false);
-    const [veganDiet, setVeganDiet]  = useState(false);
+    const [shellfishAllergy, setShellfishAllergy] = useState(false);
     const [glutenDiet, setGlutenDiet]  = useState(false);
     const [lactoseDiet, setLactoseDiet]  = useState(false);
-    const dispatch = useDispatch();
-    const history = useHistory()
+    const [veganDiet, setVeganDiet]  = useState(false);
 
     useEffect(() => {
+        if (sessionUser.allergies.length > 0 && sessionUser.diet.length > 0) {
+            setFishAllergy(sessionUser.allergies[0])
+            setNutsAllergy(sessionUser.allergies[1])
+            setShellfishAllergy(sessionUser.allergies[2])
+            setGlutenDiet(sessionUser.diet[0])
+            setLactoseDiet(sessionUser.diet[1])
+            setVeganDiet(sessionUser.diet[2])
+        }
         dispatch(fetchUser(sessionUser._id))
-    }, [])
+    }, [dispatch])
 
-    const updatedUser = {
-        id: sessionUser._id,
-        allergies: [fishAllergy, nutsAllergy, shellfishAllergy],
-        diet: [glutenDiet, lactoseDiet, veganDiet]
+    // console.log('sessionUser', sessionUser)
+    const updatedUser = {...sessionUser,
+                        ...{id: sessionUser._id,
+                        allergies: [fishAllergy, nutsAllergy, shellfishAllergy],
+                        diet: [glutenDiet, lactoseDiet, veganDiet]}
     }
+    // console.log('updatedUser', updatedUser)
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
