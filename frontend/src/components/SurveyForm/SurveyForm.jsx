@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { fetchDishes, fetchSurveyDishes } from "../../store/dish";
 import './SurveyForm.css'
+import { getCurrentUser } from "../../store/session";
+
 
 function SurveyForm () {
     const dispatch = useDispatch();
@@ -19,15 +21,27 @@ function SurveyForm () {
     // }
 
     useEffect(() => {
-        if (sessionUser) {
-            const constraints = {
-                allergies: sessionUser.allergies,
-                diet: sessionUser.diet
-            }
-            dispatch(fetchSurveyDishes(constraints))
-            // dispatch(fetchDishes(constraints))
-        }
+        // const authUser = async () => {
+        //     await dispatch(getCurrentUser());
+        // }
+        // authUser()
+        // if (sessionUser) {
+        //     const constraints = {
+        //         allergies: sessionUser.allergies,
+        //         diet: sessionUser.diet
+        //     }
+        //     dispatch(fetchSurveyDishes(constraints))
+        //     // dispatch(fetchDishes(constraints))
+        // }
     }, [dispatch])
+
+    if (sessionUser) {
+        const constraints = {
+            allergies: sessionUser.allergies,
+            diet: sessionUser.diet
+        }
+        dispatch(fetchSurveyDishes(constraints))
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
