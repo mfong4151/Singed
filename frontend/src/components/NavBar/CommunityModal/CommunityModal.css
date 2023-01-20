@@ -82,8 +82,9 @@
 }
 
 #search-bar{
-    width:100%;
-    height:20px;
+    width:80%;
+    height:30px;
+    margin-bottom:.5rem
 }
 
 
@@ -135,7 +136,13 @@
     margin-bottom: 15%;
 }
 
+#groupForm{
+    padding-bottom: 1rem;
+}
 
 #bottom-buttons{
     margin-bottom: 15%;
+}
+
+.bottom-button-size{
 }

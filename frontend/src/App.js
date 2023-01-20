@@ -26,6 +26,7 @@ function App() {
     <>
       <NavBar />
       <Switch >
+        <Route exact path="/groups/:groupId" component={MainPage} />
         <Route exact path="/" component={MainPage} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignupForm} />

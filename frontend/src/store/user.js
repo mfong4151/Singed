@@ -21,7 +21,6 @@ const removeUser = (userId) => ({
 
 
 export const getUsers = state => {
-    console.log(state)
     if(!state.users) return []
     return Object.values(state.users)
 }
