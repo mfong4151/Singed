@@ -76,8 +76,8 @@ function SurveyForm () {
             <div className="dish-form-container">
                 <h1>Which dishes do you like?</h1>
                 <h2>Recommended food based on your profile.</h2>
-                <h2>Allergic to: {JSON.stringify(sessionUser.allergies)}</h2>
-                <h2>Diet preference: {JSON.stringify(sessionUser.diet)}</h2>
+                {/* <h2>Allergic to: {JSON.stringify(sessionUser.allergies)}</h2>
+                <h2>Diet preference: {JSON.stringify(sessionUser.diet)}</h2> */}
                 <form onSubmit={handleSubmit} className="dishes-form-grid">
                     <div className="dishes-form-grid-inputs">
                         {dishes.length==0 &&  <h1 className="">0 food available</h1>}
@@ -89,8 +89,8 @@ function SurveyForm () {
                                     onChange={() => {handleOnChange(index)}} />
                                 <label htmlFor={`dish-survey-${dish.name}`}>
                                     <p>{dish.name}</p>
-                                    <p>allergies: {JSON.stringify(dish.allergies)}</p>
-                                    <p>diet: {JSON.stringify(dish.diet)}</p>
+                                    {/* <p>allergies: {JSON.stringify(dish.allergies)}</p>
+                                    <p>diet: {JSON.stringify(dish.diet)}</p> */}
                                     <img
                                         src={dish.imageUrl}
                                         alt={`${dish.name}-img`}
