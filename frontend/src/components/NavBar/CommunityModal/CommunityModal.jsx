@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './CommunityModal.css'
 import GroupListItem from './GroupListItem'
 import SearchBar from './SearchBar'
-import { logout } from '../../../store/session';
+import { getCurrentUser, logout } from '../../../store/session';
 import { fetchUsers, getUsers } from '../../../store/user'
 import { normalizeGroupAllergiesProfile, normalizeGroupFlavorProfile, normalizeGroupGenreProfile, normalizeGroupDietProfile } from './utils/CommunityModalsUtils'
 import { createGroup } from '../../../store/group'
@@ -41,7 +41,7 @@ const CommunityModal = () => {
     const sessionUser = useSelector((store) => store.session.user);
     const allUsers = useSelector(getUsers)
     const history = useHistory()
-    
+
     //We should get a list of peoples names at the very least
     // const friendsList = useSelector(state => state)
     const logoutUser = e => {
@@ -52,10 +52,10 @@ const CommunityModal = () => {
     const handleOnClick = (e)=>{
         e.preventDefault();
         e.stopPropagation();
-        
+
     }
     const addToGroup = user =>{
-       
+
         if(!groupList.includes(user)) setGroupList([...groupList, user])
     }
 
@@ -90,18 +90,18 @@ const CommunityModal = () => {
         })
 
         setGroupList([])
-    
-       
+
+
     }
 
 
     const filterUsers = (searchTerms) =>{
         const res = [];
-        
+
         if(!searchTerms || searchTerms=== 'Find your friends here!')
             return res
         else{
-            allUsers.forEach(user=>{   
+            allUsers.forEach(user=>{
                 if (user?.username.toLowerCase().includes(searchTerms) && user?._id !== sessionUser.user?._id ) res.push(user)           //change to user.name.lower() later
             })
             return res
@@ -116,11 +116,12 @@ const CommunityModal = () => {
 
 
     useEffect(()=>{
-        dispatch(fetchUsers())
+        dispatch(getCurrentUser())
+        // dispatch(fetchUsers())
     }, [])
 
-   
-    
+
+
     return (
         <div>
             <div id='modal-overlay' onClick={closeCommunityModal}>
@@ -143,12 +144,12 @@ const CommunityModal = () => {
                                     </span>
                                     <button id='add-to-group' onClick={()=> addToGroup(user)} value={user}>+</button>
                                 </li>
-                                )}  
+                                )}
                             </ul>
                         </div>
 
                         <div id='community-lower'>
-                        
+
                             <ul id='group-list'>
                                 {groupList.map((groupMember, idx) =>
                                     <GroupListItem groupMember={groupMember} groupList={groupList} setGroupList={setGroupList}
@@ -167,10 +168,10 @@ const CommunityModal = () => {
                                 </div>
 
                             </div>
-                           
-                        </div>   
+
+                        </div>
                      </div>
-                </div>    
+                </div>
             </div>
         </div>
   )

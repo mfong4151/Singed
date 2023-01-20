@@ -39,13 +39,13 @@ function AllergiesDietForm() {
 
     let updatedUser;
     if (sessionUser) {
-        console.log('sessionUser', sessionUser)
+        // console.log('sessionUser', sessionUser)
         updatedUser = {...sessionUser,
                     ...{id: sessionUser._id,
                     allergies: [fishAllergy, nutsAllergy, shellfishAllergy],
                     diet: [glutenDiet, lactoseDiet, veganDiet]}
         }
-        console.log('updatedUser', updatedUser)
+        // console.log('updatedUser', updatedUser)
     }
 
 

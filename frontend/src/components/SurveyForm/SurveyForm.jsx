@@ -2,46 +2,33 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { fetchDishes, fetchSurveyDishes } from "../../store/dish";
-import './SurveyForm.css'
 import { getCurrentUser } from "../../store/session";
+import './SurveyForm.css'
+
 
 
 function SurveyForm () {
     const dispatch = useDispatch();
+    // const authUser = async () => {
+        // await dispatch(getCurrentUser());
+    // }
+    // authUser()
     const dishes = useSelector((store) => store.dishes)
     const sessionUser = useSelector(state => state.session.user)
     const [prefernce, setPrefernce] = useState("")
     const history = useHistory();
-
-    // if (dishes) {
-        // console.log(dishes);
-        // console.log(Object.values(dishes).dishes.length)
-        // console.log("in dish")
-        // console.log(Object.values(dishes).length)
-    // }
-
+    console.log(sessionUser)
+;
     useEffect(() => {
-        // const authUser = async () => {
-        //     await dispatch(getCurrentUser());
-        // }
-        // authUser()
-        // if (sessionUser) {
-        //     const constraints = {
-        //         allergies: sessionUser.allergies,
-        //         diet: sessionUser.diet
-        //     }
-        //     dispatch(fetchSurveyDishes(constraints))
-        //     // dispatch(fetchDishes(constraints))
-        // }
-    }, [dispatch])
-
-    if (sessionUser) {
-        const constraints = {
-            allergies: sessionUser.allergies,
-            diet: sessionUser.diet
+        if (sessionUser) {
+            const constraints = {
+                allergies: sessionUser.allergies,
+                diet: sessionUser.diet
+            }
+            dispatch(fetchSurveyDishes(constraints))
+            // dispatch(fetchDishes(constraints))
         }
-        dispatch(fetchSurveyDishes(constraints))
-    }
+    }, [dispatch])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -63,7 +50,7 @@ function SurveyForm () {
                                     type="checkbox" id={`dish-survey-${dish.name}`}
                                     checked={prefernce}
                                     onChange={(e) => {setPrefernce(e.target.checked)}} />
-                                <label for={`dish-survey-${dish.name}`}>
+                                <label htmlFor={`dish-survey-${dish.name}`}>
                                     <p>{dish.name}</p>
                                     <p>allergies: {JSON.stringify(dish.allergies)}</p>
                                     <p>diet: {JSON.stringify(dish.diet)}</p>
