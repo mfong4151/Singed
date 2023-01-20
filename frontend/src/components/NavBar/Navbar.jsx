@@ -10,8 +10,8 @@ import {openCommunityModal} from './CommunityModal/CommunityModal.jsx'
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
-  const history = useHistory();
-  // const sessionUser = useSelector(state => state.session.user);
+  // const [communityModal, setCommunityModal] = useState(false)
+
 
   const getLinks = () => {
     if (loggedIn) {
@@ -39,16 +39,16 @@ function NavBar () {
           {/* <Link to={'/signup'}>Signup</Link>
           <Link to={'/login'}>Login</Link> */}
           <div className='navbar-left'>
-            {/* <div className="community-menu-icon" onClick={openCommunityModal}>
-              <FiMenu/>
-            </div> */}
+            
             <img src={singed} className='logo'></img>
           </div>
           <div className='navbar-right before-login'>
             <Link to={'/signup'}><button>Signup</button></Link>
             <Link to={'/login'}><button>Login</button></Link>
           </div>
-
+        
+        {/* {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>} */}
+        {/* <CommunityModal /> */}
         </div>
       );
     }

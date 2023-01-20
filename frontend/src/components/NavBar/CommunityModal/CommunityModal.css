@@ -17,6 +17,7 @@
     /* transition: opacity 0.4s ease-in-out 0s; */
 
     background:rgba(0,0,0,0.35);
+    z-index: 90;
     /* opacity: 1;
     transition: all 1.5s;
     -webkit-transition: all 0.5s;
@@ -30,6 +31,7 @@
 #modal-menu-content{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: left;
     position: absolute;
     background-color: rgb(251, 241, 229);
@@ -40,7 +42,22 @@
     transition: .4s;
     /* transition-delay: .1s; */
     margin-right:10px;
+    z-index: 91;
 }
+
+
+
+#community-upper{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+
+#community-lower{
+    display: flex;
+    flex-direction: column;
+}
+
 #modal-menu-content > *{
     display: none;
     margin-top: 10px;
@@ -58,28 +75,74 @@
 #modal-menu-content button{
     margin-left: 2px;
 }
-.searchbar-container{
-    width: auto;
+#searchbar-container{
+    justify-content: center;
+    width: 100%;
+    height:50%;
+}
+
+#search-bar{
+    width:80%;
+    height:30px;
+    margin-bottom:.5rem
+}
+
+
+#search-result-display{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    height:100%;
+    width:100%;
 }
 
 .search-bar-result{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 50px;
     display: flex;
-    flex-direction: column;
-    align-items: left;
-    position: absolute;
-    width:200px;
-    height:100px;;
+    justify-content: space-between;
+    align-items:center;
     background-color: rgb(251, 241, 229);
     border: 1px solid grey;
-    border-radius: 2px;
+    border-radius: 1rem;
     /* padding: 20px; */
     /* border-right: 2px solid black; */
     /* transition: 1.6s; */
-    margin-right:10px;
-}
-.search-bar-results{
-    height:auto;
+    margin-top:.5rem;
+    margin-bottom:.5rem;
+    padding-left: 20px;
+    padding-right:20px
 }
 
+#add-to-group{
+    position:absolute;
+    width:30px;
+    left:80%
+}
+
+.search-bar-results{
+    height:auto;
+    border:transparent;
+
+}
+
+#group-list{
+    margin-bottom:15%;
+
+}
+
+#community-lower{
+    margin-bottom: 15%;
+}
+
+#groupForm{
+    padding-bottom: 1rem;
+}
+
+#bottom-buttons{
+    margin-bottom: 15%;
+}
+
+.bottom-button-size{
+}

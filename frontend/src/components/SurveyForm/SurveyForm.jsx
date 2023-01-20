@@ -11,12 +11,13 @@ function SurveyForm () {
     const [prefernce, setPrefernce] = useState("")
     const history = useHistory();
 
-    if (dishes) {
-        console.log(dishes);
+    // if (dishes) {
+        // console.log(dishes);
         // console.log(Object.values(dishes).dishes.length)
-        console.log("in dish")
-        console.log(Object.values(dishes).length)
-    }
+        // console.log("in dish")
+        // console.log(Object.values(dishes).length)
+    // }
+
     useEffect(() => {
         if (sessionUser) {
             const constraints = {
@@ -25,13 +26,12 @@ function SurveyForm () {
             }
             dispatch(fetchSurveyDishes(constraints))
             // dispatch(fetchDishes(constraints))
-
         }
     }, [dispatch])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        history.push('/')
+        history.push('/main')
     }
     return(
         <div className="dish-survey-container">

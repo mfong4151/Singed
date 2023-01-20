@@ -2,17 +2,17 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './CommunityModal.css'
-import SearchSuggestionsModal from './SearchSuggestionsModal'
-const SearchBar = () => {
+
+const SearchBar = ({groupList, setGroupList}) => {
     const [searchTerms, setSearchTerms] = useState('Find your friends here!')
     const [filteredUsers, setFilteredUsers] = useState([])
     const dispatch = useDispatch()
     // const usersNames = useSelector(state => state)
 
     //testing variables, delete upon production
-    const users = ['fuck ruby',
-                 'fuck this shit', 
-                 'fuckfuckityfuckfuck', 
+    const users = ['mcdonalds',
+                 'mcmasters', 
+                 'mcchicken', 
                  'alice', 
                  'andrew', 
                  'amy', 
@@ -31,16 +31,29 @@ const SearchBar = () => {
         }
     }
 
+
+    const handleOnClick = e =>{
+        e.preventDefault();
+        e.stopPropagation();
+        
+    }
+
     useEffect(()=>{
         setFilteredUsers(filterUsers(searchTerms))
+        console.log(filteredUsers)
         if(searchTerms === '') setSearchTerms('Find your friends here!')
     }, [searchTerms])
 
     return (
-      <div className="searchbar-container">
-            <input type='text' placeholder={searchTerms} onChange={e =>setSearchTerms(e.target.value)}/>
-            <SearchSuggestionsModal filteredUsers={filteredUsers}/>
-      </div>
+      <div id="searchbar-container">
+          
+            <ul id="search-result-display">
+                {filteredUsers?.map((user, idx) =>
+                    //change this to user.name later
+                <li className='search-bar-result' key={idx} onClick={handleOnClick}>{user}</li>
+                )}  
+            </ul>
+    </div>
     )
 }
 
