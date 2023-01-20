@@ -12,10 +12,16 @@ const FriendRequest = require('../../models/FriendRequest');
 
 
 /* GET users listing. */
-router.get('/', async function(req, res, next) {
-  const user = await User.findOne()
-  res.json({'user': user });
+
+router.get('/', async (req, res) => {
+  const users = await User.find({})
+  if(!users){
+    return res.status(404).json({error: 'No such user found'})
+  }
+
+  res.status(200).json(users)
 });
+
 
 
 
@@ -93,6 +99,10 @@ router.get('/current', restoreUser, (req, res) => {
     {'user': user}
   );
 });
+
+
+
+
 
 router.get('/:id', async (req, res) => {
   const { id } = req.params

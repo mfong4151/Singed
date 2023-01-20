@@ -5,6 +5,7 @@ import GroupListItem from './GroupListItem'
 import SearchBar from './SearchBar'
 import { logout } from '../../../store/session';
 import AddToGroupModal from './AddtoGroupModal/AddToGroupModal'
+import { fetchUsers, getUsers } from '../../../store/user'
 
 
 
@@ -34,20 +35,10 @@ const CommunityModal = () => {
     //state for opening add to group modal, delete on refactor
     const [groupList, setGroupList] = useState([])
     const [searchTerms, setSearchTerms] = useState('Find your friends here!')
-    
     const [filteredUsers, setFilteredUsers] = useState([])
     const dispatch = useDispatch()
     const sessionUser = useSelector((store) => store.session.user);
-    
-    const users = [
-        'mcdonalds',
-    'mcburger', 
-    'mcchicken', 
-    'alice', 
-    'andrew',
-    'amy', 
-    'Zach']
-
+    const allUsers = useSelector(getUsers)
     //We should get a list of peoples names at the very least
     // const friendsList = useSelector(state => state)
     const logoutUser = e => {
@@ -60,28 +51,26 @@ const CommunityModal = () => {
         e.stopPropagation();
         
     }
-    const addToGroup = e =>{
-        e.preventDefault()
-        e.stopPropagation()
-        if(!groupList.includes(e.target.value)) setGroupList([...groupList, e.target.value])
+    const addToGroup = user =>{
+       
+        if(!groupList.includes(user)) setGroupList([...groupList, user])
     }
     
+
+
     const filterUsers = (searchTerms) =>{
         const res = [];
         
         if(!searchTerms || searchTerms=== 'Find your friends here!')
             return res
         else{
-            users.forEach(user=>{   
-                if (user.toLowerCase().includes(searchTerms)) res.push(user)           //change to user.name.lower() later
+            allUsers.forEach(user=>{   
+                if (user.username.toLowerCase().includes(searchTerms) && user._id !== sessionUser.user._id ) res.push(user)           //change to user.name.lower() later
             })
             return res
         }
     }
 
-    useEffect(()=>{
-        console.log(groupList)
-    },[groupList])
 
     useEffect(()=>{
         setFilteredUsers(filterUsers(searchTerms))
@@ -89,13 +78,11 @@ const CommunityModal = () => {
     }, [searchTerms])
 
 
-    //get rid of this once we have an actual friends list selector going 
     useEffect(()=>{
-        
-    }, [dispatch])
+        dispatch(fetchUsers())
+    }, [])
 
-    // if (communityModal) document.body.classList.add('active-modal')
-    // else document.body.classList.remove('active-modal')
+   
     
     return (
         <div>
@@ -113,12 +100,11 @@ const CommunityModal = () => {
 
                             <ul id="search-result-display">
                                 {filteredUsers?.map((user, idx) =>
-                                //change this to user.name later
                                 <li className='search-bar-result' key={idx} onClick={handleOnClick}>
                                     <span>
-                                        {user}
+                                        {user.username}
                                     </span>
-                                    <button onClick={addToGroup} value={user}>Add to group</button>
+                                    <button onClick={()=> addToGroup(user)} value={user}>Add to group</button>
                                 </li>
                                 )}  
                             </ul>
@@ -127,7 +113,8 @@ const CommunityModal = () => {
                         <div id='community-lower'>
                             <ul>
                                 {groupList.map((groupMember, idx) =>
-                                    <GroupListItem groupMember={groupMember} key={idx}/>
+                                    <GroupListItem groupMember={groupMember} groupList={groupList} setGroupList={setGroupList}
+                                    key={idx}/>
                                     )}
                             </ul>
                             <button>Send Group Invite</button>

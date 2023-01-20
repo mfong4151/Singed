@@ -2,10 +2,16 @@ import React from 'react'
 
 
 //preconditions: friend, should have an id, name, and picture?
-const GroupListItem = ({groupMember}) => {
+const GroupListItem = ({groupMember, groupList, setGroupList}) => {
   
-  console.log(groupMember)
-
+  const removeFromGroup = user =>{
+    let newGroupList = []
+    for(const[idx, u] of groupList.entries()){
+        if(idx === groupList.indexOf(user)) continue
+        newGroupList.push(u)
+    }
+    setGroupList(newGroupList)
+}
   return (
     <li className='udc-right friend-list-item'>
 
@@ -14,10 +20,9 @@ const GroupListItem = ({groupMember}) => {
 
         </div>
 
-          {groupMember}
+          {groupMember.username}
 
-          <button className="friendslist-item-button">+</button>
-          <button className="friendslist-item-button">-</button>
+          <button className="friendslist-item-button" onClick={()=> removeFromGroup(groupMember)}>Remove</button>
 
     </li>
   )
