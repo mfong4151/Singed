@@ -163,7 +163,7 @@ const CommunityModal = () => {
                                 <form id='group-form'>
                                     <input id="search-bar" type='text' placeholder={groupName} onChange={e =>setGroupName(e.target.value)}/>
                                 </form>
-                                <div>
+                                <div className="modal-buttons-container">
                                     <button className='bottom-button-size' onClick={handleSendGroupInvite}>Send Group Invite</button>
                                     <button className='bottom-button-size' onClick={logoutUser}>Logout</button>
 

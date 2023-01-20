@@ -57,7 +57,9 @@
     display: flex;
     flex-direction: column;
 }
-
+.modal-profile-content{
+    margin-bottom: 20px;
+}
 #modal-menu-content > *{
     display: none;
     margin-top: 10px;
@@ -73,7 +75,7 @@
     margin-bottom: 2px;
 }
 #modal-menu-content button{
-    margin-left: 2px;
+    margin-left: 4px;
 }
 #searchbar-container{
     justify-content: center;
@@ -142,6 +144,12 @@
 
 #bottom-buttons{
     margin-bottom: 15%;
+}
+.modal-buttons-container{
+    display:flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    margin-left: -4px ;
 }
 
 .bottom-button-size{
