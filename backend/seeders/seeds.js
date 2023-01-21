@@ -101,8 +101,8 @@ for (let i = 0; i < restaurantsRaw.length; i++) {
 // Create dishes
 const dishRelativePath = 'seed_files/menu_item_seeds.csv'
 // const dishesRaw = easySeeds.formatSeeds(`./${dishRelativePath}`) // local
-// const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/seed_files/menu_item_seeds.csv`))
-const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/seed_files/menu_item_seeds.csv`)) //for render
+const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/seed_files/menu_item_seeds.csv`))
+// const dishesRaw = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/seed_files/menu_item_seeds.csv`)) //for render
 dishesImageUrls = [
   'https://miro.medium.com/max/1400/1*dVF2ZfgHLqLGCVyRBJ2BjA.jpeg',
   'https://www.siftandsimmer.com/wp-content/uploads/2021/07/pork-mazesoba-ramen-noodles3.jpg',
