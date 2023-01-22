@@ -14,6 +14,7 @@ import Map from './components/Map';
 import SurveyForm from './components/SurveyForm/SurveyForm';
 import Footer from './components/Footer/Footer';
 import SplashPage from './components/SplashPage/SplashPage';
+import UpdatePreferences from './components/UpdatePreferences';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,6 +35,7 @@ function App() {
         <ProtectedRoute exact path="/allergies_diet" component={AllergiesDietForm}/>
         <ProtectedRoute exact path="/dish_survey" component={SurveyForm}/>
         <Route exact path="/map" component={Map}/>
+        <Route exact path='/update_preferences' component={UpdatePreferences} />
         {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
       </Switch>
       <Footer />
