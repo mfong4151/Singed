@@ -47,8 +47,6 @@ function NavBar () {
             <Link to={'/login'}><button>Login</button></Link>
           </div>
         
-        {/* {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>} */}
-        {/* <CommunityModal /> */}
         </div>
       );
     }
