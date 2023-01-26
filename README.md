@@ -33,5 +33,7 @@ Users can choose their favourite foods, the flavor profile will be calculated in
 <img src="./readmepics/allergy_to_dishes.png" alt="drawing" width="800"/>
 
 ### Recommend Restaurants
-After filling user profile, backend will calculate the cosine similarity between restaurant flavor profile and user flavor profile. The similarity is a score between 0 and 1. This score is multiplied to 100 and shown to user to indicate how likely they would like this restaurant.
+After filling user profile, backend will calculate the cosine similarity between restaurant flavor profile and user flavor profile. The similarity is a score between 0 and 1. This score is multiplied to 100 and shown to user to indicate how likely they would like this restaurant, the restaurant is sorted in descending order. <br />
+The cosine similarity is calculated in a convoluted MongoDB aggregation pipeline. Here is a screenshot for part of it. <br />
+[Link](./backend/routes/api/restaurants.js)
 <img src="./readmepics/recommend_restaurants.png" alt="drawing" width="800"/>
