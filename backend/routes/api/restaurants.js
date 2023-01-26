@@ -25,8 +25,8 @@ router.get('/map', async (req, res, next) => {
       const restaurants = await Restaurant.find();
       res.json({restaurants});
     } else {
-      console.log('lng', parseFloat(lng-0.1), lng, parseFloat(lng)+0.1);
-      console.log('lat', parseFloat(lat-0.1), lat, parseFloat(lat)+0.1);
+      // console.log('lng', parseFloat(lng-0.1), lng, parseFloat(lng)+0.1);
+      // console.log('lat', parseFloat(lat-0.1), lat, parseFloat(lat)+0.1);
       // console.log(-122.413709 > lng-0.04, -122.413709 < lng-(-0.04))
       console.log("in restaurants");
       const restaurants = await Restaurant.aggregate([
@@ -86,8 +86,8 @@ router.get('/map', async (req, res, next) => {
           }
         }, { $match: {
           $and: [
-            {longitude: { $gt: parseFloat(lng)-0.08, $lt: parseFloat(lng)+0.08 }},
-            {latitude: { $gt: parseFloat(lat)-0.08, $lt: parseFloat(lat)+0.08 }}
+            {longitude: { $gt: parseFloat(lng)-0.04, $lt: parseFloat(lng)+0.04 }},
+            {latitude: { $gt: parseFloat(lat)-0.04, $lt: parseFloat(lat)+0.04 }}
           ]
         } }
       ]).sort({dotProduct: -1}).exec();

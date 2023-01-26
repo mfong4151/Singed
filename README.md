@@ -1,5 +1,5 @@
 # Singed
-[Live Website](https://singed.onrender.com/)
+[Live Website](https://singed-yhra.onrender.com/main)
 
 ## Background
 ***
@@ -9,9 +9,9 @@ Users can also create groups and send group messages. <br/>
 
 ## Technology
 ***
-- **React** - Awesom library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.
+- **React** - An frontend library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.
 - **Redux** - A predictable state container for JavaScript apps.
-- **Express.js**- A minimal and flexible Node.js web application framework that handles server-side rendering and integrates with Next.js.
+- **Express.js**- A minimal and flexible Node.js web application framework that handles server-side rendering and integrates with Node.js.
 - **MongoDB** - A document-oriented database program which is a NoSQL database program that uses JSON-like documents with optional schema.
 - **Node.js** - A Node.js is a cross-platform, open-source server environment.
 - **Socket.io** - An event-driven library for real-time web applications. It enables real-time, bi-directional communication between web clients and servers. <br/>
