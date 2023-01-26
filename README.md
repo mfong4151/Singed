@@ -18,3 +18,4 @@ Users can also create groups and send group messages. <br/>
 
 ## Features
 ***
+![signup](./readmepics/signup.png)
