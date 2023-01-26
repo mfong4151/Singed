@@ -24,7 +24,9 @@ Singed features a fully functional user authentication system, complete with a d
 
 ### Allergies and Diet
 After signup, Users can then choose what food they are allergic to, and also if they follow any dietary plan. They are stored in a boolean array in `models/User.js` file <br />
+The backend uses allergies and diet info to generate a set of 12 dishes by finding the disjoint set of dishes. see attached code. <br />
 <img src="./readmepics/allergy_diet.png" alt="drawing" width="800"/>
+<img src="./readmepics/allergy_to_dishes.png" alt="drawing" width="800"/>
 
 
 ### Flavor Profile
