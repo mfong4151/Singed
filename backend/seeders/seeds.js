@@ -54,7 +54,7 @@ groups.push(
 const restaurantRelativePath = 'seed_files/restaurant_seeds.csv'
 // const restaurantsRaw = easySeeds.formatSeeds(`./${restaurantRelativePath}`) // local
 // const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/seed_files/restaurant_seeds.csv`))
-const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/seeders/${restaurantRelativePath}`)) // render
+const restaurantsRaw = easySeeds.formatSeeds(process.cwd().concat(`/backend/seeders/${restaurantRelativePath}`)) // render
 restaurantsImageUrls = [
   'https://source.unsplash.com/HvhinFxq4_s',
   'https://source.unsplash.com/tCBJQSj11os',
