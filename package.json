@@ -1,7 +1,7 @@
 {
   "name": "singed",
   "version": "1.0.0",
-  "description": "",
+  "description": "singed restaurants recommendation web app",
   "engines": {
     "node": "16.x"
   },
@@ -19,7 +19,7 @@
     "url": "git+https://github.com/mfong4151/Singed.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Singed team",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mfong4151/Singed/issues"
