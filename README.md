@@ -18,7 +18,7 @@ Users can also create groups and send group messages. <br/>
 ### User Authentication - Login/Signup
 Singed features a fully functional user authentication system, complete with a demo user login and error handling for incomplete entries. The login and signup pages are connected for the user easily switch between the sign up or sign in pages. <br />
 <img src="./readmepics/signup.png" alt="drawing" width="800"/>
-<iframe src="https://giphy.com/embed/Wpz1GHAPSEz0SQXKvS" width="480" height="322" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Wpz1GHAPSEz0SQXKvS">via GIPHY</a></p>
+<iframe src="https://giphy.com/embed/Wpz1GHAPSEz0SQXKvS" width="480" height="322" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ### Allergies and Diet
 After signup, Users can then choose what food they are allergic to, and also if they follow any dietary plan. They are stored in a boolean array in `models/User.js` file <br />
