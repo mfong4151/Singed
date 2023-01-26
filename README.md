@@ -18,5 +18,6 @@ Users can also create groups and send group messages. <br/>
 
 ## Features
 ***
-![signup](./readmepics/signup.png)
+### User Authentication - Login/Signup
+Singed features a fully functional user authentication system, complete with a demo user login and error handling for incomplete entries. The login and signup pages are connected for the user easily switch between the sign up or sign in pages.
 <img src="./readmepics/signup.png" alt="drawing" width="600"/>
