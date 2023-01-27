@@ -17,22 +17,24 @@ Users can also create groups and send group messages. <br/>
 ## Features
 ### User Authentication - Login/Signup
 Singed features a fully functional user authentication system, complete with a demo user login and error handling for incomplete entries. The login and signup pages are connected for the user easily switch between the sign up or sign in pages. <br />
-<img src="./readmepics/signup.png" alt="drawing" width="800"/>
+<!-- <img src="./readmepics/signup.png" alt="drawing" width="800"/> -->
+<img src="./readmepics/signup.gif" alt="text" width="800"/>
+
 
 ### Allergies and Diet
 After signup, Users can then choose what food they are allergic to, and also if they follow any dietary plan. They are stored in a boolean array in `models/User.js` file <br />
-<img src="./readmepics/allergy_diet.png" alt="drawing" width="800"/>
+<img src="./readmepics/allergy_diet.gif" alt="drawing" width="800"/>
 
 ### Flavor Profile
 After filling in allergies and diet, backend will filter out food they are interested in, and then generate a random list of 12 foods. Each food has its associated flavor proile. see code.<br />
 Users can choose their favourite foods, the flavor profile will be calculated in the frontend and fetched to backend. Backend will aggregate these data and generate a flavor profile for the user.<br />
-<img src="./readmepics/flavor_profile.png" alt="drawing" width="800"/>
+<img src="./readmepics/flavor_profile.gif" alt="drawing" width="800"/>
 <img src="./readmepics/allergy_to_dishes.png" alt="drawing" width="800"/>
 
 ### Recommend Restaurants
 After filling user profile, backend will calculate the cosine similarity between restaurant flavor profile and user flavor profile. The similarity is a score between 0 and 1. This score is multiplied to 100 and shown to user to indicate how likely they would like this restaurant, the restaurant is sorted in descending order. <br />
 The cosine similarity is calculated in a convoluted MongoDB aggregation pipeline. Here is a screenshot for part of it. <br />
 [MongoDB aggregation pipeline file](./backend/routes/api/restaurants.js)
-<img src="./readmepics/recommend_restaurants.png" alt="drawing" width="800"/>
+<img src="./readmepics/recommend_restaurants.gif" alt="drawing" width="800"/>
 <img src="./readmepics/recom1.png" alt="drawing" width="800"/>
 <img src="./readmepics/recom2.png" alt="drawing" width="800"/>
