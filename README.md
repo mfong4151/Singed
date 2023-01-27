@@ -28,7 +28,7 @@ After signup, Users can then choose what food they are allergic to, and also if 
 ### Flavor Profile
 After filling in allergies and diet, backend will filter out food they are interested in, and then generate a random list of 12 foods. Each food has its associated flavor proile. see code.<br />
 Users can choose their favourite foods, the flavor profile will be calculated in the frontend and fetched to backend. Backend will aggregate these data and generate a flavor profile for the user.<br />
-<img src="./readmepics/flavor_profile.png" alt="drawing" width="800"/>
+<img src="./readmepics/flavor_profile.gif" alt="drawing" width="800"/>
 <img src="./readmepics/allergy_to_dishes.png" alt="drawing" width="800"/>
 
 ### Recommend Restaurants
