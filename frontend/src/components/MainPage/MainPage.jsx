@@ -44,15 +44,20 @@ export default function MainPage({location}) {
   console.log(sessionUser._id)
   return (
     <div className="mainpage">
-      <div className="solo-group-banner">
-        {group
-          ? <h1>Group: {group?.name} Recommdentation</h1>
-          : <h1>User: {sessionUser._id} Recommdentation</h1>
-        }
-      </div>
-      <div className="mainpage-content">
+      <div className="mainpage-left">
+        <div className="main-banner">
+          {group
+            ? <h1>Welcome {group?.name}</h1>
+            : <h1>Welcome {sessionUser.username}</h1>
+          }
+        </div>
         <Map preference={preference}/>
-        <MainPageRestaurants preference={preference}/>
+      </div>
+      
+      <div className="mainpage-right">
+        <div className="mainpage-content">
+          <MainPageRestaurants preference={preference}/>
+        </div>
       </div>
 
       {/* {!messengerModal && <MessengerModalTab messengerModal={messengerModal} setMessengerModal={setMessengerModal}/>}
