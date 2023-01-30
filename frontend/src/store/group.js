@@ -20,6 +20,17 @@ export const removeGroup = (groupId) => ({
     payload: groupId
 })
 
+
+//The one way to optimize this is if we held groups in sets versus how we have it now in arrays
+
+export const getUsersGroups = userId => state => {
+    const res = []
+    if(!state.group) return res
+    for(const group of state.group){
+
+    }
+}
+
 export const fetchGroups = () => async dispatch => {
     const res = await jwtFetch('/api/groups');
     if(res.ok){

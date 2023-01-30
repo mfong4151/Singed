@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './CommunityModal.css'
-import GroupListItem from './GroupListItem'
+import GroupAddItem from './GroupAddItem'
 import SearchBar from './SearchBar'
 import { getCurrentUser, logout } from '../../../store/session';
 import { fetchUsers, getUsers } from '../../../store/user'
 import { normalizeGroupAllergiesProfile, normalizeGroupFlavorProfile, normalizeGroupGenreProfile, normalizeGroupDietProfile } from './utils/CommunityModalsUtils'
-import { createGroup } from '../../../store/group'
+import { createGroup, fetchGroup } from '../../../store/group'
 import {useHistory} from 'react-router-dom'
 
 export const openCommunityModal = () => {
@@ -43,8 +43,8 @@ const CommunityModal = () => {
     const allUsers = useSelector(getUsers)
     const history = useHistory()
 
-    //We should get a list of peoples names at the very least
-    // const friendsList = useSelector(state => state)
+  
+    
     const logoutUser = e => {
         e.preventDefault();
         dispatch(logout());
@@ -56,12 +56,12 @@ const CommunityModal = () => {
 
     }
     const addToGroup = user =>{
-
         if(!groupList.includes(user)) setGroupList([...groupList, user])
     }
 
-    const handleSendGroupInvite = () =>{
-
+    const handleSendGroupInvite = e =>{
+        e.preventDefault()
+        e.stopPropagation()
 
         let flavorProfiles = [], genreProfiles = [], allergyProfiles=[], dietProfiles = [], userIds = [sessionUser._id];
         for(const gm of groupList){
@@ -94,9 +94,7 @@ const CommunityModal = () => {
         setGroupName();
         setGroupList([]);
 
-
     }
-
 
     const filterUsers = (searchTerms) =>{
         const res = [];
@@ -111,6 +109,9 @@ const CommunityModal = () => {
         }
     }
 
+    const exitGroup = e => {
+        
+    }
 
     useEffect(()=>{
         setFilteredUsers(filterUsers(searchTerms))
@@ -123,6 +124,9 @@ const CommunityModal = () => {
         dispatch(fetchUsers())
     }, [])
 
+    useEffect(()=>{
+        dispatch(fetchGroup())
+    }, [dispatch])
 
 
     return (
@@ -149,27 +153,37 @@ const CommunityModal = () => {
                                 </li>
                                 )}
                             </ul>
+
+                            <div id='group-finalization'>
+                                <ul id='group-list'>
+                                    {groupList.map((groupMember, idx) =>
+                                        <GroupAddItem groupMember={groupMember} groupList={groupList} setGroupList={setGroupList}
+                                        key={idx}/>
+                                        )}
+                                </ul>
+                                <div id='bottom-buttons'>
+                                    <form id='group-form'>
+                                        <input id="search-bar" type='text' placeholder={groupName} onChange={e =>setGroupName(e.target.value)}/>
+                                    </form>
+                                    <div className="modal-buttons-container">
+                                        <button className='bottom-button-size' onClick={handleSendGroupInvite}>Send Group Invite</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div id='community-lower'>
+                            <div className="modal-profile-content">
+                                <h2>My Groups</h2>
+                            </div>
 
-                            <ul id='group-list'>
-                                {groupList.map((groupMember, idx) =>
-                                    <GroupListItem groupMember={groupMember} groupList={groupList} setGroupList={setGroupList}
-                                    key={idx}/>
-                                    )}
+                            <ul className="group-list" id="my-groups-container">
+
                             </ul>
-                            <div id='bottom-buttons'>
-                                <form id='group-form'>
-                                    <input id="search-bar" type='text' placeholder={groupName} onChange={e =>setGroupName(e.target.value)}/>
-                                </form>
-                                <div className="modal-buttons-container">
-                                    <button className='bottom-button-size' onClick={handleSendGroupInvite}>Send Group Invite</button>
-                                    <button className='bottom-button-size' onClick={logoutUser}>Logout</button>
 
-
-                                </div>
-
+                            <div className="modal-buttons-container">
+                                <button className='bottom-button-size' onClick={exitGroup}>Leave/Disband Group</button>
+                                <button className='bottom-button-size' onClick={logoutUser}>Logout</button>
                             </div>
 
                         </div>

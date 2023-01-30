@@ -31,7 +31,7 @@
 #modal-menu-content{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: left;
     position: absolute;
     background-color: rgb(251, 241, 229);
@@ -56,6 +56,7 @@
 #community-lower{
     display: flex;
     flex-direction: column;
+    padding-bottom: 3rem;
 }
 .modal-profile-content{
     margin-bottom: 20px;
@@ -95,8 +96,10 @@
     justify-content: center;
     flex-direction: column;
 
-    height:100%;
+    height:20rem;
     width:100%;
+    overflow:hidden;
+    overflow-y:scroll;
 }
 
 .search-bar-result{
@@ -130,14 +133,20 @@
 
 }
 
-#group-list{
+.group-list{
     margin-bottom:15%;
 
 }
 
-#community-lower{
-    margin-bottom: 15%;
+
+#my-groups-container{
+    /* this is a bad solution for the height and should be adjusted */
+    height:34rem;
+    overflow:hidden;
+    overflow-y: scroll;
+
 }
+
 
 #groupForm{
     padding-bottom: 1rem;
@@ -154,7 +163,6 @@
 .modal-buttons-container{
     display:flex;
     flex-direction: row;
-    /* justify-content: space-around; */
     margin-left: -4px ;
 }
 
