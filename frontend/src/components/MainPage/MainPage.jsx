@@ -22,6 +22,8 @@ export default function MainPage({location}) {
   const sessionUser = useSelector((store) => store.session.user);
   const dispatch = useDispatch();
   const {groupId} = useParams();
+  const group = useSelector((store) => store.groups[groupId]);
+  const [groupNow, setGroupNow] = useState(group)
 
   useEffect(() => {
     if(sessionUser){
@@ -39,10 +41,19 @@ export default function MainPage({location}) {
 
 
   if(!sessionUser) return <Redirect to="/"/>
+  console.log(sessionUser._id)
   return (
     <div className="mainpage">
-      <Map preference={preference}/>
-      <MainPageRestaurants preference={preference}/>
+      <div className="solo-group-banner">
+        {group
+          ? <h1>Group: {group?.name} Recommdentation</h1>
+          : <h1>User: {sessionUser._id} Recommdentation</h1>
+        }
+      </div>
+      <div className="mainpage-content">
+        <Map preference={preference}/>
+        <MainPageRestaurants preference={preference}/>
+      </div>
 
       {/* {!messengerModal && <MessengerModalTab messengerModal={messengerModal} setMessengerModal={setMessengerModal}/>}
       {messengerModal && <MessengerModal messengerModal={messengerModal} setMessengerModal={setMessengerModal}/>} */}

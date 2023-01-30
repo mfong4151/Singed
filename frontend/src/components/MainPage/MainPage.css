@@ -1,5 +1,5 @@
 .mainpage {
-  padding-top: 50px;
+  padding-top: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -19,7 +19,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
-  
+
   margin-left: 50%;
   margin-bottom: 100px;
 
