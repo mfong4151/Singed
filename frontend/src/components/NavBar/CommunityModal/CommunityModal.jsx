@@ -8,6 +8,7 @@ import { fetchUsers, getUsers } from '../../../store/user'
 import { normalizeGroupAllergiesProfile, normalizeGroupFlavorProfile, normalizeGroupGenreProfile, normalizeGroupDietProfile } from './utils/CommunityModalsUtils'
 import { createGroup, fetchGroup } from '../../../store/group'
 import {useHistory} from 'react-router-dom'
+import MyGroupItem from './MyGroupItem'
 
 export const openCommunityModal = () => {
 
@@ -178,7 +179,10 @@ const CommunityModal = () => {
                             </div>
 
                             <ul className="group-list" id="my-groups-container">
-
+                                {/* uncomment when we're ready to test */}
+                                {/* {usersGroups.map((group, idx) =>
+                                    <MyGroupItem group={group} key={idx}/>
+                                )} */}
                             </ul>
 
                             <div className="modal-buttons-container">
