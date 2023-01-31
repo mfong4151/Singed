@@ -68,7 +68,8 @@ function SurveyForm () {
         }
 
         dispatch(updateUser(updatedUser));
-        history.push('/main', {from: finalPreference})
+        // history.push('/main', {from: finalPreference})
+        history.push('/main')
     }
 
     return(
