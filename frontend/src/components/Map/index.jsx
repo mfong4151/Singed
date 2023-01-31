@@ -23,11 +23,11 @@ export function RestaurantCard({restaurant, onClick}) {
 
 export function MapContainer({restaurants, center, preference}) {
   const dispatch = useDispatch();
+  //The reason for the ternary operation is that render has issues when 
   const {isLoaded} = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY  ? process.env.REACT_APP_MAPS_API_KEY : 'AIzaSyASdAh77--unS806Dxb3JGAEJ1Vvl9j3ZY'
   });
-
-  console.log('HERES THE KEY', process.env.REACT_APP_MAPS_API_KEY)
+  
   const centerM = useMemo(() => (center), [])
 
   const options = {
