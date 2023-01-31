@@ -51,7 +51,7 @@ export default function MainPage() {
     let lat =  37.779180920571605;
     let lng =  -122.42151230151367;
     // dispatch(fetchRestaurantsCoordinate({lat, lng}))
-    if(group || sessionUser) dispatch(fetchRestaurantsCoordinatePreference({lat, lng, preference}))
+    if(preference) dispatch(fetchRestaurantsCoordinatePreference({lat, lng, preference}))
   },[dispatch, sessionUser, groupId] )
   
   if(!sessionUser) return <Redirect to="/"/>
