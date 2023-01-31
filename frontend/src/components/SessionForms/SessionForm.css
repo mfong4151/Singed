@@ -85,3 +85,17 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+.login-button-holder{
+  display: flex;
+  justify-content: space-between;
+  width:39%
+}
+
+#demo-user{
+  background-color: #a0c2f0;
+}
+#demo-user:hover{
+  background-color: #1a73e8;
+  cursor: pointer;
+}

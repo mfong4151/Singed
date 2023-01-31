@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import './SessionForm.css';
 import { signup, clearSessionErrors } from '../../store/session';
+import { login } from '../../store/session';
 
 function SignupForm () {
   const [email, setEmail] = useState('');
@@ -19,9 +20,13 @@ function SignupForm () {
     history.push('/allergies_diet')
   }
 
-  useEffect(() => {
-    dispatch(clearSessionErrors());
-  }, [dispatch]);
+
+  const handleDemoUser = e =>{
+    e.preventDefault();
+    e.stopPropagation();
+    dispatch(login({ email:'demo@singed.com', password: 'password'}))
+  }
+
 
   const update = field => {
     let setState;
@@ -54,12 +59,17 @@ function SignupForm () {
       password
     };
     await dispatch(signup(user))
-    console.log('errors', errors)
     if (!errors) {
       history.push('/allergies_diet')
     }
 
   }
+
+  
+  useEffect(() => {
+    dispatch(clearSessionErrors());
+  }, [dispatch]);
+
 
   return (
     <div className='session-container'>
@@ -104,11 +114,18 @@ function SignupForm () {
 
         />
       </label>
-      <input className="session-submit"
-        type="submit"
-        value="Sign Up"
-        disabled={!email || !username || !password || password !== password2}
-      />
+      <div className='udc login-button-holder'>
+        <input className="session-submit"
+          type="submit"
+          value="Sign Up"
+          disabled={!email || !username || !password || password !== password2}
+        />
+        <input className="session-submit"
+            type='button'
+            onClick={handleDemoUser}
+            value="Demo User"
+          />
+      </div>
     </form>
     </div>
 

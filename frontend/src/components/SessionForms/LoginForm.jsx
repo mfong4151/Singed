@@ -29,8 +29,13 @@ function LoginForm () {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ email, password }));
-    console.log('hello')
     // history.push('/allergies_diet')
+  }
+
+  const handleDemoUser = e =>{
+    e.preventDefault();
+    e.stopPropagation();
+    dispatch(login({ email:'demo@singed.com', password: 'password'}))
   }
 
   return (
@@ -54,11 +59,18 @@ function LoginForm () {
           onChange={update('password')}
         />
       </label>
-      <input className="session-submit"
-        type="submit"
-        value="Log In"
-        disabled={!email || !password}
-      />
+      <div className='udc login-button-holder'>
+        <input className="session-submit"
+          type="submit"
+          value="Log In"
+          disabled={!email || !password}
+        />
+        <input className="session-submit" id="demo-user"
+            type='button'
+            onClick={handleDemoUser}
+            value="Demo User"
+          />
+      </div>
     </form>
     </div>
   );

@@ -6,7 +6,7 @@ import SearchBar from './SearchBar'
 import { getCurrentUser, logout } from '../../../store/session';
 import { fetchUsers, getUsers } from '../../../store/user'
 import { normalizeGroupAllergiesProfile, normalizeGroupFlavorProfile, normalizeGroupGenreProfile, normalizeGroupDietProfile } from './utils/CommunityModalsUtils'
-import { createGroup, fetchGroup, fetchGroups } from '../../../store/group'
+import { createGroup, fetchGroup, fetchGroups, getDistinctGroups} from '../../../store/group'
 import {useHistory} from 'react-router-dom'
 import UsersGroupItem from './UsersGroupItem'
 
@@ -39,8 +39,9 @@ const CommunityModal = () => {
     const [groupName, setGroupName] = useState('Name your group!')
     const [filteredUsers, setFilteredUsers] = useState([])
     const dispatch = useDispatch()
-    const sessionUser = useSelector((store) => store.session.user);
-    const usersGroups = useSelector((store) => store.groups ? Object.values(store.groups) : [])
+    const sessionUser = useSelector(state => state.session.user);
+    const usersGroups = useSelector(getDistinctGroups )
+    
     const allUsers = useSelector(getUsers)
     const history = useHistory()
 
@@ -87,13 +88,14 @@ const CommunityModal = () => {
                 diet: normalizedDietProfile,
                 userIds
             }
-        )).then(async (group) => {
+        ))
+    
+        .then(async (group) => {
             history.push(`/groups/${group._id}`);
         })
-
-        setGroupName();
-        setGroupList([]);
-
+        setGroupName('')
+        setGroupList([])
+        
     }
 
     const filterUsers = (searchTerms) =>{
