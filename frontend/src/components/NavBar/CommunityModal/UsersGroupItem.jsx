@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import {fetchGroups, updateGroup, deleteGroup} from '../../../store/group'
+import {fetchGroups, updateGroup, deleteGroup, leaveGroup} from '../../../store/group'
 
 
 const UsersGroupItem = ({group, sessionUserId}) => {
@@ -22,22 +22,25 @@ const UsersGroupItem = ({group, sessionUserId}) => {
      }
   }
 
-
   //update method
   //theres currently a bug with this where leaving a group allows a group to stay within "my groups"
-  const leaveGroup = e => {
+  const exitGroup = e => {
     e.preventDefault();
-    e.stopPropagation();
-    const newUserIds = []
-    for(const i of group.userIds){
-      if(i === sessionUserId) continue
-      newUserIds.push(i)
-    }
-    
-    dispatch(updateGroup(groupFact(newUserIds)))
-    .then( fetchGroups(sessionUserId))
-    
-    }
+    e.stopPropagation()
+
+    if (group.userIds.length === 2){
+      dispatch(deleteGroup(group._id))
+      .then(dispatch(fetchGroups(sessionUserId)))
+    }else{
+
+      const newUserIds = []
+      for(const i of group.userIds) if(i !== sessionUserId) newUserIds.push(i)
+
+      dispatch(leaveGroup(groupFact(newUserIds)))
+      .then(dispatch(fetchGroups(sessionUserId)))
+
+    }   
+  }
 
 
   //delete method
@@ -63,7 +66,7 @@ const UsersGroupItem = ({group, sessionUserId}) => {
             <button className="group-button" onClick={() => history.push(`/groups/${group._id}`)}>
                 See group event
             </button>
-            <button className="group-button" onClick={leaveGroup}>
+            <button className="group-button" onClick={exitGroup}>
                 Leave Group
             </button>
 

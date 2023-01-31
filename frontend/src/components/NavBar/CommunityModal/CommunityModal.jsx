@@ -41,6 +41,7 @@ const CommunityModal = () => {
     const dispatch = useDispatch()
     const sessionUser = useSelector((store) => store.session.user);
     const usersGroups = useSelector((store) => store.groups ? Object.values(store.groups) : [])
+    
     const allUsers = useSelector(getUsers)
     const history = useHistory()
 
@@ -87,7 +88,8 @@ const CommunityModal = () => {
                 diet: normalizedDietProfile,
                 userIds
             }
-        )).then(async (group) => {
+        ))
+        .then(async (group) => {
             history.push(`/groups/${group._id}`);
         })
 

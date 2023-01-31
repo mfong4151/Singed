@@ -23,7 +23,10 @@ export function RestaurantCard({restaurant, onClick}) {
 
 export function MapContainer({restaurants, center, preference}) {
   const dispatch = useDispatch();
-  //The reason for the ternary operation is that render has issues when 
+  //The reason for the ternary operation is that render has issues when we use the ENV variable in render, 
+  //so I've hard coded a key in here to show when process.ENV.(key) comes through as undefined
+  //Darrens suggestion with the FSP was that these had to be hard coded in anyways. 
+  
   const {isLoaded} = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY  ? process.env.REACT_APP_MAPS_API_KEY : 'AIzaSyASdAh77--unS806Dxb3JGAEJ1Vvl9j3ZY'
   });

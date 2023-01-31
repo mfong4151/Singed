@@ -20,6 +20,9 @@ export const removeGroup = (groupId) => ({
     payload: groupId
 })
 
+export const clearGroups = () => ({
+    type: CLEAR_GROUPS
+});
 
 //The one way to optimize this is if we held groups in sets versus how we have it now in arrays
 
@@ -29,6 +32,19 @@ export const getUsersGroups = userId => state => {
     for(const group of state.group){
 
     }
+}
+
+//The problem we tried to solve here was that we were adding in a new item under a weird key that we didnt want
+//this should be a short term bandaid to a long term problem.
+
+export const getDistinctGroups = state =>{
+    const res = {}
+    if(!state.groups) return [];
+    for(const group of Object.values(state.groups)){
+        if(res[group.name] && group.userIds[0] instanceof Object) continue
+        else res[group.name] = group
+    }
+    return Object.values(res)
 }
 
 
@@ -93,9 +109,17 @@ export const updateGroup = (groupData) => async dispatch => {
     }
 }
 
-export const clearGroups = () => ({
-    type: CLEAR_GROUPS
-});
+//This is a non-traditional TAC just for leaving a group, as of 1/31/2023 the updateGroup method isn't being used in production
+
+export const leaveGroup = (groupData) => async dispatch => {
+    const res = jwtFetch(`/api/groups/editgroup/${groupData._id}`, {
+        method: "PATCH",
+        body: JSON.stringify(groupData)
+    })
+    if(res.ok){
+        dispatch(removeGroup(groupData._id))
+    }
+}
 
 const groupReducer = (state={}, action) => {
     switch (action.type){

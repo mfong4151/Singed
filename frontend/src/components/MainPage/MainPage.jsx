@@ -35,10 +35,8 @@ export default function MainPage() {
 
   if (group) {
     preference = group.flavorProfile
-    console.log("final group", preference);
   } else {
     preference = sessionUser.flavorProfile
-    console.log("final solo", preference);
 
   }
 
@@ -60,7 +58,6 @@ export default function MainPage() {
   },[dispatch, sessionUser, groupId] )
 
   if(!sessionUser) return <Redirect to="/"/>
-  console.log(sessionUser._id)
 
 
   return (
