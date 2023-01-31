@@ -65,7 +65,7 @@ function LoginForm () {
           value="Log In"
           disabled={!email || !password}
         />
-        <input className="session-submit"
+        <input className="session-submit" id="demo-user"
             type='button'
             onClick={handleDemoUser}
             value="Demo User"
