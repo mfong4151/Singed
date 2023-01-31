@@ -1,6 +1,7 @@
 .map-container {
   width: 100%;
-  height: 70vh;
+  /* height: 70vh; */
+  height: calc(100vh - 150px);
 }
 
 .map-price-card {
