@@ -8,7 +8,7 @@ import { fetchUsers, getUsers } from '../../../store/user'
 import { normalizeGroupAllergiesProfile, normalizeGroupFlavorProfile, normalizeGroupGenreProfile, normalizeGroupDietProfile } from './utils/CommunityModalsUtils'
 import { createGroup, fetchGroup, fetchGroups } from '../../../store/group'
 import {useHistory} from 'react-router-dom'
-import MyGroupItem from './MyGroupItem'
+import UsersGroupItem from './UsersGroupItem'
 
 export const openCommunityModal = () => {
 
@@ -91,7 +91,6 @@ const CommunityModal = () => {
             history.push(`/groups/${group._id}`);
         })
 
-        closeCommunityModal();
         setGroupName();
         setGroupList([]);
 
@@ -110,12 +109,7 @@ const CommunityModal = () => {
         }
     }
 
-    const exitGroup = e => {
-        e.preventDefault();
-        e.stopPropagation();
-        //for testing
-    }
-
+   
     useEffect(()=>{
         setFilteredUsers(filterUsers(searchTerms))
         if(searchTerms === '') setSearchTerms('Find your friends here!')
@@ -182,12 +176,11 @@ const CommunityModal = () => {
 
                             <ul className="group-list" id="my-groups-container">
                                 {usersGroups.map((group, idx) =>
-                                    <MyGroupItem group={group} key={idx}/>
+                                    <UsersGroupItem group={group} sessionUserId={sessionUser._id} key={idx}/>
                                 )}
                             </ul>
 
                             <div className="modal-buttons-container">
-                                <button className='bottom-button-size' onClick={exitGroup}>Leave/Disband Group</button>
                                 <button className='bottom-button-size' onClick={logoutUser}>Logout</button>
                             </div>
 
