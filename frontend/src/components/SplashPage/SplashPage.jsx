@@ -41,7 +41,7 @@ function SplashPage () {
                     <img src={groupPNG}/>
                 </div>
             </div>
-            <div className="splash-page-4 splash-page-component">
+            <div className="splash-page-4 splash-page-component lightred splash-end">
                 <div className="splash-page-4-left splash-img">
                     <img src={mapsicon}/>
                 </div>

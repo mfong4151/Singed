@@ -1,5 +1,5 @@
 .splash-page-container{
-  padding-bottom: 200px;
+  /* padding-bottom: 200px; */
   height: auto;
 }
 
@@ -34,4 +34,8 @@
 }
 .splash-page-container p{
   font-size: 25px;
+}
+.splash-end{
+  padding-bottom: 150px;
+  /* for making the bottom red if its supposed to be */
 }
