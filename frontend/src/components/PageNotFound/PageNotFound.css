@@ -1,0 +1,28 @@
+.pagenotfound{
+  display:flex;
+  flex-direction: row;
+}
+.pagenotfound-left{
+  display:flex;
+  flex-direction: column;
+  width: 48% ;
+  height:100%;
+  margin-left: 2.5%;
+  margin-top:100px;
+}
+
+.pagenotfound h1{
+  font-size: 70px;
+}
+.pagenotfound h2{
+  font-size: 30px;
+}
+.pagenotfound-homebutton{
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 10px;
+  
+
+}

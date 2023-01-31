@@ -15,6 +15,7 @@ import SurveyForm from './components/SurveyForm/SurveyForm';
 import Footer from './components/Footer/Footer';
 import SplashPage from './components/SplashPage/SplashPage';
 import UpdatePreferences from './components/UpdatePreferences';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,6 +38,8 @@ function App() {
         <Route exact path="/map" component={Map}/>
         <Route exact path='/update_preferences' component={UpdatePreferences} />
         {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
+        <Route component={PageNotFound} />
+
       </Switch>
       <Footer />
     </>
