@@ -44,7 +44,7 @@ export default function MainPage() {
 
   useEffect(() => {
     if(sessionUser){
-      dispatch(fetchGroups())
+      dispatch(fetchGroups(sessionUser._id))
     }
 
     if(groupId){

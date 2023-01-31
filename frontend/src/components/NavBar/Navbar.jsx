@@ -29,6 +29,7 @@ function NavBar () {
             <Link to={'/foods/new'}>Write a Foods</Link>
             <Link to={'/allergies_diet'}>Update Allergies and Diet</Link>
             <Link to={'/dish_survey'}>Update Dish Preference</Link>
+            <Link to={'/update_preferences'}>Change your Preference Profile</Link>
           </div>
           <CommunityModal />
         </div>
@@ -47,8 +48,6 @@ function NavBar () {
             <Link to={'/login'}><button>Login</button></Link>
           </div>
         
-        {/* {communityModal && <CommunityModal communityModal={communityModal} setCommunityModal={setCommunityModal}/>} */}
-        {/* <CommunityModal /> */}
         </div>
       );
     }

@@ -20,13 +20,38 @@ export const removeGroup = (groupId) => ({
     payload: groupId
 })
 
-export const fetchGroups = () => async dispatch => {
-    const res = await jwtFetch('/api/groups');
+
+//The one way to optimize this is if we held groups in sets versus how we have it now in arrays
+
+export const getUsersGroups = userId => state => {
+    const res = []
+    if(!state.group) return res
+    for(const group of state.group){
+
+    }
+}
+
+
+//original fetch groups for reference
+// export const fetchGroups = () => async dispatch => {
+//     const res = await jwtFetch('/api/groups');
+//     if(res.ok){
+//         const data = await res.json();
+//         dispatch(addGroups(data))
+//     }
+// }
+
+
+//Fetch groups to limit by id
+export const fetchGroups = (id) => async dispatch => {
+    const res = await jwtFetch(`/api/groups/usersgroups?id=${id}`);
     if(res.ok){
         const data = await res.json();
         dispatch(addGroups(data))
     }
 }
+
+
 
 export const fetchGroup = (groupId) => async dispatch => {
     const res = await jwtFetch(`/api/groups/${groupId}`);

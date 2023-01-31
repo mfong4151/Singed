@@ -2,7 +2,7 @@ import React from 'react'
 
 
 //preconditions: friend, should have an id, name, and picture?
-const GroupListItem = ({groupMember, groupList, setGroupList}) => {
+const GroupAddItem = ({groupMember, groupList, setGroupList}) => {
   
   const removeFromGroup = user =>{
     let newGroupList = []
@@ -28,4 +28,4 @@ const GroupListItem = ({groupMember, groupList, setGroupList}) => {
   )
 }
 
-export default GroupListItem
+export default GroupAddItem
