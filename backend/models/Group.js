@@ -45,7 +45,7 @@ const groupSchema = Schema(
 
     userIds: [
       {
-        type: [Schema.Types.ObjectId],
+        type: Schema.Types.ObjectId,
         required: true,
         ref: 'User'
       }]

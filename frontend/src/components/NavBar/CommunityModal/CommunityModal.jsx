@@ -6,7 +6,7 @@ import SearchBar from './SearchBar'
 import { getCurrentUser, logout } from '../../../store/session';
 import { fetchUsers, getUsers } from '../../../store/user'
 import { normalizeGroupAllergiesProfile, normalizeGroupFlavorProfile, normalizeGroupGenreProfile, normalizeGroupDietProfile } from './utils/CommunityModalsUtils'
-import { createGroup, fetchGroup } from '../../../store/group'
+import { createGroup, fetchGroup, fetchGroups } from '../../../store/group'
 import {useHistory} from 'react-router-dom'
 import MyGroupItem from './MyGroupItem'
 
@@ -111,7 +111,11 @@ const CommunityModal = () => {
     }
 
     const exitGroup = e => {
-        
+        e.preventDefault();
+        e.stopPropagation();
+        dispatch(fetchGroups(sessionUser._id))
+
+        //for testing
     }
 
     useEffect(()=>{

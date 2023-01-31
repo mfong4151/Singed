@@ -31,13 +31,27 @@ export const getUsersGroups = userId => state => {
     }
 }
 
-export const fetchGroups = () => async dispatch => {
-    const res = await jwtFetch('/api/groups');
+
+//original fetch groups for reference
+// export const fetchGroups = () => async dispatch => {
+//     const res = await jwtFetch('/api/groups');
+//     if(res.ok){
+//         const data = await res.json();
+//         dispatch(addGroups(data))
+//     }
+// }
+
+
+//Fetch groups to limit by id
+export const fetchGroups = (id) => async dispatch => {
+    const res = await jwtFetch(`/api/groups/usersgroups?id=${id}`);
     if(res.ok){
         const data = await res.json();
         dispatch(addGroups(data))
     }
 }
+
+
 
 export const fetchGroup = (groupId) => async dispatch => {
     const res = await jwtFetch(`/api/groups/${groupId}`);

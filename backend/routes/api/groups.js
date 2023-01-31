@@ -36,6 +36,7 @@ router.get('/', async (req, res) => {
     //     userIds: { $elemMatch: { $eq: req.user._id }}
     // })
     const groups = await Group.find({})
+
     // need to figure out logic for only current user
     if(groups){
         return res.status(200).json(groups)
@@ -43,6 +44,31 @@ router.get('/', async (req, res) => {
         return res.status(404).json({error: 'No groups'})
     }
 })
+
+
+
+// get all tied to a specific user
+//First, if we want to search by id type, you have to convert to id
+//Second 
+router.get('/usersgroups', async (req, res) => {
+
+    try{
+
+        let id = mongoose.Types.ObjectId(req.query.id);
+        const groups = await Group.find({userIds: id})
+
+        if(groups){
+            return res.status(200).json(groups)
+
+        } else {
+            return res.status(404).json({error: 'No groups'})
+        }
+    } catch(err){
+        return res.status(500).json({message: err.message})
+    }
+})
+
+
 
 //get specific group
 router.get('/:id', async(req, res) => {
