@@ -4,16 +4,16 @@ import { fetchRestaurantsCoordinate, fetchRestaurantsCoordinatePreference } from
 import RestaurantCard from './RestaurantCard.jsx'
 
 
-export default function MainPageRestaurants({preference}) {
-  const dispatch = useDispatch()
-  const restaurants = useSelector(state => state.restaurants);
+export default function MainPageRestaurants({restaurants, restaurantRef}) {
+  // const dispatch = useDispatch()
+  // const restaurants = useSelector(state => state.restaurants);
   // preference = new Array(5).fill(0.447);
-  useEffect(() => {
-    let lat =  37.779180920571605;
-    let lng =  -122.42151230151367;
-    // dispatch(fetchRestaurantsCoordinate({lat, lng}))
-    dispatch(fetchRestaurantsCoordinatePreference({lat, lng, preference}))
-  },[])
+  // useEffect(() => {
+  //   let lat =  37.779180920571605;
+  //   let lng =  -122.42151230151367;
+  //   // dispatch(fetchRestaurantsCoordinate({lat, lng}))
+  //   dispatch(fetchRestaurantsCoordinatePreference({lat, lng, preference}))
+  // },[])
 
   return (
     <div className="mainpage-restaurants">
