@@ -9,11 +9,10 @@ import { clearGroups, fetchGroup, fetchGroups } from "../../store/group";
 import { Redirect, useParams } from "react-router";
 import {fetchRestaurantsCoordinatePreference} from '../../store/restaurant'
 import { useRef } from "react";
-
+import { useHistory } from "react-router";
 
 export default function MainPage() {
   // const location = useLocation();
-  let preference
 
   // if (location.state) {
   //   preference = location.state.from;
@@ -31,13 +30,12 @@ export default function MainPage() {
   const group = useSelector((store) => store.groups[groupId]);
   const restaurants = useSelector(state => state.restaurants);
   const restaurantsRef = useRef()
-  // const [groupNow, setGroupNow] = useState(group)
-  
+  let preference
+
   if (group) {
     preference = group.flavorProfile
-  } else {
+  } else if(sessionUser) {
     preference = sessionUser.flavorProfile
-    
   }
   
   useEffect(() => {
@@ -53,8 +51,7 @@ export default function MainPage() {
     let lat =  37.779180920571605;
     let lng =  -122.42151230151367;
     // dispatch(fetchRestaurantsCoordinate({lat, lng}))
-    dispatch(fetchRestaurantsCoordinatePreference({lat, lng, preference}))
-    
+    if(group || sessionUser) dispatch(fetchRestaurantsCoordinatePreference({lat, lng, preference}))
   },[dispatch, sessionUser, groupId] )
   
   if(!sessionUser) return <Redirect to="/"/>
