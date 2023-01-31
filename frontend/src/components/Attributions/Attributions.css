@@ -1,0 +1,10 @@
+.attributions{
+  margin: 100px;
+  font-size: 22px
+}
+.attributions h1{
+  margin-bottom: 15px
+}
+.attributions li:hover{
+  color: rgb(193, 145, 145);
+}

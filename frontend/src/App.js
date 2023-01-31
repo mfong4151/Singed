@@ -16,6 +16,7 @@ import Footer from './components/Footer/Footer';
 import SplashPage from './components/SplashPage/SplashPage';
 import UpdatePreferences from './components/UpdatePreferences';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import Attributions from './components/Attributions/Attributions';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/map" component={Map}/>
         <Route exact path='/update_preferences' component={UpdatePreferences} />
         {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
+        <Route exact path='/attributions' component={Attributions} />
         <Route component={PageNotFound} />
 
       </Switch>

@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import './PageNotFound.css';
-
+import error_img from '../../assets/404_img.png';
 
 function PageNotFound () {
     return (
@@ -11,7 +11,9 @@ function PageNotFound () {
                 <Link to="/" className="pagenotfound-homebutton">Back To Singed</Link>
             </div>
             <div className="pagenotfound-right">
-
+                <Link to="/attributions">
+                    <img className="pagenotfound-img"   src={error_img} />
+                </Link>
             </div>
         </div>
     )

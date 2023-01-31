@@ -1,13 +1,14 @@
 .pagenotfound{
   display:flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .pagenotfound-left{
   display:flex;
   flex-direction: column;
   width: 48% ;
   height:100%;
-  margin-left: 2.5%;
+  margin-left: 4%;
   margin-top:100px;
 }
 
@@ -17,12 +18,26 @@
 .pagenotfound h2{
   font-size: 30px;
 }
+.pagenotfound-right{
+  margin-right: 5%;
+}
+.pagenotfound-img{
+  width: 300px;
+  height: auto;
+  margin-top: 100px;
+}
 .pagenotfound-homebutton{
   font-size: 20px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 20px;
   width: fit-content;
-  padding: 10px;
-  
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.10); 
+  background-color: rgb(213, 181, 181);
+}
 
+.pagenotfound-homebutton:hover{
+  background-color: rgb(193, 145, 145);
+  cursor: pointer;
 }
