@@ -40,7 +40,7 @@ const CommunityModal = () => {
     const [filteredUsers, setFilteredUsers] = useState([])
     const dispatch = useDispatch()
     const sessionUser = useSelector((store) => store.session.user);
-    const groups = useSelector((store) => store.groups)
+    const usersGroups = useSelector((store) => store.groups ? Object.values(store.groups) : [])
     const allUsers = useSelector(getUsers)
     const history = useHistory()
 
@@ -113,8 +113,6 @@ const CommunityModal = () => {
     const exitGroup = e => {
         e.preventDefault();
         e.stopPropagation();
-        dispatch(fetchGroups(sessionUser._id))
-
         //for testing
     }
 
@@ -130,7 +128,7 @@ const CommunityModal = () => {
     }, [])
 
     useEffect(()=>{
-        dispatch(fetchGroup())
+        dispatch(fetchGroups(sessionUser._id))
     }, [dispatch])
 
 
@@ -183,10 +181,9 @@ const CommunityModal = () => {
                             </div>
 
                             <ul className="group-list" id="my-groups-container">
-                                {/* uncomment when we're ready to test */}
-                                {/* {usersGroups.map((group, idx) =>
+                                {usersGroups.map((group, idx) =>
                                     <MyGroupItem group={group} key={idx}/>
-                                )} */}
+                                )}
                             </ul>
 
                             <div className="modal-buttons-container">

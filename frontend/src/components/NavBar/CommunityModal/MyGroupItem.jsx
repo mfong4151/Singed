@@ -10,7 +10,7 @@ const MyGroupItem = ({group}) => {
   
 
   return (
-    <li className='udc-right friend-list-item' onClick={useHistory.push(`/groups/${group._id}`)}>
+    <li className='udc-left friend-list-item' onClick={() => history.push(`/groups/${group._id}`)}>
 
         {/* //Do we wnat profile pictures? made a placeholder for it */}
         {group.name}
@@ -19,3 +19,7 @@ const MyGroupItem = ({group}) => {
 }
 
 export default MyGroupItem
+
+
+//leaving a group
+//going to a group page
