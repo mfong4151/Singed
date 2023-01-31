@@ -32,6 +32,12 @@ function LoginForm () {
     // history.push('/allergies_diet')
   }
 
+  const handleDemoUser = e =>{
+    e.preventDefault();
+    e.stopPropagation();
+    dispatch(login({ email:'demo@singed.com', password: 'password'}))
+  }
+
   return (
     <div className='session-container'>
 
@@ -53,11 +59,18 @@ function LoginForm () {
           onChange={update('password')}
         />
       </label>
-      <input className="session-submit"
-        type="submit"
-        value="Log In"
-        disabled={!email || !password}
-      />
+      <div className='udc login-button-holder'>
+        <input className="session-submit"
+          type="submit"
+          value="Log In"
+          disabled={!email || !password}
+        />
+        <input className="session-submit"
+            type='button'
+            onClick={handleDemoUser}
+            value="Demo User"
+          />
+      </div>
     </form>
     </div>
   );

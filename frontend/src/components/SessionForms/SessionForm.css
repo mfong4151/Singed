@@ -85,3 +85,9 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+.login-button-holder{
+  display: flex;
+  justify-content: space-between;
+  width:39%
+}
