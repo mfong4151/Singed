@@ -35,7 +35,7 @@ export const getUsersGroups = userId => state => {
 }
 
 //The problem we tried to solve here was that we were adding in a new item under a weird key that we didnt want
-//this should be a short term bandaid to a long term problem.
+//this should be a short term bandaid to a long term problem.The problem should be handled by modifying the backend
 
 export const getDistinctGroups = state =>{
     const res = {}

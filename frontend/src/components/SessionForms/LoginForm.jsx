@@ -29,7 +29,6 @@ function LoginForm () {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ email, password }));
-    console.log('hello')
     // history.push('/allergies_diet')
   }
 

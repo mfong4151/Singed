@@ -54,7 +54,6 @@ function SignupForm () {
       password
     };
     await dispatch(signup(user))
-    console.log('errors', errors)
     if (!errors) {
       history.push('/allergies_diet')
     }
