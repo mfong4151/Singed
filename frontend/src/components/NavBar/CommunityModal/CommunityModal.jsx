@@ -40,7 +40,7 @@ const CommunityModal = () => {
     const [filteredUsers, setFilteredUsers] = useState([])
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user);
-    const usersGroups = useSelector(getDistinctGroups)
+    const usersGroups = useSelector(getDistinctGroups )
     
     const allUsers = useSelector(getUsers)
     const history = useHistory()
@@ -89,13 +89,13 @@ const CommunityModal = () => {
                 userIds
             }
         ))
+    
         .then(async (group) => {
             history.push(`/groups/${group._id}`);
         })
-
-        setGroupName();
-        setGroupList([]);
-
+        setGroupName('')
+        setGroupList([])
+        
     }
 
     const filterUsers = (searchTerms) =>{
