@@ -176,7 +176,7 @@ const CommunityModal = () => {
                                     <div className="modal-buttons-container">
                                         <button className='bottom-button-size' onClick={handleSendGroupInvite}>Send Group Invite</button>
                                     </div>
-                                    <div>
+                                    <div className="group-errors">
                                         {errors.length > 0 && errors[0]}
                                     </div>
                                 </div>
