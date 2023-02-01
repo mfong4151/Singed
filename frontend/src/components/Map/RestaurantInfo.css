@@ -1,0 +1,24 @@
+.restaurant-hover-info{
+  position: absolute;
+  top: -158px;
+  left: 80px;
+  height: 200px;
+  background-color: #fafdf3;
+  border-radius: 5px;
+  font-size: 13px;
+  text-align: center;
+  color: black;
+  line-height: 17px;
+  z-index: 100;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 0px 1px #9f9f9f, 0 0 1px 2px #9f9f9f;
+  padding: 5px;
+}
+
+.restaurant-hover-info-photo{
+  width: 150px;
+  height: 95px;
+  border-radius: 10px;
+  object-fit: cover;
+}
