@@ -40,7 +40,7 @@ const CommunityModal = () => {
     const [filteredUsers, setFilteredUsers] = useState([])
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user);
-    const usersGroups = useSelector(getDistinctGroups )
+    const usersGroups = useSelector(getDistinctGroups)
     
     const allUsers = useSelector(getUsers)
     const history = useHistory()
@@ -146,7 +146,7 @@ const CommunityModal = () => {
                                 {filteredUsers?.map((user, idx) =>
                                 <li className='search-bar-result' key={idx} onClick={handleOnClick}>
                                     <span>
-                                        {user.username}
+                                        {user.username.length > 20 ? user.username.slice(0,20).concat('...') : user.username }
                                     </span>
                                     <button id='add-to-group' onClick={()=> addToGroup(user)} value={user}>+</button>
                                 </li>
