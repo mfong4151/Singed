@@ -177,3 +177,45 @@
 
 .bottom-button-size{
 }
+
+
+#group-modal-background{
+    height: 100vh; 
+    width: 100vw;
+    z-index: 101;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+.group-dropdown{
+    position: absolute;
+    /* height:170px; */
+    width: 130px;
+    border:1px solid rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    z-index: 101;
+    background: white;
+    border-radius: 3px;
+    align-items: center; /*puts children to center of div vertically */
+    justify-content: space-between;
+    box-shadow: 0px 0px 4px 0px rgb(66, 66, 66);
+    transform: translate(40%, -70%);
+    flex-wrap: wrap;
+    padding:0;
+    /* align-content: stretch; */
+}
+.group-dropdown > *:hover{
+    background: #efefef;
+    /* cursor: pointer; */
+}
+.group-dropdown > *{
+    border: .5px solid grey;
+    padding: 10px;
+    cursor: pointer;
+    width: 80%;
+    text-align: center;
+}
+.red-text{
+    color: red;
+}

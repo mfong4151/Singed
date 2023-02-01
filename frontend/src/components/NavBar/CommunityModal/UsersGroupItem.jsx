@@ -1,13 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import {fetchGroups, updateGroup, deleteGroup, leaveGroup} from '../../../store/group'
-
+import {BsThreeDots} from "react-icons/bs";
+import './CommunityModal.css'
 
 const UsersGroupItem = ({group, sessionUserId}) => {
   const history = useHistory()
   const dispatch = useDispatch()
+
+  //for our dropdown menu on three dots icon
+  const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
+  const openDropdown = () => {
+    setDropdownIsOpen(true);
+  }
+  const closeDropdown = () => {
+    setDropdownIsOpen(false);
+  }
 
   //factory method for creating new group
   const groupFact = (newUserIds) =>{
@@ -63,19 +73,28 @@ const UsersGroupItem = ({group, sessionUserId}) => {
         </div>
 
         <div className="group-item">
-            <button className="group-button" onClick={() => history.push(`/groups/${group._id}`)}>
-                See group event
-            </button>
-            <button className="group-button" onClick={exitGroup}>
-                Leave Group
-            </button>
 
-            { 
-             group.userIds[0] === sessionUserId &&
-              <button className="group-button" onClick={disbandGroup}>
-                Disband your Group
-              </button>
-            }
+        <button id='three-dots' onClick={openDropdown} > <BsThreeDots/> </button>
+        {dropdownIsOpen && (
+          <>
+            <div id='group-modal-background' onClick={closeDropdown}></div>
+            <div className='group-dropdown'>
+                  <div className="group-button" onClick={() => history.push(`/groups/${group._id}`)}>
+                      See group event
+                  </div>
+                  <div className="group-button" onClick={exitGroup}>
+                      Leave Group
+                  </div>
+                  { 
+                  group.userIds[0] === sessionUserId &&
+                    <div className="group-button red-text" onClick={disbandGroup}>
+                      Disband your Group
+                    </div>
+                  }
+                <div onClick={closeDropdown}>Close</div>
+            </div>
+          </>
+        )}
         </div>
     </li>
   )
