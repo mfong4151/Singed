@@ -20,7 +20,7 @@ const GroupAddItem = ({groupMember, groupList, setGroupList}) => {
 
         </div>
 
-          {groupMember.username}
+          {groupMember.username.length > 20 ? groupMember.username.slice(0,20).concat('...') : groupMember.username }
 
           <button className="friendslist-item-button" onClick={()=> removeFromGroup(groupMember)}>Remove</button>
 
