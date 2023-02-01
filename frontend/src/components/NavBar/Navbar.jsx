@@ -25,10 +25,8 @@ function NavBar () {
           </div>
           <div className='navbar-right '>
             <Link to={'/main'}>Main Page</Link>
-     
-            <Link to={'/allergies_diet'}>Update Allergies and Diet</Link>
-            <Link to={'/dish_survey'}>Update Dish Preference</Link>
-            <Link to={'/update_preferences'}>Change your Preference Profile</Link>
+            <Link to={'/update_preferences'}>Change your Preference</Link>
+
           </div>
           <CommunityModal />
         </div>

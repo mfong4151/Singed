@@ -9,7 +9,7 @@ import nuts from "../../assets/survey_imgs/nuts_cropped.jpg"
 import vegan from "../../assets/survey_imgs/vegan.jpg"
 import { fetchUser, updateUser } from "../../store/user";
 import { useHistory } from "react-router-dom"
-
+import UpdateAllergiesText from "./UpdateAllergiesText"
 
 function AllergiesDietForm() {
     const dispatch = useDispatch();
@@ -39,13 +39,11 @@ function AllergiesDietForm() {
 
     let updatedUser;
     if (sessionUser) {
-        // console.log('sessionUser', sessionUser)
         updatedUser = {...sessionUser,
                     ...{id: sessionUser._id,
                     allergies: [fishAllergy, nutsAllergy, shellfishAllergy],
                     diet: [glutenDiet, lactoseDiet, veganDiet]}
         }
-        // console.log('updatedUser', updatedUser)
     }
 
 
@@ -58,6 +56,7 @@ function AllergiesDietForm() {
     return (
         // <div className="allergies-diet-form-parent">
             <div className="allergies-diet-form-container">
+                {sessionUser.flavorProfile.length > 0 && <UpdateAllergiesText/>}
                 <form className="allergies-diet-form" onSubmit={handleSubmit}>
                     <div className="allergies-form">
                         <h1>Allergies</h1>

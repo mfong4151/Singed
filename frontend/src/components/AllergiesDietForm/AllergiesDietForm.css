@@ -142,3 +142,12 @@ label img:hover{
   animation-duration: 1s;
   animation-fill-mode: forwards;
  }
+
+
+ /* for updating allergies text */
+
+.update-preferences-text{
+  padding-left: 3rem;
+  padding-right: 3rem;
+  width:80%;
+}
