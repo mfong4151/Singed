@@ -60,7 +60,7 @@ function SignupForm () {
     };
     await dispatch(signup(user))
     if (!errors) {
-      history.push('/allergies_diet')
+      history.push('/update_preferences')
     }
 
   }

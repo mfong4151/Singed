@@ -34,7 +34,7 @@ function App() {
         <AuthRoute exact path="/" component={SplashPage} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignupForm} />
-        <ProtectedRoute exact path="/allergies_diet" component={AllergiesDietForm}/>
+        <ProtectedRoute exact path="/update_preferences" component={AllergiesDietForm}/>
         <ProtectedRoute exact path="/dish_survey" component={SurveyForm}/>
         <Route exact path="/map" component={Map}/>
         <Route exact path='/update_preferences' component={UpdatePreferences} />

@@ -9,7 +9,28 @@ import nuts from "../../assets/survey_imgs/nuts_cropped.jpg"
 import vegan from "../../assets/survey_imgs/vegan.jpg"
 import { fetchUser, updateUser } from "../../store/user";
 import { useHistory } from "react-router-dom"
+import UpdateAllergiesText from "./UpdateAllergiesText"
+import Modal from 'react-modal';
 
+
+const style={
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    zIndex: '1000',
+  },
+  content: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '300px',
+    height: '350px',
+    border: '1px solid #ccc',  
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+},
+}
 
 function AllergiesDietForm() {
     const dispatch = useDispatch();
@@ -22,6 +43,16 @@ function AllergiesDietForm() {
     const [glutenDiet, setGlutenDiet]  = useState(false);
     const [lactoseDiet, setLactoseDiet]  = useState(false);
     const [veganDiet, setVeganDiet]  = useState(false);
+
+    //start
+    const [isOpen, setIsOpen] = useState(sessionUser.flavorProfile.length > 0);
+    const openModal = () => {
+        setIsOpen(true);
+    }
+    const closeModal = () => {
+        setIsOpen(false);
+    }
+    //end
 
     useEffect(() => {
         if(sessionUser) {
@@ -39,13 +70,11 @@ function AllergiesDietForm() {
 
     let updatedUser;
     if (sessionUser) {
-        // console.log('sessionUser', sessionUser)
         updatedUser = {...sessionUser,
                     ...{id: sessionUser._id,
                     allergies: [fishAllergy, nutsAllergy, shellfishAllergy],
                     diet: [glutenDiet, lactoseDiet, veganDiet]}
         }
-        // console.log('updatedUser', updatedUser)
     }
 
 
@@ -58,6 +87,15 @@ function AllergiesDietForm() {
     return (
         // <div className="allergies-diet-form-parent">
             <div className="allergies-diet-form-container">
+                {/* {sessionUser.flavorProfile.length > 0 && <UpdateAllergiesText/>} */}
+                <Modal
+                    isOpen={isOpen}
+                    onRequestClose={closeModal}
+                    shouldCloseOnOverlayClick={true}
+                    style={style}
+                >
+                    <UpdateAllergiesText/>
+                </Modal>
                 <form className="allergies-diet-form" onSubmit={handleSubmit}>
                     <div className="allergies-form">
                         <h1>Allergies</h1>
