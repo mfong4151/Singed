@@ -49,14 +49,12 @@ const MessengerModal = () => {
   const group = useSelector((store) => Object.values(store.groups).find(el=>el._id===groupId));
   // const group = useSelector((store) => store.groups[groupId])
   // const group = groups[groupId]
-  console.log(group)
 
       
   // if (messengerModal) document.body.classList.add('active-modal')
   // else document.body.classList.remove('active-modal')
   useEffect(() => {
     socket.emit("setup", sessionUser);
-    // console.log(group);
     
   }, [])
 
@@ -64,7 +62,6 @@ const MessengerModal = () => {
     if(groupId){
       dispatch(fetchMessages(groupId));
       socket.emit("join chat", groupId);
-      console.log(group)
     }
   }, [dispatch, groupId])
 
