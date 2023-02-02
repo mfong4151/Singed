@@ -41,7 +41,9 @@
   grid-gap: 20px;
   margin: 10px;
 }
-
+.dish-item p{
+  width:180px;
+}
 .survey-submit-button{
   cursor: pointer;
   width: 150px;
