@@ -51,6 +51,7 @@ const UsersGroupItem = ({group, sessionUserId}) => {
       .then(dispatch(fetchGroups(sessionUserId)))
 
     }   
+    closeDropdown();
   }
 
 
@@ -60,6 +61,7 @@ const UsersGroupItem = ({group, sessionUserId}) => {
     e.stopPropagation()
     dispatch(deleteGroup(group._id))
     .then( dispatch(fetchGroups(sessionUserId)))
+    closeDropdown();
   }
 
   

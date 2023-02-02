@@ -15,14 +15,11 @@ const GroupAddItem = ({groupMember, groupList, setGroupList}) => {
   return (
     <li className='udc-right friend-list-item'>
 
-        {/* //Do we wnat profile pictures? made a placeholder for it */}
-        <div className='profile-picture '>
-
+        <div >
+          {groupMember.username.length > 20 ? groupMember.username.slice(0,20).concat('...') : groupMember.username }
         </div>
 
-          {groupMember.username.length > 20 ? groupMember.username.slice(0,20).concat('...') : groupMember.username }
-
-          <button className="friendslist-item-button" onClick={()=> removeFromGroup(groupMember)}>Remove</button>
+          <button className="friendslist-item-button remove-button" onClick={()=> removeFromGroup(groupMember)}>-</button>
 
     </li>
   )

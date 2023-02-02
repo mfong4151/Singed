@@ -167,10 +167,24 @@
     justify-content: space-between;
     /* border: 1px solid grey; */
     border-radius: 5px;
+    /* width: 300px; */
+    padding-left:0px;
 }
 .friend-list-item:hover{
     background: #f3e2d0;
     /* cursor: pointer; */
+}
+.remove-button{
+    color: rgb(187, 0, 0);
+    background-color: rgb(255, 215, 215);
+    border:none;
+    border-radius: 5px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    margin-right:5px;
+}
+.remove-button:hover{
+    background-color: rgb(255, 187, 187);
 }
 #bottom-buttons{
     margin-bottom: 15%;
