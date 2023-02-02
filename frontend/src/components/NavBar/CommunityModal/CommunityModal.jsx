@@ -36,7 +36,7 @@ const CommunityModal = () => {
     //state for opening add to group modal, delete on refactor
     const [groupList, setGroupList] = useState([])
     const [searchTerms, setSearchTerms] = useState('Find your friends here!')
-    const [groupName, setGroupName] = useState('Name your group!')
+    const [groupName, setGroupName] = useState('')
     const [filteredUsers, setFilteredUsers] = useState([])
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
