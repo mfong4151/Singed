@@ -32,8 +32,7 @@ const UsersGroupItem = ({group, sessionUserId}) => {
      }
   }
 
-  //update method
-  //theres currently a bug with this where leaving a group allows a group to stay within "my groups"
+
   const exitGroup = e => {
     e.preventDefault();
     e.stopPropagation()
@@ -44,8 +43,9 @@ const UsersGroupItem = ({group, sessionUserId}) => {
     }else{
 
       const newUserIds = []
-      for(const i of group.userIds) if(i !== sessionUserId) newUserIds.push(i)
-
+      console.log(sessionUserId)
+      // console.log(group.userIds)
+      for(const i of group.userIds) if(i._id !== sessionUserId) newUserIds.push(i._id)
       dispatch(leaveGroup(groupFact(newUserIds)))
       .then(history.push('/main'))
       .then(dispatch(fetchGroups(sessionUserId)))
@@ -76,10 +76,10 @@ const UsersGroupItem = ({group, sessionUserId}) => {
         <div className="group-item">
 
         <button id='three-dots' onClick={openDropdown} > <BsThreeDots/> </button>
-        {dropdownIsOpen && (
+        {!!dropdownIsOpen && (
           <>
             <div id='group-modal-background' onClick={closeDropdown}></div>
-            <div className='group-dropdown'>
+              <div className='group-dropdown'>
                   <div className="group-button" onClick={() => history.push(`/groups/${group._id}`)}>
                       See group event
                   </div>
@@ -87,7 +87,7 @@ const UsersGroupItem = ({group, sessionUserId}) => {
                       Leave Group
                   </div>
                   { 
-                  group.userIds[0] === sessionUserId &&
+                  group.userIds[0]._id === sessionUserId &&
                     <div className="group-button red-text" onClick={disbandGroup}>
                       Disband your Group
                     </div>
@@ -102,7 +102,3 @@ const UsersGroupItem = ({group, sessionUserId}) => {
 }
 
 export default UsersGroupItem
-
-
-//leaving a group
-//going to a group page

@@ -112,6 +112,7 @@ export const updateGroup = (groupData) => async dispatch => {
 //This is a non-traditional TAC just for leaving a group, as of 1/31/2023 the updateGroup method isn't being used in production
 
 export const leaveGroup = (groupData) => async dispatch => {
+
     const res = jwtFetch(`/api/groups/editgroup/${groupData._id}`, {
         method: "PATCH",
         body: JSON.stringify(groupData)
@@ -119,6 +120,8 @@ export const leaveGroup = (groupData) => async dispatch => {
     if(res.ok){
         dispatch(removeGroup(groupData._id))
     }
+     
+ 
 }
 
 const groupReducer = (state={}, action) => {

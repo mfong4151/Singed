@@ -11,7 +11,10 @@ function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
   // const [communityModal, setCommunityModal] = useState(false)
-
+  const logoutUser = e => {
+    e.preventDefault();
+    dispatch(logout());
+  }
 
   const getLinks = () => {
     if (loggedIn) {
@@ -26,7 +29,7 @@ function NavBar () {
           <div className='navbar-right '>
             <Link to={'/main'}>Main Page</Link>
             <Link to={'/update_preferences'}>Change your Preference</Link>
-
+            <button className="logout-link" onClick={logoutUser}>Logout</button>
           </div>
           <CommunityModal />
         </div>
