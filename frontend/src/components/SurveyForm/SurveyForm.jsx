@@ -29,14 +29,12 @@ function SurveyForm () {
             index === position ? !item : item
         )
         setCheckedState(updatedCheckedState);
-        // console.log('flavorProfileTotal before', flavorProfileTotal)
-        // console.log(dishes[position].flavorProfile)
+      
         let dishFlavorProfile = dishes[position].flavorProfile;
         if (checkedState[position]===false) {
             setDishCount(dishCount => dishCount+1);
             setFlavorProfileTotal(flavorProfileTotal.map((num, index) => num + dishFlavorProfile[index]))
         }
-        // console.log('flavorProfileTotal after', flavorProfileTotal)
 
     }
 ;

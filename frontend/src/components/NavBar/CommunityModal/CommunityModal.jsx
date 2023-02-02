@@ -64,7 +64,6 @@ const CommunityModal = () => {
     const handleSendGroupInvite = e =>{
         e.preventDefault()
         e.stopPropagation()
-        console.log(groupName)
         if (groupName === '' || groupName === 'Name your group!') setErrors(["You need to have a group name!"])    
         
         else{

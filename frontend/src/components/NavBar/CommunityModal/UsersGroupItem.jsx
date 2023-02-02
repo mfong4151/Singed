@@ -44,7 +44,6 @@ const UsersGroupItem = ({group, sessionUserId}) => {
     }else{
 
       const newUserIds = []
-      // console.log(group.userIds)
       for(const i of group.userIds) if(i._id !== sessionUserId) newUserIds.push(i._id)
       dispatch(leaveGroup(groupFact(newUserIds)))
       .then(history.push('/main'))
