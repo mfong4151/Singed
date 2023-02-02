@@ -81,7 +81,7 @@ const CommunityModal = () => {
             let normalizedGenreProfile = normalizeGroupGenreProfile(genreProfiles)
             let normalizedAllergyProfile = normalizeGroupAllergiesProfile(allergyProfiles)
             let normalizedDietProfile = normalizeGroupDietProfile(dietProfiles)
-    
+            
            dispatch(createGroup(
                 {
                     name: groupName,
@@ -92,13 +92,12 @@ const CommunityModal = () => {
                     userIds
                 }
             ))
-        
             .then(async (group) => {
                 history.push(`/groups/${group._id}`);
             })
+        
             setGroupName('')
             setGroupList([])
-
         }
         
         
