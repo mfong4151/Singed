@@ -44,7 +44,7 @@ export default function MainPage() {
     }
     
     if(groupId){
-      dispatch(clearGroups())
+      // dispatch(clearGroups())
       dispatch(fetchGroup(groupId))
     }
     
@@ -77,7 +77,11 @@ export default function MainPage() {
 
       {/* {!messengerModal && <MessengerModalTab messengerModal={messengerModal} setMessengerModal={setMessengerModal}/>}
       {messengerModal && <MessengerModal messengerModal={messengerModal} setMessengerModal={setMessengerModal}/>} */}
-      <MessengerModal />
+
+      {groupId ? 
+       <MessengerModal /> :
+       null}
+
     </div>
   );
 }

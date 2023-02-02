@@ -46,17 +46,26 @@ const MessengerModal = () => {
   const [body, setBody] = useState("");
   const sessionUser = useSelector((store) => store.session.user);
   const ref = useChatScroll(messages);
-  const group = useSelector((store) => store.groups[groupId])
+  const group = useSelector((store) => Object.values(store.groups).find(el=>el._id===groupId));
+  // const group = useSelector((store) => store.groups[groupId])
+  // const group = groups[groupId]
+  console.log(group)
+
       
   // if (messengerModal) document.body.classList.add('active-modal')
   // else document.body.classList.remove('active-modal')
   useEffect(() => {
-    socket.emit("setup", sessionUser);;
+    socket.emit("setup", sessionUser);
+    // console.log(group);
+    
   }, [])
 
   useEffect(() => {
-    dispatch(fetchMessages(groupId))
-    socket.emit("join chat", groupId);
+    if(groupId){
+      dispatch(fetchMessages(groupId));
+      socket.emit("join chat", groupId);
+      console.log(group)
+    }
   }, [dispatch, groupId])
 
   useEffect(() => {
@@ -129,18 +138,35 @@ const MessengerModal = () => {
     }
   }
 
+  const usersInChat = () => {
+    if(groupId){
+      return(
+        <>
+          {
+            group?.userIds.map ((user, idx) => (
+                <li className='chat-username' key={idx}>
+                  {user.username}
+                </li>
+              )
+            )
+          }
+        </>
+      )
+    }
+  }
+
   const newMessage = {
     sender: sessionUser._id,
     username: sessionUser.username,
     content: body,
     messageLocation: groupId
-}
+  }
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(createMessage(newMessage))
-    setBody("");
-}
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      dispatch(createMessage(newMessage))
+      setBody("");
+  }
 
   if(location.pathname !== `/groups/${groupId}`){
     return null
@@ -155,34 +181,13 @@ const handleSubmit = (e) => {
           </div>
           <div className="messages-bottom">
               <div id="my-chatrooms">
-                  {/* <ul>
-                    {
-                      Object.values(chats).map((chat, idx) =>(
-                        <li id="chatroom" key={idx}>{chat}</li>
-                      ))
-                    }
-                  </ul> */}
+                  <ul className='users-in-chatroom'>
+                    {usersInChat()}
+                  </ul>
               </div>
               <div id='messenger-body' >
                 <div className='all-messages' ref={ref}>
                   <ul className="message-body-scroll">
-                    {/* {
-                      Object.values(messages)?.map((message) => {
-                        return (
-                            <li className="channel-message" key={message?.id}>
-                                <div className="message-container">
-                                    <div className="message-info">
-                                        <div className="message-username">{message?.username}</div>
-                                        <div className="message-date">{formatMessageDate(message?.createdAt)}</div>
-                                    </div>
-                                    <div className="message-content">
-                                        {message.content}
-                                    </div>
-                                </div>
-                            </li>
-                        )
-                    }) 
-                    } */}
                     {groupMessages()}
                   </ul>
                 </div>
