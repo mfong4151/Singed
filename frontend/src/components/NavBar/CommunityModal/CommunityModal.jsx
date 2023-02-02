@@ -36,7 +36,7 @@ const CommunityModal = () => {
     //state for opening add to group modal, delete on refactor
     const [groupList, setGroupList] = useState([])
     const [searchTerms, setSearchTerms] = useState('Find your friends here!')
-    const [groupName, setGroupName] = useState('Name your group!')
+    const [groupName, setGroupName] = useState('')
     const [filteredUsers, setFilteredUsers] = useState([])
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
@@ -64,7 +64,6 @@ const CommunityModal = () => {
     const handleSendGroupInvite = e =>{
         e.preventDefault()
         e.stopPropagation()
-
         if (groupName === '' || groupName === 'Name your group!') setErrors(["You need to have a group name!"])    
         
         else{
@@ -170,7 +169,8 @@ const CommunityModal = () => {
                                 </ul>
                                 <div id='bottom-buttons'>
                                     <form id='group-form'>
-                                        <input id="search-bar" type='text' placeholder={groupName} onChange={e =>setGroupName(e.target.value)}/>
+                                        <input id="search-bar" type='text' placeholder={"Name your group!"} onChange={e =>setGroupName(e.target.value)} value={groupName}/>
+                                        
                                     </form>
                                     <div className="modal-buttons-container">
                                         <button className='bottom-button-size' onClick={handleSendGroupInvite}>Send Group Invite</button>

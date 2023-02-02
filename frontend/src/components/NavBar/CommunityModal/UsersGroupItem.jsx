@@ -39,12 +39,11 @@ const UsersGroupItem = ({group, sessionUserId}) => {
 
     if (group.userIds.length === 2){
       dispatch(deleteGroup(group._id))
+      .then(history.push('/main'))
       .then(dispatch(fetchGroups(sessionUserId)))
     }else{
 
       const newUserIds = []
-      console.log(sessionUserId)
-      // console.log(group.userIds)
       for(const i of group.userIds) if(i._id !== sessionUserId) newUserIds.push(i._id)
       dispatch(leaveGroup(groupFact(newUserIds)))
       .then(history.push('/main'))
@@ -59,6 +58,7 @@ const UsersGroupItem = ({group, sessionUserId}) => {
     e.preventDefault();
     e.stopPropagation()
     dispatch(deleteGroup(group._id))
+    .then(history.push('/main'))
     .then( dispatch(fetchGroups(sessionUserId)))
   }
 
