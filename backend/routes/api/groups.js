@@ -32,10 +32,10 @@ router.post('/creategroup', async(req, res) => {
 
 // get all groups
 router.get('/', async (req, res) => {
-    // const groups = await Group.find({
-    //     userIds: { $elemMatch: { $eq: req.user._id }}
-    // })
-    const groups = await Group.find({})
+    const groups = await Group.find({});
+    for(let i = 0; i < groups.length; i++){
+        await groups[i].populate("userIds", "username")
+    }
 
     // need to figure out logic for only current user
     if(groups){
@@ -55,7 +55,10 @@ router.get('/usersgroups', async (req, res) => {
     try{
 
         let id = mongoose.Types.ObjectId(req.query.id);
-        const groups = await Group.find({userIds: id})
+        const groups = await Group.find({userIds: id});
+        for(let i = 0; i < groups.length; i++){
+            await groups[i].populate("userIds", "username")
+        }
 
         if(groups){
             return res.status(200).json(groups)
