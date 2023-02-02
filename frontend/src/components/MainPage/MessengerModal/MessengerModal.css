@@ -187,3 +187,10 @@
     overflow-x: hidden;
     height: 90%;
 }
+.users-in-chatroom{
+    padding:10px;
+}
+.users-in-chatroom li{
+    list-style-type: none;
+    margin-bottom: 5px;
+}
