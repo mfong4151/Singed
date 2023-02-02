@@ -52,6 +52,14 @@
     flex-direction: column;
     width:100%;
 }
+#community-upper:after{
+    /* This is to make a shortened border after community upper */
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    width: 100%; /* Change this to whatever width you want. */
+    margin-left: -10px;
+    border-bottom: 1px solid black;
+}
 
 #community-lower{
     display: flex;
@@ -93,44 +101,45 @@
 
 #search-result-display{
     display: flex;
-    justify-content: center;
     flex-direction: column;
-
-    height:20rem;
+    position:relative;
+    height:200px;
     width:100%;
     overflow:hidden;
     overflow-y:scroll;
+    margin-bottom: 20px;
 }
 
 .search-bar-result{
-    width: 80%;
-    height: 50px;
+    width: 90%;
+    height: fit-content;
     display: flex;
     justify-content: space-between;
     align-items:center;
-    background-color: rgb(251, 241, 229);
     border: 1px solid grey;
     border-radius: 5px;
     box-shadow: 0 3px 3px rgb(0 0 0 / 0.15);
-    /* padding: 20px; */
-    /* border-right: 2px solid black; */
-    /* transition: 1.6s; */
-    margin-top:.5rem;
-    margin-bottom:.5rem;
-    padding-left: 20px;
-    padding-right:20px
-}
+    margin-top:.6rem;
+    margin-bottom:.6rem;
+    padding-left: 5px;
+    padding-right:5px
 
+}
+.search-bar-result span{
+    width: 80%;
+}
 #add-to-group{
-    position:absolute;
+    /* this is the + button  */
+    height: 30px;
     width:30px;
-    left:80%
+    left:80%;
+    align-items: center;
+    padding:2px;
 }
 
 .search-bar-results{
     height:auto;
     border:transparent;
-
 }
 
 .group-list{
@@ -153,9 +162,15 @@
 }
 .friend-list-item{
     padding: 5px;
-
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
     /* border: 1px solid grey; */
     border-radius: 5px;
+}
+.friend-list-item:hover{
+    background: #f3e2d0;
+    /* cursor: pointer; */
 }
 #bottom-buttons{
     margin-bottom: 15%;
@@ -167,4 +182,55 @@
 }
 
 .bottom-button-size{
+}
+
+
+#group-modal-background{
+    height: 100vh; 
+    width: 100vw;
+    z-index: 101;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+.group-dropdown{
+    position: absolute;
+    /* height:170px; */
+    width: 130px;
+    border:1px solid rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    z-index: 101;
+    background: white;
+    border-radius: 3px;
+    align-items: center; /*puts children to center of div vertically */
+    justify-content: space-between;
+    box-shadow: 0px 0px 4px 0px rgb(66, 66, 66);
+    transform: translate(25%, -70%);
+    flex-wrap: wrap;
+    padding:0;
+    /* align-content: stretch; */
+}
+.group-dropdown > *:hover{
+    background: #efefef;
+    /* cursor: pointer; */
+}
+.group-dropdown > *{
+    border: .5px solid grey;
+    padding: 10px;
+    cursor: pointer;
+    width: 80%;
+    text-align: center;
+}
+.red-text{
+    color: red;
+}
+#three-dots{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.group-errors{
+    color:red;
+    margin-top: 10px;
 }

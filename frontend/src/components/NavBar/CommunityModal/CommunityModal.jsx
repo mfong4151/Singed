@@ -38,10 +38,10 @@ const CommunityModal = () => {
     const [searchTerms, setSearchTerms] = useState('Find your friends here!')
     const [groupName, setGroupName] = useState('Name your group!')
     const [filteredUsers, setFilteredUsers] = useState([])
+    const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user);
-    const usersGroups = useSelector(getDistinctGroups )
-    
+    const usersGroups = useSelector(getDistinctGroups)
     const allUsers = useSelector(getUsers)
     const history = useHistory()
 
@@ -65,36 +65,41 @@ const CommunityModal = () => {
         e.preventDefault()
         e.stopPropagation()
 
-        let flavorProfiles = [], genreProfiles = [], allergyProfiles=[], dietProfiles = [], userIds = [sessionUser._id];
-        for(const gm of groupList){
-            flavorProfiles.push(gm.flavorProfile)
-            genreProfiles.push(gm.genre)
-            allergyProfiles.push(gm.allergies)
-            dietProfiles.push(gm.diet)
-            userIds.push(gm._id)
-        }
-
-        let normalizedFlavorProfile = normalizeGroupFlavorProfile(flavorProfiles)
-        let normalizedGenreProfile = normalizeGroupGenreProfile(genreProfiles)
-        let normalizedAllergyProfile = normalizeGroupAllergiesProfile(allergyProfiles)
-        let normalizedDietProfile = normalizeGroupDietProfile(dietProfiles)
-
-       dispatch(createGroup(
-            {
-                name: groupName,
-                flavorProfile: normalizedFlavorProfile,
-                genre: normalizedGenreProfile,
-                allergies: normalizedAllergyProfile,
-                diet: normalizedDietProfile,
-                userIds
+        if (groupName === '' || groupName === 'Name your group!') setErrors(["You need to have a group name!"])    
+        
+        else{
+            let flavorProfiles = [], genreProfiles = [], allergyProfiles=[], dietProfiles = [], userIds = [sessionUser._id];
+            for(const gm of groupList){
+                flavorProfiles.push(gm.flavorProfile)
+                genreProfiles.push(gm.genre)
+                allergyProfiles.push(gm.allergies)
+                dietProfiles.push(gm.diet)
+                userIds.push(gm._id)
             }
-        ))
     
-        .then(async (group) => {
-            history.push(`/groups/${group._id}`);
-        })
-        setGroupName('')
-        setGroupList([])
+            let normalizedFlavorProfile = normalizeGroupFlavorProfile(flavorProfiles)
+            let normalizedGenreProfile = normalizeGroupGenreProfile(genreProfiles)
+            let normalizedAllergyProfile = normalizeGroupAllergiesProfile(allergyProfiles)
+            let normalizedDietProfile = normalizeGroupDietProfile(dietProfiles)
+            
+           dispatch(createGroup(
+                {
+                    name: groupName,
+                    flavorProfile: normalizedFlavorProfile,
+                    genre: normalizedGenreProfile,
+                    allergies: normalizedAllergyProfile,
+                    diet: normalizedDietProfile,
+                    userIds
+                }
+            ))
+            .then(async (group) => {
+                history.push(`/groups/${group._id}`);
+            })
+        
+            setGroupName('')
+            setGroupList([])
+        }
+        
         
     }
 
@@ -117,7 +122,10 @@ const CommunityModal = () => {
         if(searchTerms === '') setSearchTerms('Find your friends here!')
     }, [searchTerms])
 
-
+    useEffect(()=>{
+        if (groupName && groupName !== 'Name your group!') setErrors([])
+     }, [groupName])
+    
     useEffect(()=>{
         dispatch(getCurrentUser())
         dispatch(fetchUsers())
@@ -146,7 +154,7 @@ const CommunityModal = () => {
                                 {filteredUsers?.map((user, idx) =>
                                 <li className='search-bar-result' key={idx} onClick={handleOnClick}>
                                     <span>
-                                        {user.username}
+                                        {user.username.length > 20 ? user.username.slice(0,20).concat('...') : user.username }
                                     </span>
                                     <button id='add-to-group' onClick={()=> addToGroup(user)} value={user}>+</button>
                                 </li>
@@ -166,6 +174,9 @@ const CommunityModal = () => {
                                     </form>
                                     <div className="modal-buttons-container">
                                         <button className='bottom-button-size' onClick={handleSendGroupInvite}>Send Group Invite</button>
+                                    </div>
+                                    <div className="group-errors">
+                                        {errors.length > 0 && errors[0]}
                                     </div>
                                 </div>
                             </div>
