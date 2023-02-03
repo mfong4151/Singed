@@ -94,6 +94,7 @@ function AllergiesDietForm() {
                     onRequestClose={closeModal}
                     shouldCloseOnOverlayClick={true}
                     style={style}
+                    ariaHideApp={false}
                 >
                     <UpdateAllergiesText/>
                 </Modal>
