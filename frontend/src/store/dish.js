@@ -20,6 +20,13 @@ const removeDish = (dishId) => ({
   payload: dishId
 })
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 export const fetchSurveyDishes = ({allergies, diet}) => async dispatch => {
   const [fish, nuts, shellfish] = allergies;
   const [gluten, milk, vegan] = diet;
@@ -27,6 +34,7 @@ export const fetchSurveyDishes = ({allergies, diet}) => async dispatch => {
   const res = await jwtFetch('/api/dishes?'+params);
   if(res.ok){
     const data = await res.json();
+    console.log(data.dishes)
     dispatch(receiveDishes(data.dishes))
   }
 };

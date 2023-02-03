@@ -27,18 +27,39 @@ router.get('/', async (req, res) => {
   console.log(dietConstraints);
   let dishes;
   if (dietConstraints.length == 0 && allergiesConstraints.length ==0) {
-    dishes = await Dish.find().sort({createdAt: -1}).limit(12);
+    dishes = await Dish.aggregate([
+      { $sort: {createdAt: -1}},
+      { $sample: { size: 12} }
+    ]);
   } else if (dietConstraints.length == 0) {
-    dishes = await Dish.find({$and: [...allergiesConstraints]}).sort({createdAt: -1}).limit(12);
+    // dishes = await Dish.find({$and: [...allergiesConstraints]}).sort({createdAt: -1}).limit(12)
+    dishes = await Dish.aggregate([
+      { $match: {$and:[...allergiesConstraints]}},
+      { $sort: {createdAt: -1}},
+      { $sample: { size: 12} }
+    ]);
   } else if (allergiesConstraints.length == 0) {
-    dishes = await Dish.find({$and: [...dietConstraints] }).sort({createdAt: -1}).limit(12);
+    // dishes = await Dish.find({$and: [...dietConstraints] }).sort({createdAt: -1}).limit(12).aggregate([{ $sample: { size: 12} }]);
+    dishes = await Dish.aggregate([
+      { $match: {$and:[...dietConstraints]}},
+      { $sort: {createdAt: -1}},
+      { $sample: { size: 12} }
+    ]);
   } else {
-    dishes = await Dish.find({
-      $and: [
-          { $and: [...allergiesConstraints] },
-          { $and: [...dietConstraints] }
-      ]
-    }).limit(12);
+    // dishes = await Dish.find({
+    //   $and: [
+    //       { $and: [...allergiesConstraints] },
+    //       { $and: [...dietConstraints] }
+    //   ]
+    // }).limit(12)
+    dishes = await Dish.aggregate([
+      { $match: {$and: [
+        { $and: [...allergiesConstraints] },
+        { $and: [...dietConstraints] }
+      ]}},
+      { $sort: {createdAt: -1}},
+      { $sample: { size: 12} }
+    ]);
   }
   console.log(dishes)
   res.status(200).json({dishes})
