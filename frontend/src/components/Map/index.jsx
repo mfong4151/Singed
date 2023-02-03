@@ -26,8 +26,10 @@ export function RestaurantInfo({restaurant}) {
   )
 }
 
+//Take this out after proper edits
 const reduceScore = (score) =>{
   while(score > 100){
+    
     score/= 2
   }
   
