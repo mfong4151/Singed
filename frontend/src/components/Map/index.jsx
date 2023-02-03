@@ -26,7 +26,8 @@ export function RestaurantInfo({restaurant}) {
   )
 }
 
-//Take this out after proper edits
+//Note from Max
+//Take this out after proper edits, this was a temporary solution for green lighting
 const reduceScore = (score) =>{
   while(score > 100){
     
