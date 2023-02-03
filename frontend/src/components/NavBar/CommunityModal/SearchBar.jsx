@@ -40,7 +40,6 @@ const SearchBar = ({groupList, setGroupList}) => {
 
     useEffect(()=>{
         setFilteredUsers(filterUsers(searchTerms))
-        console.log(filteredUsers)
         if(searchTerms === '') setSearchTerms('Find your friends here!')
     }, [searchTerms])
 

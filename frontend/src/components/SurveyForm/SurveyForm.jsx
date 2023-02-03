@@ -51,18 +51,12 @@ function SurveyForm () {
     const handleSubmit = (e) => {
         e.preventDefault();
         let finalPreference = flavorProfileTotal.map(n => n/dishCount)
-        console.log("flavorProfileTotal", flavorProfileTotal);
-        console.log("dishCount", dishCount);
-        console.log("finalPreference", finalPreference)
-
         let updatedUser;
         if (sessionUser) {
-            // console.log('sessionUser', sessionUser)
             updatedUser = {...sessionUser,
                         ...{id: sessionUser._id,
                         flavorProfile: finalPreference}
             }
-            // console.log('updatedUser', updatedUser)
         }
 
         dispatch(updateUser(updatedUser));

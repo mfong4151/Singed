@@ -8,7 +8,6 @@ import groupPNG from '../../assets/group_png.png';
 import { useSelector } from "react-redux";
 function SplashPage () {
     const sessionUser = useSelector((store) => store.session.user)
-    console.log(sessionUser)
     if(sessionUser){
         <Redirect to="/main"/>
     } else {

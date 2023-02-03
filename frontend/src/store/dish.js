@@ -24,7 +24,6 @@ export const fetchSurveyDishes = ({allergies, diet}) => async dispatch => {
   const [fish, nuts, shellfish] = allergies;
   const [gluten, milk, vegan] = diet;
   const params = new URLSearchParams({fish, nuts, shellfish, gluten, milk, vegan})
-  console.log('/api/dishes?'+params)
   const res = await jwtFetch('/api/dishes?'+params);
   if(res.ok){
     const data = await res.json();
@@ -36,7 +35,6 @@ export const fetchDishes = () => async dispatch => {
   const res = await jwtFetch('/api/dishes');
   if(res.ok){
     const data = await res.json();
-    console.log(data);
     dispatch(receiveDishes(data.dishes))
   }
 };

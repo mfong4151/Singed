@@ -16,9 +16,7 @@ export default function MainPage() {
 
   // if (location.state) {
   //   preference = location.state.from;
-  //   console.log("mainpage-preference", preference);
   // } else {
-  //   console.log('in else')
   //   preference = new Array(5).fill(0.447);
   // }
 

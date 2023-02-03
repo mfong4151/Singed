@@ -15,7 +15,6 @@ export default function Map({restaurants, preference}) {
 }
 
 export function RestaurantInfo({restaurant}) {
-  console.log("on mouse over")
   return (
     <div className='restaurant-hover-info'>
       <img className="restaurant-hover-info-photo" src={restaurant.imageUrl} alt="" />
