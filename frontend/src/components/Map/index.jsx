@@ -26,22 +26,13 @@ export function RestaurantInfo({restaurant}) {
   )
 }
 
-//Note from Max
-//Take this out after proper edits, this was a temporary solution for green lighting
-const reduceScore = (score) =>{
-  while(score > 100){
-    
-    score/= 2
-  }
-  
-  return Math.floor(score)
-}
+
 
 export function RestaurantCard({restaurant, onClick}) {
   const [condition, setCondition] = useState(false)
   return (
     <div className="map-price-card cursor" onClick={onClick} onMouseOver={()=>setCondition(true)} onMouseOut={()=>setCondition(false)}>
-      <p>Score: {Math.round(restaurant.dotProduct*100) > 100 ? reduceScore(Math.round(restaurant.dotProduct*100)): Math.round(restaurant.dotProduct*100)}</p>
+      <p>Score: {Math.round(restaurant.dotProduct*100)}</p>
       {condition ? <RestaurantInfo restaurant={restaurant}/> : null}
     </div>
   )
