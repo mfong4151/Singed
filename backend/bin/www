@@ -47,9 +47,9 @@ io.on("connection", (socket) => {
   });
   socket.on("new message", (newMessage) => {
     var group = newMessage.messageLocation;
-    if (!group.userIds[0]) return console.log("group.userIds not defined");
+    if (!group.userIds) return console.log("group.userIds not defined");
     console.log(newMessage);
-    group.userIds[0].forEach((user) => {
+    group.userIds.map((user) => {
       // if (user === newMessage.sender._id) return;
       socket.in(user).emit("message received", newMessage);
     });

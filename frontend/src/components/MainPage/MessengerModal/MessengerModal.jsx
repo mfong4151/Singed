@@ -55,7 +55,6 @@ const MessengerModal = () => {
   // else document.body.classList.remove('active-modal')
   useEffect(() => {
     socket.emit("setup", sessionUser);
-    
   }, [])
 
   useEffect(() => {
