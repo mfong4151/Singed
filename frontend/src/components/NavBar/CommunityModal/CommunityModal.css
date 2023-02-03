@@ -106,7 +106,7 @@
     height:200px;
     width:100%;
     overflow:hidden;
-    overflow-y:scroll;
+    overflow-y:auto; /* auto makes the scroll bar only show up when you need it to, compared to scroll*/
     margin-bottom: 20px;
 }
 
@@ -152,7 +152,7 @@
     /* this is a bad solution for the height and should be adjusted */
     height:34rem;
     overflow:hidden;
-    overflow-y: scroll;
+    overflow-y: auto; 
 
 }
 
