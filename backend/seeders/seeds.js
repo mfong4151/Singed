@@ -254,8 +254,7 @@ const insertSeeds = () => {
 
   // User.collection.drop()
   //                .then(() => 
-  console.log('getting rid of the groups')
-  Group.collection.drop()
+  // Group.collection.drop()
                 //   .then(() => Dish.collection.drop())
                 //  Dish.collection.drop()
                 //  .then(() => Restaurant.collection.drop())
@@ -264,10 +263,10 @@ const insertSeeds = () => {
                 // //  .then(() => Group.insertMany(groups))
                 //  .then(() => Restaurant.insertMany(restaurants))
                 //  .then(() => Dish.insertMany(dishes))
-                 .then(() => {
-                   console.log("Done!");
-                   mongoose.disconnect();
-                 })
+                //  .then(() => {
+                //    console.log("Done!");
+                //    mongoose.disconnect();
+                //  })
                 //  .catch(err => {
                 //    console.error(err.stack);
                 //    process.exit(1);
