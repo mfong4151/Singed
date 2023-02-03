@@ -25,7 +25,7 @@ const style={
     transform: 'translate(-50%, -50%)',
     width: '300px',
     height: '350px',
-    border: '1px solid #ccc',  
+    border: '1px solid #ccc',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -82,6 +82,7 @@ function AllergiesDietForm() {
         e.preventDefault();
         dispatch(updateUser(updatedUser));
         history.push('/dish_survey')
+        window.location.reload(true)
     }
 
     return (

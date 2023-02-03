@@ -7,6 +7,12 @@ import { updateUser } from "../../store/user";
 import './SurveyForm.css'
 
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
 function SurveyForm () {
     const dispatch = useDispatch();
@@ -15,6 +21,10 @@ function SurveyForm () {
     // }
     // authUser()
     const dishes = useSelector((store) => Object.values(store.dishes))
+    if (dishes[0]) {
+        shuffleArray(dishes);
+    }
+    // console.log(dishes);
     const sessionUser = useSelector(state => state.session.user)
     const [checkedState, setCheckedState] = useState(
         new Array(12).fill(false)
@@ -29,7 +39,7 @@ function SurveyForm () {
             index === position ? !item : item
         )
         setCheckedState(updatedCheckedState);
-      
+
         let dishFlavorProfile = dishes[position].flavorProfile;
         if (checkedState[position]===false) {
             setDishCount(dishCount => dishCount+1);
@@ -73,7 +83,7 @@ function SurveyForm () {
                 <h2>Diet preference: {JSON.stringify(sessionUser.diet)}</h2> */}
                 <form onSubmit={handleSubmit} className="dishes-form-grid">
                     <div className="dishes-form-grid-inputs">
-                        {dishes.length==0 &&  <h1 className="">0 food available</h1>}
+                        {dishes.length===0 &&  <h1 className="">0 food available</h1>}
                         {dishes.length>1 && dishes.map((dish, index) => (
                             <div className="dish-item" key={dish._id} >
                                 <input
