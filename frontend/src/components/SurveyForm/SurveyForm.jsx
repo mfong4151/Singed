@@ -7,23 +7,26 @@ import { updateUser } from "../../store/user";
 import './SurveyForm.css'
 
 
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
+// function shuffleArray(array) {
+//     for (let i = array.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [array[i], array[j]] = [array[j], array[i]];
+//     }
+// }
 
 function SurveyForm () {
     const dispatch = useDispatch();
+    const [shuffled, setShuffled] = useState(false);
     // const authUser = async () => {
         // await dispatch(getCurrentUser());
     // }
     // authUser()
     const dishes = useSelector((store) => Object.values(store.dishes))
-    if (dishes[0]) {
-        shuffleArray(dishes);
-    }
+    // if (dishes[0]) {
+    //     console.log("in shuffle")
+    //     shuffleArray(dishes);
+    //     // setShuffled(true);
+    // }
     // console.log(dishes);
     const sessionUser = useSelector(state => state.session.user)
     const [checkedState, setCheckedState] = useState(
