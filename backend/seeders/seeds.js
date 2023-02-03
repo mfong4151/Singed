@@ -265,7 +265,7 @@ const insertSeeds = () => {
                 //  .then(() => Dish.insertMany(dishes))
                 //  .then(() => {
                 //    console.log("Done!");
-                //    mongoose.disconnect();
+                   mongoose.disconnect();
                 //  })
                 //  .catch(err => {
                 //    console.error(err.stack);
