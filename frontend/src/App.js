@@ -17,6 +17,7 @@ import SplashPage from './components/SplashPage/SplashPage';
 import UpdatePreferences from './components/UpdatePreferences';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import Attributions from './components/Attributions/Attributions';
+import GroupMainPage from './components/MainPage/GroupMainPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,7 +30,7 @@ function App() {
     <>
       <NavBar />
       <Switch >
-        <Route exact path="/groups/:groupId" component={MainPage} />
+        <Route exact path="/groups/:groupId" component={GroupMainPage} />
         <Route exact path="/main" component={MainPage}/>
         <AuthRoute exact path="/" component={SplashPage} />
         <Route exact path="/login" component={LoginForm} />
